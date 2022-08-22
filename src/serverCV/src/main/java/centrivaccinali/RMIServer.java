@@ -31,7 +31,7 @@ public class RMIServer extends UnicastRemoteObject implements RMIServerInterface
             reg.rebind("Server",server);
             System.out.println("Server bounded in registry");
         }catch( Exception e) {
-            System.err.println( "Server Main exception:"+e.toString( ) ) ;
+            System.err.println( "Server Main exception:"+e) ;
         }
     }
 }

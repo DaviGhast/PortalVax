@@ -22,8 +22,8 @@ CHECK(codice_fiscale is not null);
 CREATE TABLE centro_vaccinale(
 
 	id integer(16) primary key,
-	nome_centro_vaccinale varchar(255),
-	comune varchar(255),
+	nome_centro_vaccinale varchar(50),
+	comune varchar(50),
 	indirizzo varchar(255)
 	sigla_provincia varchar(2),
 	tipologia varchar(255),
@@ -55,8 +55,8 @@ CHECK(id_vaccinazione is not null);
 
 CREATE TABLE cittadino(
 	codice_fiscale varchar(16) primary key,
-	nome_cittadino varchar(255),
-	cognome_cittadino varchar(255)
+	nome_cittadino varchar(30),
+	cognome_cittadino varchar(30)
 );
 
 ALTER TABLE cittadino ADD CONSTRAINT nome_cittadino_not_null
@@ -68,7 +68,7 @@ CHECK(cognome_cittadino is not null);
 CREATE TABLE cittadino_registrato(
 	id integer(16) primary key,
 	email varchar(255),
-	userid varchar(255),
+	userid varchar(12),
 	password varchar(255),
 	codice_fiscale varchar(16) references cittadino,
 );
@@ -87,8 +87,8 @@ CHECK(codice_fiscale is not null);
 
 CREATE TABLE evento_avverso(
 	id integer(16) primary key,
-	evento varchar(255),
-	severità varchar(255),
+	evento varchar(30),
+	severità varchar(1),
 	note varchar(255),
 	id_cittadino integer(16) references cittadino_registrato
 );
