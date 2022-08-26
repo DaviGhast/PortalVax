@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ebdf7d96-4419-4ffa-b976-839a740d49e0" name="Changes" comment="classi oggetto">
-      <change afterPath="$PROJECT_DIR$/Doc/er-concettuale.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/src/main/java/model/Cittadino.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/src/main/java/model/CittadinoRegistrato.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/src/main/java/model/EventoAvverso.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/src/main/java/model/Vaccinazione.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/src/main/java/model/CentroVaccinale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/src/main/java/model/CentroVaccinale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/src/main/java/model/EventoAvverso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/src/main/java/model/EventoAvverso.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +82,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660833323299</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="classi oggetto">
+      <created>1661369279746</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1661369279746</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="UnknownFeatures">

@@ -2,10 +2,10 @@ package model;
 
 public class EventoAvverso {
     private short id;
-    private String email;
-    private String userId;
-    private Integer password;
-    private String codiceFiscale;
+    private String evento;
+    private short severità;
+    private short idCittadino;
+    private String note;
 
     public EventoAvverso(){
     }
@@ -15,18 +15,22 @@ public class EventoAvverso {
 
     public void setId(short id) { this.id = id;}
 
-    public String getEmail() {
-        return email;
+    public String getEvento() {
+        return evento;  }
+
+    public void setEvento(String evento) {
+        this.evento = evento; }
+
+    public short getIdCittadino() {
+        return idCittadino;  }
+
+    public void setIdCittadino(short idCittadino) {
+        this.idCittadino = idCittadino;
+    }
+    public String getNote() {
+        return note;
     }
 
-    public void setEmail(String email) {
-        this.email = email; }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+    public void setNote(String note) {
+        this.note = note; }
 }
