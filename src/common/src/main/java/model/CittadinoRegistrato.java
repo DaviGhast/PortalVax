@@ -3,7 +3,7 @@ package model;
 public class CittadinoRegistrato {
     private short id;
     private String email;
-    private short userId;
+    private String userId;
 
     private int password;
     private String codiceFiscale;
@@ -23,11 +23,11 @@ public class CittadinoRegistrato {
 
     public void setEmail(String email) { this.email = email; }
 
-    public short getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(short userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

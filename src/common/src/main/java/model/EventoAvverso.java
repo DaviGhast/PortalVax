@@ -21,6 +21,12 @@ public class EventoAvverso {
     public void setEvento(String evento) {
         this.evento = evento; }
 
+    public short getSeverità() {
+        return severità;  }
+
+    public void setSeverità(short severità) {
+        this.severità = severità; }
+
     public short getIdCittadino() {
         return idCittadino;  }
 
