@@ -23,12 +23,11 @@ CREATE TABLE centro_vaccinale(
 
 	id integer(16) primary key,
 	nome_centro_vaccinale varchar(50),
+	indirizzo varchar(255),
 	comune varchar(50),
-	indirizzo varchar(255)
 	sigla_provincia varchar(2),
-	tipologia varchar(255),
 	cap integer(5),
-	id_vaccinazione integer(16)
+	tipologia varchar(255)
 );
 
 ALTER TABLE centro_vaccinale ADD CONSTRAINT nome_centro_vaccinale_not_null
@@ -48,9 +47,6 @@ CHECK(tipologia is not null);
 
 ALTER TABLE centro_vaccinale ADD CONSTRAINT cap_not_null
 CHECK(cap is not null);
-
-ALTER TABLE centro_vaccinale ADD CONSTRAINT id_vaccinazione_not_null
-CHECK(id_vaccinazione is not null);
 
 
 CREATE TABLE cittadino(
