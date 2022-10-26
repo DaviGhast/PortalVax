@@ -101,6 +101,20 @@ public class CentroVaccinaleDAO{
         return result == 1;
     }
 
+    public static boolean delete(CentroVaccinale centroVaccinale) {
+        String sql = "DELETE FROM centro_vaccinale WHERE id = ?";
+        int result = 0;
+        try {
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setInt(1,centroVaccinale.getId());
+            result = preparedStatement.executeUpdate();
+            preparedStatement.close();
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
+        return result == 1;
+    }
+
     public static int nextID(){
         ArrayList<CentroVaccinale> arrayList = getAll();
         if (arrayList.size() > 0){
