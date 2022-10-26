@@ -10,13 +10,9 @@ public class CentroVaccinale {
      */
     private String nomeCentroVaccinale;
     /**
-     * il <code>qualificatoreIndirizzo</code> indica il tipo di luogo in cui e' situato l'indirizzo
-     * */
-    private String qualificatoreIndirizzo;
-    /**
-     *il <code>nomeIndirizzo</code> indica il nome della via
+     *il <code>indirizzo</code> indica l'indirizzo (qualificatore via/v.le/pzza, nome, numero civico)
      */
-    private String nomeIndirizzo;
+    private String indirizzo;
     /**
      * il <code>comune</code> in cui e' siuato il centro vaccinale
      */
@@ -30,10 +26,6 @@ public class CentroVaccinale {
      */
     private String tipologia;
     /**
-     *il <code>numeroCivico</code> indica il numero civico del centro vaccinale
-     */
-    private int numeroCivico;
-    /**
      *il <code>cap</code> indica il codice postale del centro vaccinale
      */
     private int cap;
@@ -42,23 +34,20 @@ public class CentroVaccinale {
      * Costruttore per l'oggetto CetroVaccinale
      * @param id l'id della vaccinazione
      * @param nomeCentroVaccinale e' il nome del centro
-     * @param qualificatoreIndirizzo e' il tipo di via
-     * @param nomeIndirizzo e' il nome dell' indirizzo
+     * @param indirizzo e' l'indirizzo (qualificatore via/v.le/pzza, nome, numero civico)
      * @param comune e' il nome del comune
      * @param siglaProvincia e' la sigla della provincia
      * @param tipologia e' il tipo di struttura del centro
-     * @param numeroCivico dice il numero civico
      * @param cap e' il codice postale
      */
-    public CentroVaccinale(short id, String nomeCentroVaccinale, String qualificatoreIndirizzo, String nomeIndirizzo, int numeroCivico, String comune, String siglaProvincia, int cap, String tipologia){
+    public CentroVaccinale(short id, String nomeCentroVaccinale, String indirizzo, String comune,
+                           String siglaProvincia, String tipologia, int cap){
         this.id = id;
         this.nomeCentroVaccinale = nomeCentroVaccinale;
-        this.qualificatoreIndirizzo = qualificatoreIndirizzo;
-        this.nomeIndirizzo = nomeIndirizzo;
+        this.indirizzo = indirizzo;
         this.comune = comune;
         this.siglaProvincia = siglaProvincia;
         this.tipologia = tipologia;
-        this.numeroCivico = numeroCivico;
         this.cap = cap;
     }
     /**
@@ -97,31 +86,17 @@ public class CentroVaccinale {
     }
 
     /**
-     * @return qualificatoreIndirizzo il tipo di strada
+     * @return indirizzo l'indirizzo (qualificatore via/v.le/pzza, nome, numero civico)
      */
-    public String getQualificatoreIndirizzo() {
-        return qualificatoreIndirizzo;
+    public String getIndirizzo() {
+        return indirizzo;
     }
 
     /**
-     * @param qualificatoreIndirizzo il tipo di strada
+     * @param indirizzo l'indirizzo (qualificatore via/v.le/pzza, nome, numero civico)
      */
-    public void setQualificatoreIndirizzo(String qualificatoreIndirizzo) {
-        this.qualificatoreIndirizzo = qualificatoreIndirizzo;
-    }
-
-    /**
-     * @return nomeIndirizzo il nome dell'indirizzo
-     */
-    public String getNomeIndirizzo() {
-        return nomeIndirizzo;
-    }
-
-    /**
-     * @param nomeIndirizzo il nome dell'indirizzo
-     */
-    public void setNomeIndirizzo(String nomeIndirizzo) {
-        this.nomeIndirizzo = nomeIndirizzo;
+    public void setIndirizzo(String indirizzo) {
+        this.indirizzo = indirizzo;
     }
 
     /**
@@ -165,21 +140,6 @@ public class CentroVaccinale {
      */
     public void setTipologia(String tipologia) {
         this.tipologia = tipologia;
-    }
-
-    /**
-     * @return numeroCivico il numero civico del centroVaccinale
-     */
-    public int getNumeroCivico() {
-        return numeroCivico;
-    }
-
-    /**
-     * @param numeroCivico il numero civico  del centroVaccinale
-     */
-
-    public void setNumeroCivico(int numeroCivico) {
-        this.numeroCivico = numeroCivico;
     }
 
     /**
