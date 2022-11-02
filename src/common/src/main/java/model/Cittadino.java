@@ -4,6 +4,11 @@ public class Cittadino {
     private String codiceFiscale;
     private String nomeCittadino;
     private String cognomeCittadino;
+    public Cittadino(String codiceFiscale, String nomeCittadino, String cognomeCittadino){
+        this.codiceFiscale = codiceFiscale;
+        this.nomeCittadino = nomeCittadino;
+        this.cognomeCittadino = cognomeCittadino;
+    }
 
     public Cittadino() {
     }

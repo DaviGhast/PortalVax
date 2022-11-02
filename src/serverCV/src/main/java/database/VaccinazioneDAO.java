@@ -97,7 +97,7 @@ public class VaccinazioneDAO{
     }
 
     public static boolean update(Vaccinazione vaccinazione) {
-        String sql = "UPDATE vaccinazione SET vsccino_somministarto = ?,data_vaccinazione = ?,id_centro_vaccinale = ?," +
+        String sql = "UPDATE vaccinazione SET vaccino_somministarto = ?,data_vaccinazione = ?,id_centro_vaccinale = ?," +
                 "codice_fiscale = ? WHERE id = ?";
         int result = 0;
         try {
