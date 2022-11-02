@@ -59,6 +59,31 @@ public class CentroVaccinaleDAO{
         return result;
     }
 
+    public static ArrayList<CentroVaccinale> getByComuneTipologia(String comune, String tipologia) {
+        ArrayList<CentroVaccinale> result = new ArrayList<>();
+        String sql = "SELECT nome_centro_vaccinale FROM centro_vaccinale WHERE comune = ? GROUP BY tipologia = ?;";
+        try {
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setString(1, comune);
+            preparedStatement.setString(2, tipologia);
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()) {
+                result.add(new CentroVaccinale(
+                        rs.getShort("id"),
+                        rs.getString("nome_centro_vaccinale"),
+                        rs.getString("indirizzo"),
+                        rs.getString("comune"),
+                        rs.getString("sigla_provincia"),
+                        rs.getString("tipologia"),
+                        rs.getInt("cap")
+                ));
+            }
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
+        return result;
+    }
+
     public static boolean insert(CentroVaccinale centroVaccinale) {
         String sql = "INSERT INTO centro_vaccinale(id,nome_centro_vaccinale,indirizzo,comune,sigla_provincia," +
                 "cap,tipologia) VALUES(?,?,?,?,?,?,?)";

@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebdf7d96-4419-4ffa-b976-839a740d49e0" name="Changes" comment="Create CittadinoDAO.java" />
+    <list default="true" id="ebdf7d96-4419-4ffa-b976-839a740d49e0" name="Changes" comment="Create CittadinoRegistratoDAO.java and EventoAvversoDAO.java">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -152,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667383969942</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Create CittadinoRegistratoDAO.java and EventoAvversoDAO.java">
+      <created>1667394703886</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1667394703886</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -180,7 +189,8 @@
     <MESSAGE value="Create CentroVaccinaleDAO class" />
     <MESSAGE value="Create VaccinazioneDAO.java" />
     <MESSAGE value="Create CittadinoDAO.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create CittadinoDAO.java" />
+    <MESSAGE value="Create CittadinoRegistratoDAO.java and EventoAvversoDAO.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create CittadinoRegistratoDAO.java and EventoAvversoDAO.java" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
