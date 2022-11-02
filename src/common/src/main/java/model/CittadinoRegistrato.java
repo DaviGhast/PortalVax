@@ -5,8 +5,16 @@ public class CittadinoRegistrato {
     private String email;
     private String userId;
 
-    private int password;
+    private String password;
     private String codiceFiscale;
+
+    public CittadinoRegistrato(short id, String email, String userId, String password, String codiceFiscale){
+        this.id = id;
+        this.email = email;
+        this.userId = userId;
+        this.password = password;
+        this.codiceFiscale = codiceFiscale;
+    }
 
     public CittadinoRegistrato() {
     }
@@ -31,11 +39,11 @@ public class CittadinoRegistrato {
         this.userId = userId;
     }
 
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(int password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 

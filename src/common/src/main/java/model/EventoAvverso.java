@@ -3,9 +3,17 @@ package model;
 public class EventoAvverso {
     private short id;
     private String evento;
-    private short severità;
+    private byte severità;
     private short idCittadino;
     private String note;
+
+    public EventoAvverso(short id, String evento, byte severità, short idCittadino, String note){
+        this.id = id;
+        this.evento = evento;
+        this.severità = severità;
+        this.idCittadino = idCittadino;
+        this.note = note;
+    }
 
     public EventoAvverso(){
     }
@@ -21,10 +29,10 @@ public class EventoAvverso {
     public void setEvento(String evento) {
         this.evento = evento; }
 
-    public short getSeverità() {
+    public byte getSeverità() {
         return severità;  }
 
-    public void setSeverità(short severità) {
+    public void setSeverità(byte severità) {
         this.severità = severità; }
 
     public short getIdCittadino() {

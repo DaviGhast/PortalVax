@@ -84,9 +84,9 @@ CHECK(codice_fiscale is not null);
 CREATE TABLE evento_avverso(
 	id integer(16) primary key,
 	evento varchar(30),
-	severità varchar(1),
-	note varchar(255),
-	id_cittadino integer(16) references cittadino_registrato
+	severità integer(1),
+	id_cittadino integer(16) references cittadino_registrato,
+	note varchar(255)
 );
 
 ALTER TABLE evento_avverso ADD CONSTRAINT evento_not_null
