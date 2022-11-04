@@ -59,13 +59,12 @@ public class CentroVaccinaleDAO{
         return result;
     }
 
-    public static ArrayList<CentroVaccinale> getByComuneTipologia(String comune, String tipologia) {
+    public static ArrayList<CentroVaccinale> getByComune(String comune) {
         ArrayList<CentroVaccinale> result = new ArrayList<>();
-        String sql = "SELECT nome_centro_vaccinale FROM centro_vaccinale WHERE comune = ? GROUP BY tipologia = ?;";
+        String sql = "SELECT nome_centro_vaccinale FROM centro_vaccinale WHERE comune = ?;";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, comune);
-            preparedStatement.setString(2, tipologia);
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()) {
                 result.add(new CentroVaccinale(
