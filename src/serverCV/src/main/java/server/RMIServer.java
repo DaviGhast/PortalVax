@@ -1,6 +1,8 @@
-package centrivaccinali;
+package server;
 
 import Interface.RMIServerInterface;
+import centrivaccinali.GestoreCentriVaccinali;
+import model.*;
 
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -15,6 +17,8 @@ import java.rmi.server.UnicastRemoteObject;
 public class RMIServer extends UnicastRemoteObject implements RMIServerInterface {
 
     private static final long serialVersionUID = 1L;
+
+    private static GestoreCentriVaccinali gestoreCentriVaccinali;
 
     public RMIServer() throws RemoteException {
         super();
@@ -33,5 +37,10 @@ public class RMIServer extends UnicastRemoteObject implements RMIServerInterface
         }catch( Exception e) {
             System.err.println( "Server Main exception:"+e) ;
         }
+    }
+
+    @Override
+    public boolean registraCentroVaccinale(CentroVaccinale centroVaccinale) throws RemoteException {
+        return gestoreCentriVaccinali.registraCentroVaccinale(centroVaccinale);
     }
 }
