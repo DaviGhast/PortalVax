@@ -1,9 +1,6 @@
 package cittadini;
 
-import database.CentroVaccinaleDAO;
-import database.CittadinoDAO;
-import database.CittadinoRegistratoDAO;
-import database.VaccinazioneDAO;
+import database.*;
 import model.*;
 
 import java.util.ArrayList;
@@ -137,4 +134,23 @@ public class GestoreCittadino {
         ArrayList<Vaccinazione> listaCittadiniVaccinati = VaccinazioneDAO.getAll();
         return listaCittadiniVaccinati;
     }
+    /**
+     * inserisce un evento avverso
+     * @param evento il cittadino
+     */
+    public boolean inserisciEventoAvverso(EventoAvverso evento) {
+        return EventoAvversoDAO.insert(evento);
+    }
+
+    /**
+     * il metodo si occupa di cercare l'evento avverso di interesse tramite l'id del cittadino all'interno della tabella
+     * @param codice l'id del cittadino
+     * @return listaEventiAvversi contiene gli eventi avversi trovati
+     */
+    public EventoAvverso searchEventoAvversoByIdCittadino(String codice) {
+        EventoAvverso listaEvenetiAvversi = EventoAvversoDAO.getByIdCittadino(codice);
+
+        return listaEvenetiAvversi;
+    }
+
 }
