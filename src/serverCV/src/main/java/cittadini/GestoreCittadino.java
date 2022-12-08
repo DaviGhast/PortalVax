@@ -153,4 +153,12 @@ public class GestoreCittadino {
         return listaEvenetiAvversi;
     }
 
+    /**
+     * inserisce un evento avverso
+     * @param evento l'evento avverso
+     */
+    public boolean inserisciEventoAvverso(EventoAvverso evento) {
+        return EventoAvversoDAO.insert(evento);
+    }
+
 }
