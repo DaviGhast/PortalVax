@@ -153,6 +153,7 @@ public class GestoreCittadino {
         return listaEvenetiAvversi;
     }
 
+
     /**
      * inserisce un evento avverso
      * @param evento l'evento avverso
