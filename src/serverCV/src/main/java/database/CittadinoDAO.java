@@ -1,6 +1,7 @@
 package database;
 
 import model.Cittadino;
+import model.CittadinoRegistrato;
 import model.Vaccinazione;
 
 import java.sql.*;
@@ -31,7 +32,23 @@ public class CittadinoDAO{
         return result;
     }
 
-
+    public static Cittadino getCittadino(String CodiceFiscale) {
+        Cittadino result = new Cittadino();
+        String sql = "SELECT * FROM cittadino WHERE codice_fiscale = ?;";
+        try {
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setString(1, CodiceFiscale);
+            ResultSet rs = preparedStatement.executeQuery();
+            result = new Cittadino(
+                    rs.getString("codice_fiscale"),
+                    rs.getString("nome_cittadino"),
+                    rs.getString("cognome_cittadino")
+            );
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
+        return result;
+    }
 
 
     public static boolean insert(Cittadino cittadino) {

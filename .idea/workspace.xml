@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebdf7d96-4419-4ffa-b976-839a740d49e0" name="Changes" comment="Aggiunto classe inserisciEventoAvverso" />
+    <list default="true" id="ebdf7d96-4419-4ffa-b976-839a740d49e0" name="Changes" comment="Aggiunto classe inserisciEventoAvverso">
+      <change afterPath="$PROJECT_DIR$/src/common/src/main/java/model/Risposta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/src/main/java/model/Stato.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/cittadini/GestoreCittadini.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/src/main/java/Interface/RMIServerInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/src/main/java/Interface/RMIServerInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/src/main/java/model/CittadinoRegistrato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/src/main/java/model/CittadinoRegistrato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/centrivaccinali/GestoreCentriVaccinali.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/centrivaccinali/GestoreCentriVaccinali.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/cittadini/Cittadini.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/cittadini/GestoreCittadino.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/database/CittadinoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/database/CittadinoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/database/CittadinoRegistratoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/database/CittadinoRegistratoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/database/VaccinazioneDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/database/VaccinazioneDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/server/RMIServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/server/RMIServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/sql/CreateDatabase.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/sql/CreateDatabase.sql" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,10 +48,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "dart.analysis.tool.window.visible": "false",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\brenn\IdeaProjects\PortalVax\Doc" />
@@ -173,7 +190,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added createTable.sql" />

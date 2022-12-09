@@ -1,65 +1,79 @@
 package centrivaccinali;
 
 import database.CentroVaccinaleDAO;
+import database.CittadinoDAO;
+import database.VaccinazioneDAO;
 import model.*;
 
 import java.util.ArrayList;
 
 /**
- * la classe si occupa di gestire i centri vaccinali
+ * la classe si occupa di definire le azioni disponibili agli Operatori dei centri vaccinali
  * @author Davide Mainardi 746490 VA
  * @author Marc Cepraga 744101 VA
  * @author Luca Muggiasca 744565 VA
  * @author Brenno Re 747060 VA
  */
 public class GestoreCentriVaccinali {
-    public boolean registraCentroVaccinale(CentroVaccinale centroVaccinale) {
-        return CentroVaccinaleDAO.insert(centroVaccinale);
-    }
 
     /**
-     * il metodo verifica l'esistenza di un centroVaccinale
-     * @param nomeCentroVaccinale nome centro
-     * @return esiste o non esiste
+     * Il Metodo <code>registraCentroVaccinale</code> controlla la validità delle informazioni e le inserisce nella base dati
+     * @param centroVaccinale oggetto CentroVaccinale contenente tutte le informazioni
+     * @return Oggetto Risposta valorizzato
      */
-    public boolean cercaCentroEsiste(String nomeCentroVaccinale) {
-        boolean exist = false;
-        ArrayList<CentroVaccinale> lista = searchCentroByName(nomeCentroVaccinale);
-        for (CentroVaccinale centroVaccinale : lista) {
-            if (centroVaccinale.getNomeCentroVaccinale().equals(nomeCentroVaccinale))
-                exist = true;
+    public Risposta registraCentroVaccinale(CentroVaccinale centroVaccinale) {
+        // creazione Oggetto Risposta non valorizzato
+        Risposta risposta = new Risposta();
+        // controllo se parametro in input è valorizzzato
+        if (centroVaccinale != null) {
+            // controllo se esiste già un CentroVaccinale con lo stesso nome
+            if (CentroVaccinaleDAO.getByName(centroVaccinale.getNomeCentroVaccinale()).isEmpty()) {
+                if (CentroVaccinaleDAO.insert(centroVaccinale))
+                    risposta = new Risposta(Stato.GOOD, "Registrazione Centro Vaccinale eseguita");
+                else
+                    risposta = new Risposta(Stato.ERROR, "Registrazione Centro Vaccinale non eseguita");
+            } else {
+                // controllo se esiste già un CentroVaccinale con lo stesso nome nello stesso comune
+                if (CentroVaccinaleDAO.getByComune(centroVaccinale.getComune()).isEmpty()) {
+                    if (CentroVaccinaleDAO.insert(centroVaccinale))
+                        risposta = new Risposta(Stato.GOOD,"Registrazione Centro Vaccinale eseguita");
+                    else
+                        risposta = new Risposta(Stato.ERROR,"Registrazione Centro Vaccinale non eseguita");
+                } else {
+                    risposta = new Risposta(Stato.BAD,"Centro Vaccinale già inserito");
+                }
+            }
+        } else {
+            risposta = new Risposta(Stato.BAD,"Oggetto Ricevuto Nullo");
         }
-        return exist;
+        return risposta;
     }
 
     /**
-     * il metodo cerca all'interno del centro Vaccinale utilizzando come parametro di ricerca il nome del centro vaccinale stesso
-     * @param nomeCentroVaccinale è il parametro di ricerca
-     * @return ListaRisultati centri vaccinali trovati nella tabella
+     * Il Metodo <code>registraVaccinato</code>
+     * @param vaccinazione
+     * @param cittadino
+     * @return Oggetto Risposta valorizzato
      */
-    public ArrayList<CentroVaccinale> searchCentroByName(String nomeCentroVaccinale) {
-        ArrayList<CentroVaccinale> listaCentriVaccinali = CentroVaccinaleDAO.getByName(nomeCentroVaccinale);
-        return listaCentriVaccinali;
-    }
-
-    /**
-     * legge ogni riga dalla tabella centro_vaccinale.sql e per ognuna di essa istanzia oggetti di tipo centroVaccinale
-     * @return listaCentriVaccinali e' una lista di CentriVaccinali
-     */
-    public ArrayList<CentroVaccinale> getCentriVaccinali(){
-        ArrayList<CentroVaccinale> listaCentriVaccinali = new ArrayList<>();
-        listaCentriVaccinali = CentroVaccinaleDAO.getAll();
-        return listaCentriVaccinali;
-    }
-
-    /**
-     * il metodo si occupa di cercare il centro vaccinale di interesse tramite comune all'interno della tabella
-     * @param comune il nome del comune
-     * @return listaCentriVaccinali contiene i centri vaccinali trovati
-     */
-    public ArrayList<CentroVaccinale> searchCentroByComune(String comune) {
-        ArrayList<CentroVaccinale> listaCentriVaccinali = CentroVaccinaleDAO.getByComune(comune);
-        return listaCentriVaccinali;
+    public Risposta registraVaccinato(Vaccinazione vaccinazione, Cittadino cittadino){
+        Risposta risposta = new Risposta();
+        if (vaccinazione != null && cittadino != null) {
+            if (VaccinazioneDAO.getByCodiceFiscale(cittadino.getCodiceFiscale()) != null) {
+                if (CittadinoDAO.insert(cittadino) & VaccinazioneDAO.insert(vaccinazione)) {
+                    risposta = new Risposta(Stato.GOOD, "Registrazione eseguita con Successo");
+                }
+                else {
+                    risposta = new Risposta(Stato.ERROR, "Registrazione non andata a buon fine");
+                    CittadinoDAO.delete(cittadino);
+                    VaccinazioneDAO.delete(vaccinazione);
+                }
+            } else {
+                risposta = new Risposta(Stato.BAD,"Vaccinazione già inserita");
+            }
+        } else {
+            risposta = new Risposta(Stato.BAD,"Oggetto Ricevuto Nullo");
+        }
+        return risposta;
     }
 
     /**

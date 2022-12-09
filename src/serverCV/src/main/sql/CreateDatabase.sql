@@ -20,7 +20,6 @@ CHECK(codice_fiscale is not null);
 
 
 CREATE TABLE centro_vaccinale(
-
 	id integer(16) primary key,
 	nome_centro_vaccinale varchar(50),
 	indirizzo varchar(255),
@@ -62,9 +61,8 @@ ALTER TABLE cittadino ADD CONSTRAINT cognome_cittadino_not_null
 CHECK(cognome_cittadino is not null);
 
 CREATE TABLE cittadino_registrato(
-	id integer(16) primary key,
+	userid varchar(12) primary key,
 	email varchar(255),
-	userid varchar(12),
 	password varchar(255),
 	codice_fiscale varchar(16) references cittadino,
 );

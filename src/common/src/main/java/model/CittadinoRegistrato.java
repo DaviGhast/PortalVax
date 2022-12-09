@@ -1,17 +1,14 @@
 package model;
 
 public class CittadinoRegistrato {
-    private short id;
-    private String email;
     private String userId;
-
+    private String email;
     private String password;
     private String codiceFiscale;
 
-    public CittadinoRegistrato(short id, String email, String userId, String password, String codiceFiscale){
-        this.id = id;
-        this.email = email;
-        this.userId = userId;
+    public CittadinoRegistrato(String userId, String email, String password, String codiceFiscale){
+        this.userId = userId.toLowerCase();
+        this.email = email.toLowerCase();
         this.password = password;
         this.codiceFiscale = codiceFiscale;
     }
@@ -19,25 +16,19 @@ public class CittadinoRegistrato {
     public CittadinoRegistrato() {
     }
 
-    public short getId() {
-        return id;
-    }
-
-    public void setId(short id) { this.id = id;}
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) { this.email = email; }
-
     public String getUserId() {
-        return userId;
+        return userId.toLowerCase();
     }
 
     public void setUserId(String userId) {
-        this.userId = userId;
+        this.userId = userId.toLowerCase();
     }
+
+    public String getEmail() {
+        return email.toLowerCase();
+    }
+
+    public void setEmail(String email) { this.email = email.toLowerCase(); }
 
     public String getPassword() {
         return password;
