@@ -14,4 +14,6 @@ public interface RMIServerInterface extends Remote {
     Risposta cercaCentroVaccinale(String nomeCentroVaccinale) throws RemoteException;
     Risposta cercaCentroVaccinale(String comune, String tipologia) throws RemoteException;
     Risposta visulizzaInfoCentroVaccinale(CentroVaccinale centroVaccinale) throws RemoteException;
+    Risposta inserisciEventiAvversi(EventoAvverso eventoAvverso) throws RemoteException;
+    String[] getEventi() throws RemoteException;
 }

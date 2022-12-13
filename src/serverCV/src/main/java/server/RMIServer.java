@@ -68,17 +68,27 @@ public class RMIServer extends UnicastRemoteObject implements RMIServerInterface
 
     @Override
     public Risposta cercaCentroVaccinale(String nomeCentroVaccinale) throws RemoteException {
-        return cercaCentroVaccinale(nomeCentroVaccinale);
+        return gestoreCittadini.cercaCentroVaccinale(nomeCentroVaccinale);
     }
 
     @Override
     public Risposta cercaCentroVaccinale(String comune, String tipologia) throws RemoteException {
-        return cercaCentroVaccinale(comune, tipologia);
+        return gestoreCittadini.cercaCentroVaccinale(comune, tipologia);
     }
 
     @Override
     public Risposta visulizzaInfoCentroVaccinale(CentroVaccinale centroVaccinale) throws RemoteException {
-        return visulizzaInfoCentroVaccinale(centroVaccinale);
+        return gestoreCittadini.visulizzaInfoCentroVaccinale(centroVaccinale);
+    }
+
+    @Override
+    public Risposta inserisciEventiAvversi(EventoAvverso eventoAvverso) throws RemoteException {
+        return gestoreCittadini.inserisciEventiAvversi(eventoAvverso);
+    }
+
+    @Override
+    public String[] getEventi() throws RemoteException {
+        return gestoreCittadini.getEventi();
     }
 
 

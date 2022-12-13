@@ -175,8 +175,25 @@ public class GestoreCittadini {
         return listaReport;
     }
 
+    public String[] getEventi() {
+        return EnumDao.getEnumList("eventi");
+    }
 
-
-
+    public Risposta inserisciEventiAvversi(EventoAvverso eventoAvverso) {
+        Risposta risposta = new Risposta();
+        if (!eventoAvverso.equals(new EventoAvverso())) {
+            eventoAvverso.setId((short) EventoAvversoDAO.nextID());
+            if (EventoAvversoDAO.insert(eventoAvverso)) {
+                risposta = new Risposta(Stato.GOOD, "Registrazione eseguita con Successo");
+            }
+            else {
+                risposta = new Risposta(Stato.ERROR, "Registrazione non andata a buon fine");
+                EventoAvversoDAO.delete(eventoAvverso);
+            }
+        } else {
+            risposta = new Risposta(Stato.BAD, "");
+        }
+        return risposta;
+    }
 
 }
