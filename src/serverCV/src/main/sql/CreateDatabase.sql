@@ -96,5 +96,9 @@ CHECK(severità is not null);
 ALTER TABLE evento_avverso ADD CONSTRAINT id_cittadino_not_null
 CHECK(id_cittadino is not null);
 
-
+CREATE TABLE enum(
+	id integer(16) primary key,
+	name varchar(10),
+	list varchar(255)
+);
 

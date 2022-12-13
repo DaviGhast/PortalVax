@@ -3,6 +3,9 @@ package cittadini;
 import database.*;
 import model.*;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 public class GestoreCittadini {
 
     /**
@@ -77,17 +80,102 @@ public class GestoreCittadini {
         return risposta;
     }
 
-    public Risposta cercaCentroVaccinale() {
+    public Risposta cercaCentroVaccinale(String nomeCentroVaccinale) {
         Risposta risposta = new Risposta();
-
+        if (!nomeCentroVaccinale.isEmpty()) {
+            ArrayList<CentroVaccinale> centriVaccinali = CentroVaccinaleDAO.getByName(nomeCentroVaccinale);
+            if (!centriVaccinali.isEmpty()) {
+                risposta = new Risposta(Stato.GOOD, centriVaccinali);
+            } else {
+                risposta = new Risposta(Stato.ERROR, "");
+            }
+        } else {
+            risposta = new Risposta(Stato.BAD, "");
+        }
         return risposta;
     }
 
-    public Risposta visulizzaInfoCentroVaccinale() {
+    public Risposta cercaCentroVaccinale(String comune, String tipologia) {
         Risposta risposta = new Risposta();
-
+        if (!comune.isEmpty()) {
+            ArrayList<CentroVaccinale> centriVaccinali = CentroVaccinaleDAO.getByComune(comune);
+            if (!centriVaccinali.isEmpty()) {
+                if (!tipologia.isEmpty()) {
+                    risposta = new Risposta(Stato.GOOD, searchCentroByTipologia(centriVaccinali, tipologia));
+                } else {
+                    risposta = new Risposta(Stato.GOOD, centriVaccinali);
+                }
+            } else {
+                risposta = new Risposta(Stato.ERROR, "");
+            }
+        } else {
+            risposta = new Risposta(Stato.BAD, "");
+        }
         return risposta;
     }
+
+    /**
+     * il metodo si occupa di cercare il centro vaccinale di interesse tramite tipologia all'interno della tabella
+     * @param tipologia il nome della tipologia
+     * @return listarisultati contiene i centri vaccinali trovati
+     */
+    public ArrayList<CentroVaccinale> searchCentroByTipologia(ArrayList<CentroVaccinale> listaCentriVaccinali, String tipologia) {
+        ArrayList<CentroVaccinale> listaRisultati = new ArrayList<>();
+        for (CentroVaccinale centroVaccinale: listaCentriVaccinali) {
+            if (centroVaccinale.getTipologia().toLowerCase().contains(tipologia.toLowerCase()))
+                listaRisultati.add(centroVaccinale);
+        }
+        return listaRisultati;
+    }
+
+    public Risposta visulizzaInfoCentroVaccinale(CentroVaccinale centroVaccinale) {
+        Risposta risposta = new Risposta();
+        ArrayList<EventoAvverso> eventiAvversiCentro = new ArrayList<EventoAvverso>();
+        if (!Objects.equals(centroVaccinale, new CentroVaccinale())) {
+            ArrayList<Vaccinazione> vaccinazioni = VaccinazioneDAO.getByIdCentro(centroVaccinale.getId());
+            if (!vaccinazioni.isEmpty()) {
+                for (Vaccinazione vaccinazione: vaccinazioni) {
+                    CittadinoRegistrato cittadinoRegistrato = CittadinoRegistratoDAO.getByCodiceFiscale(vaccinazione.getCodiceFiscale());
+                    if (!Objects.equals(cittadinoRegistrato, new CittadinoRegistrato())) {
+                        ArrayList<EventoAvverso> eventiAvversiCittadino = EventoAvversoDAO.getByIdCittadino(cittadinoRegistrato.getUserId());
+                        eventiAvversiCentro.addAll(eventiAvversiCittadino);
+                    }
+                }
+                if (!eventiAvversiCentro.isEmpty()) {
+                    ArrayList<ReportEventoAvverso> listaReport = reportEventiAvversiCentro(eventiAvversiCentro);
+                    risposta = new Risposta(Stato.GOOD, listaReport);
+                } else {
+                    risposta = new Risposta(Stato.ERROR, "Nessun Evento Avverso");
+                }
+            } else {
+                risposta = new Risposta(Stato.ERROR, "Non sono state registrate Vaccinazioni in questo Centro Vaccinale");
+            }
+        } else {
+            risposta = new Risposta(Stato.BAD, "");
+        }
+        return risposta;
+    }
+
+    public ArrayList<ReportEventoAvverso> reportEventiAvversiCentro(ArrayList<EventoAvverso> eventiAvversiCentro) {
+        ArrayList<ReportEventoAvverso> listaReport = new ArrayList<ReportEventoAvverso>();
+        String[] eventi = EnumDao.getEnumList("eventi");
+        for (String evento: eventi) {
+            int numeroSegnalazioni = 0;
+            float somma = 0;
+            double severitaMedia = 0.0;
+            for (EventoAvverso eventoAvverso: eventiAvversiCentro) {
+                if (eventoAvverso.getEvento().equalsIgnoreCase(evento)) {
+                    numeroSegnalazioni += 1;
+                    somma += eventoAvverso.getSeverita();
+                }
+            }
+            severitaMedia = somma/numeroSegnalazioni;
+            listaReport.add(new ReportEventoAvverso(evento,numeroSegnalazioni, severitaMedia));
+        }
+        return listaReport;
+    }
+
+
 
 
 

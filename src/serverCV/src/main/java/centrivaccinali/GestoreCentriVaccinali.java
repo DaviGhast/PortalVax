@@ -76,19 +76,6 @@ public class GestoreCentriVaccinali {
         return risposta;
     }
 
-    /**
-     * il metodo si occupa di cercare il centro vaccinale di interesse tramite tipologia all'interno della tabella
-     * @param tipologia il nome della tipologia
-     * @return listarisultati contiene i centri vaccinali trovati
-     */
-    public ArrayList<CentroVaccinale> searchCentroByTipologia( String tipologia) {
-        ArrayList<CentroVaccinale> listaCentriVaccinali = CentroVaccinaleDAO.getAll();
-        ArrayList<CentroVaccinale> listaRisultati = new ArrayList<>();
-        for (CentroVaccinale centroVaccinale: listaCentriVaccinali) {
-            if (centroVaccinale.getTipologia().toLowerCase().contains(tipologia.toLowerCase()))
-                listaRisultati.add(centroVaccinale);
-        }
-        return listaRisultati;
-    }
+
 
 }

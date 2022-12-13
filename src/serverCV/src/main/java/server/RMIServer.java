@@ -60,4 +60,26 @@ public class RMIServer extends UnicastRemoteObject implements RMIServerInterface
     public Risposta cercaIdVaccinazione(String codiceFiscale) throws RemoteException {
         return gestoreCittadini.cercaIdVaccinazione(codiceFiscale);
     }
+
+    @Override
+    public Risposta loginCittadino(String emailAnduserid, String password) throws RemoteException {
+        return gestoreCittadini.loginCittadino(emailAnduserid, password);
+    }
+
+    @Override
+    public Risposta cercaCentroVaccinale(String nomeCentroVaccinale) throws RemoteException {
+        return cercaCentroVaccinale(nomeCentroVaccinale);
+    }
+
+    @Override
+    public Risposta cercaCentroVaccinale(String comune, String tipologia) throws RemoteException {
+        return cercaCentroVaccinale(comune, tipologia);
+    }
+
+    @Override
+    public Risposta visulizzaInfoCentroVaccinale(CentroVaccinale centroVaccinale) throws RemoteException {
+        return visulizzaInfoCentroVaccinale(centroVaccinale);
+    }
+
+
 }

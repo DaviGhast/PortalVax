@@ -1,6 +1,5 @@
 package database;
 
-import model.CittadinoRegistrato;
 import model.EventoAvverso;
 
 import java.sql.*;
@@ -63,7 +62,7 @@ public class EventoAvversoDAO {
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setShort(1,eventoAvverso.getId());
             preparedStatement.setString(2,eventoAvverso.getEvento());
-            preparedStatement.setByte(3, eventoAvverso.getSeverità());
+            preparedStatement.setByte(3, eventoAvverso.getSeverita());
             preparedStatement.setShort(4, eventoAvverso.getIdCittadino());
             preparedStatement.setString(5, eventoAvverso.getNote());
             result = preparedStatement.executeUpdate();
@@ -80,7 +79,7 @@ public class EventoAvversoDAO {
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1,eventoavverso.getEvento());
-            preparedStatement.setByte(2,eventoavverso.getSeverità());
+            preparedStatement.setByte(2,eventoavverso.getSeverita());
             preparedStatement.setShort(3,eventoavverso.getIdCittadino());
             preparedStatement.setString(4,eventoavverso.getNote());
             preparedStatement.setShort(5,eventoavverso.getId());

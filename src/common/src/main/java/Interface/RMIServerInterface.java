@@ -10,4 +10,8 @@ public interface RMIServerInterface extends Remote {
     Risposta registraVaccinato(Vaccinazione vaccinazione, Cittadino cittadino) throws RemoteException;
     Risposta registraCittadino(CittadinoRegistrato cittadinoRegistrato, short idVaccinazione) throws RemoteException;
     Risposta cercaIdVaccinazione(String codiceFiscale) throws RemoteException;
+    Risposta loginCittadino(String emailAnduserid, String password) throws RemoteException;
+    Risposta cercaCentroVaccinale(String nomeCentroVaccinale) throws RemoteException;
+    Risposta cercaCentroVaccinale(String comune, String tipologia) throws RemoteException;
+    Risposta visulizzaInfoCentroVaccinale(CentroVaccinale centroVaccinale) throws RemoteException;
 }
