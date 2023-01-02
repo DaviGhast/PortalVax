@@ -6,18 +6,53 @@ import java.util.Properties;
 public class DBAccess {
 
     private static Connection conn = null;
+    private static Boolean isValid = false;
+
+    private static String host;
+    private static String username;
+    private static String password;
+    private static String porta;
+    private static String nomedatabase;
+
+    public static void setConn(Connection conn) {
+        DBAccess.conn = conn;
+    }
+
+    public static Boolean getValid() {
+        return isValid;
+    }
+
+    public static void setHost(String host) {
+        DBAccess.host = host;
+    }
+
+    public static void setUsername(String username) {
+        DBAccess.username = username;
+    }
+
+    public static void setPassword(String password) {
+        DBAccess.password = password;
+    }
+
+    public static void setPorta(String porta) {
+        DBAccess.porta = porta;
+    }
+
+    public static void setNomedatabase(String nomedatabase) {
+        DBAccess.nomedatabase = nomedatabase;
+    }
 
     private DBAccess() {
         try {
             Class.forName("org.postgresql.Driver");
-            String host = "localhost";
-            String url = "jdbc:postgresql://"+host+"/portalvaxdb";
-            Properties props = new Properties();
-            props.setProperty("user", "fred");
-            props.setProperty("password", "secret");
+            String myhost = host;
+            String url = "jdbc:postgresql://"+myhost+"/portalvaxdb";
+            Properties props = new Properties()
+            props.setProperty("user", username);
+            props.setProperty("password", password);
             props.setProperty("ssl", "true");
-            Connection conn = DriverManager.getConnection(url, props);
-
+            conn = DriverManager.getConnection(url, props);
+            isValid = true;
             System.out.println("SQLite - Connection Established to: "+url);
         } catch (SQLException sqlException) {
             System.err.println("SQLite - Connection Failed : " + sqlException);

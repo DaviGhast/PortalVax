@@ -5,20 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ebdf7d96-4419-4ffa-b976-839a740d49e0" name="Changes" comment="Aggiunto classe inserisciEventoAvverso">
-      <change afterPath="$PROJECT_DIR$/src/common/src/main/java/model/Risposta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/src/main/java/model/Stato.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/cittadini/GestoreCittadini.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/serverCV/src/main/resources/fxml/serverCV.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/src/main/java/Interface/RMIServerInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/src/main/java/Interface/RMIServerInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/src/main/java/model/CittadinoRegistrato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/src/main/java/model/CittadinoRegistrato.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/centrivaccinali/GestoreCentriVaccinali.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/centrivaccinali/GestoreCentriVaccinali.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/cittadini/Cittadini.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/cittadini/GestoreCittadino.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/database/CittadinoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/database/CittadinoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/database/CittadinoRegistratoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/database/CittadinoRegistratoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/database/VaccinazioneDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/database/VaccinazioneDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/server/RMIServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/server/RMIServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/sql/CreateDatabase.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/sql/CreateDatabase.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/controllers/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/controllers/ServerCVController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/database/DBAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/database/DBAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/resources/fxml/TestController.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +30,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -48,17 +46,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "dart.analysis.tool.window.visible": "false",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\brenn\IdeaProjects\PortalVax\Doc" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lucam\IdeaProjects\PortalVax\src\serverCV\src\main\resources\fxml" />
       <recent name="C:\Users\DavideMainardi\Documents\GitHub\PortalVax\src\serverCV\src\main\sql" />
       <recent name="C:\Users\lucam\IdeaProjects\PortalVax\src\serverCV" />
       <recent name="D:\IdeaProjects\PortalVax\src" />
@@ -66,6 +71,21 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="database" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="portalvax" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="portalvax" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

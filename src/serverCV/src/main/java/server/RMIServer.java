@@ -27,10 +27,9 @@ public class RMIServer extends UnicastRemoteObject implements RMIServerInterface
     }
 
     /**
-     * The main method make server ready
-     * @param args some input, not required
+     * The start method make server ready
      */
-    public static void main(String[] args) {
+    public static void start() {
         try {
             Registry reg = LocateRegistry.createRegistry(1099);
             RMIServer server = new RMIServer();
