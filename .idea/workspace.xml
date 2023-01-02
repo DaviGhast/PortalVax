@@ -4,8 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebdf7d96-4419-4ffa-b976-839a740d49e0" name="Changes" comment="Added GUI fo server">
+    <list default="true" id="ebdf7d96-4419-4ffa-b976-839a740d49e0" name="Changes" comment="initial test GUI, created directory in server">
+      <change afterPath="$PROJECT_DIR$/src/common/src/main/resources/images/angry_emoji.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/src/main/resources/images/banner.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/src/main/resources/images/check_mark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/src/main/resources/images/cross.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/src/main/resources/images/error.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/src/main/resources/images/file_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/src/main/resources/images/happy_emoji.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/src/main/resources/images/help_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/src/main/resources/images/information.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/src/main/resources/images/java-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/src/main/resources/images/logo_portalvax.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/src/main/resources/images/logo_uninsubria.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/src/main/resources/images/map_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/src/main/resources/images/neutral_emoji.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/src/main/resources/images/sad_emoji.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/src/main/resources/images/surprised_emoji.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/src/main/resources/images/view_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/src/main/resources/images/warning.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/centrivaccinali/CentriVaccinali.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serverCV/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/controllers/MainUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/controllers/MainServerUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/controllers/ServerCVController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/controllers/ServerCVController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/database/DBAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/database/DBAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/resources/fxml/serverCV.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/resources/fxml/serverCV.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +40,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="JavaFXApplication" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -25,13 +51,6 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -44,45 +63,65 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
     "dart.analysis.tool.window.visible": "false",
+    "last_opened_file_path": "D:/IdeaProjects/PortalVax/src/common/src/main/resources/images",
     "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
+    "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\PortalVax\src\common\src\main\resources\images" />
+      <recent name="D:\IdeaProjects\PortalVax\src\serverCV\src\main\resources" />
+      <recent name="D:\IdeaProjects\PortalVax\src\common\src\main\resources" />
       <recent name="C:\Users\brenn\IdeaProjects\PortalVax\Doc" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\lucam\IdeaProjects\PortalVax\src\serverCV\src\main\resources\fxml" />
       <recent name="C:\Users\DavideMainardi\Documents\GitHub\PortalVax\src\serverCV\src\main\sql" />
       <recent name="C:\Users\lucam\IdeaProjects\PortalVax\src\serverCV" />
       <recent name="D:\IdeaProjects\PortalVax\src" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="centrivaccinali" />
       <recent name="database" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="portalvax" />
+  <component name="RunManager" selected="Application.CentriVaccinali">
+    <configuration name="CentriVaccinali" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="centrivaccinali.CentriVaccinali" />
+      <module name="portalvax-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="centrivaccinali.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="portalvax" />
-      <option name="filePath" />
+    <configuration name="MainServerUIController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="controllers.MainServerUIController" />
+      <module name="portalvax-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CentriVaccinali" />
+        <item itemvalue="Application.MainServerUIController" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -191,14 +230,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670529938833</updated>
     </task>
-    <task id="LOCAL-00015" summary="Added GUI fo server">
-      <created>1672669566835</created>
+    <task id="LOCAL-00015" summary="Created Risposta and Stato classes. Fixed And Added methods in many classes">
+      <created>1670603194451</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1672669566836</updated>
+      <updated>1670603194451</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="initial test GUI, created directory in server">
+      <created>1672654716146</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1672654716146</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -228,8 +274,9 @@
     <MESSAGE value="Create CittadinoDAO.java" />
     <MESSAGE value="Create CittadinoRegistratoDAO.java and EventoAvversoDAO.java" />
     <MESSAGE value="Aggiunto classe inserisciEventoAvverso" />
-    <MESSAGE value="Added GUI fo server" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added GUI fo server" />
+    <MESSAGE value="Created Risposta and Stato classes. Fixed And Added methods in many classes" />
+    <MESSAGE value="initial test GUI, created directory in server" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial test GUI, created directory in server" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -45,8 +45,7 @@ public class DBAccess {
     private DBAccess() {
         try {
             Class.forName("org.postgresql.Driver");
-            String myhost = host;
-            String url = "jdbc:postgresql://"+myhost+"/portalvaxdb";
+            String url = "jdbc:postgresql://"+host+":"+porta+"/"+nomedatabase;
             Properties props = new Properties();
             props.setProperty("user", username);
             props.setProperty("password", password);

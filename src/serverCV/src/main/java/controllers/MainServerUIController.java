@@ -18,18 +18,18 @@ import java.io.IOException;
  * @author Luca Muggiasca 744565 VA
  * @author Brenno Re 747060 VA
  */
-public class MainUIController extends Application {
+public class MainServerUIController extends Application {
 
     private static Scene scene;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        scene = new Scene(loadFXML("Welcome"));
+        scene = new Scene(loadFXML("serverCV"));
         //scene.setFill(Color.TRANSPARENT);
         scene.setFill(Color.DARKGREEN);
         //primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.initStyle(StageStyle.DECORATED);
-        primaryStage.getIcons().add(new Image("images/logo_uninsubria.png"));
+        primaryStage.getIcons().add(new Image("images/logo_portalvax.png"));
         primaryStage.setScene(scene);
         primaryStage.setTitle("Portale Vaccinale +Immuni");
         primaryStage.setResizable(false);
@@ -42,7 +42,7 @@ public class MainUIController extends Application {
 
    private static Parent loadFXML(String fxml) throws IOException {
        FXMLLoader fxmlLoader = new FXMLLoader();
-       fxmlLoader.setLocation(MainUIController.class.getClassLoader().getResource("fxml/"+fxml+".fxml"));
+       fxmlLoader.setLocation(MainServerUIController.class.getClassLoader().getResource("fxml/"+fxml+".fxml"));
        return fxmlLoader.load();
    }
     
