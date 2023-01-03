@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OperatoreHomeController">
+    <ImageView fx:id="image" fitHeight="175.0" fitWidth="333.0" layoutX="134.0" layoutY="-23.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../../../../../common/src/main/resources/images/banner.png" />
+        </image>
+    </ImageView>
+   <Button fx:id="button_1" alignment="CENTER" layoutX="56.5" layoutY="193.0" mnemonicParsing="false" onAction="#registraNuovoCentro" prefHeight="82.0" prefWidth="216.0" text="Registra Centro" />
+   <Button fx:id="button_2" alignment="CENTER" layoutX="328.0" layoutY="193.0" mnemonicParsing="false" onAction="#registraNuovoVaccinato" prefHeight="82.0" prefWidth="216.0" text="Registra Vaccinazione" />
+</Pane>

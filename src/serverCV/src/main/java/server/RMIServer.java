@@ -90,5 +90,9 @@ public class RMIServer extends UnicastRemoteObject implements RMIServerInterface
         return gestoreCittadini.getEventi();
     }
 
+    @Override
+    public String[] getTipologie() throws RemoteException {
+        return gestoreCentriVaccinali.getTipologie();
+    }
 
 }

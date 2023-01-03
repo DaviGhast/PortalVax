@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ErrorController">
+    <ImageView fx:id="image" fitHeight="226.0" fitWidth="455.0" layoutX="74.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../../../../../common/src/main/resources/images/banner.png" />
+        </image>
+    </ImageView>
+   <ImageView fx:id="image1" fitHeight="150.0" fitWidth="200.0" layoutX="74.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/cross.png" />
+      </image>
+   </ImageView>
+   <Text fill="#d31010" layoutX="296.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Errore!" textAlignment="CENTER">
+      <font>
+         <Font name="Calibri" size="64.0" />
+      </font>
+   </Text>
+   <Text layoutX="246.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Controlla che il Server sia Avviato e che si trovi nella tua stessa rete" textAlignment="CENTER" wrappingWidth="284.10546875">
+      <font>
+         <Font name="Calibri" size="24.0" />
+      </font>
+   </Text>
+</Pane>

@@ -1,16 +1,23 @@
 
 package controllers;
 
+import Interface.RMIServerInterface;
+import client.RMIClient;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 
 /**
  * @author Davide Mainardi 746490 VA
@@ -18,20 +25,23 @@ import java.io.IOException;
  * @author Luca Muggiasca 744565 VA
  * @author Brenno Re 747060 VA
  */
-public class MainUIController extends Application {
+public class MainClientUIController extends Application {
 
     private static Scene scene;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        scene = new Scene(loadFXML("Welcome"));
+        /*if (RMIClient.serverConnection())
+            scene = new Scene(loadFXML("home"));
+        else
+            scene = new Scene(loadFXML("error"));*/
+        scene = new Scene(loadFXML("home"));
         //scene.setFill(Color.TRANSPARENT);
-        scene.setFill(Color.DARKGREEN);
         //primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.initStyle(StageStyle.DECORATED);
-        primaryStage.getIcons().add(new Image("images/logo_uninsubria.png"));
+        primaryStage.getIcons().add(new Image("images/logo_portalvax.png"));
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Portale Vaccinale +Immuni");
+        primaryStage.setTitle("PortalVax Client - Portale Vaccinale");
         primaryStage.setResizable(false);
         primaryStage.show();
    }
@@ -42,7 +52,7 @@ public class MainUIController extends Application {
 
    private static Parent loadFXML(String fxml) throws IOException {
        FXMLLoader fxmlLoader = new FXMLLoader();
-       fxmlLoader.setLocation(MainUIController.class.getClassLoader().getResource("fxml/"+fxml+".fxml"));
+       fxmlLoader.setLocation(MainClientUIController.class.getClassLoader().getResource("fxml/"+fxml+".fxml"));
        return fxmlLoader.load();
    }
     

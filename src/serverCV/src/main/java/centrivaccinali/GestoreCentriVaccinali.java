@@ -2,6 +2,7 @@ package centrivaccinali;
 
 import database.CentroVaccinaleDAO;
 import database.CittadinoDAO;
+import database.EnumDao;
 import database.VaccinazioneDAO;
 import model.*;
 
@@ -76,6 +77,8 @@ public class GestoreCentriVaccinali {
         return risposta;
     }
 
-
+    public String[] getTipologie() {
+        return EnumDao.getEnumList("tipologie");
+    }
 
 }

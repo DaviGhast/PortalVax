@@ -31,7 +31,7 @@ public class MainServerUIController extends Application {
         primaryStage.initStyle(StageStyle.DECORATED);
         primaryStage.getIcons().add(new Image("images/logo_portalvax.png"));
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Portale Vaccinale +Immuni");
+        primaryStage.setTitle("PortalVax Server - Portale Vaccinale");
         primaryStage.setResizable(false);
         primaryStage.show();
    }
