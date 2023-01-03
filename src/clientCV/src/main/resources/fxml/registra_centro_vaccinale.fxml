@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegistraCentroVaccinaleController">
+    <ImageView fx:id="image" fitHeight="175.0" fitWidth="333.0" layoutX="134.0" layoutY="-23.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../../../../../common/src/main/resources/images/banner.png" />
+        </image>
+    </ImageView>
+   <Label layoutX="123.0" layoutY="270.0" text="Provincia:" />
+   <Label layoutX="123.0" layoutY="230.0" text="Comune:" />
+   <Label layoutX="123.0" layoutY="190.0" text="Indirizzo:" />
+   <Label layoutX="122.0" layoutY="150.0" text="Nome Centro:" />
+   <Label layoutX="122.0" layoutY="110.0" text="Tipologia:" />
+   <Label layoutX="123.0" layoutY="310.0" text="CAP:" />
+   <Button fx:id="button_addnewcenter" layoutX="217.0" layoutY="351.0" mnemonicParsing="false" onAction="#RegistraNuovoCentro" text="AGGIUNGI NUOVO CENTRO" />
+   <TextField fx:id="tf_nomecentro" layoutX="346.0" layoutY="146.0" />
+   <TextField fx:id="tf_indirizzo" layoutX="346.0" layoutY="186.0" />
+   <TextField fx:id="tf_comune" layoutX="346.0" layoutY="226.0" />
+   <TextField fx:id="tf_provincia" layoutX="346.0" layoutY="266.0" />
+   <TextField fx:id="tf_cap" layoutX="346.0" layoutY="306.0" />
+   <ChoiceBox fx:id="choicebox_tipologia" layoutX="345.0" layoutY="106.0" prefWidth="150.0" />
+</Pane>
