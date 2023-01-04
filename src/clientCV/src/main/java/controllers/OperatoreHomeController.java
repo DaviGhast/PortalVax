@@ -19,7 +19,8 @@ public class OperatoreHomeController implements Initializable {
         MainClientUIController.setRoot("registra_centro_vaccinale");
     }
 
-    public void registraNuovoVaccinato(ActionEvent actionEvent) {
+    public void registraNuovoVaccinato(ActionEvent actionEvent) throws IOException {
+        MainClientUIController.setRoot("registra_vaccinato");
     }
 
     @Override

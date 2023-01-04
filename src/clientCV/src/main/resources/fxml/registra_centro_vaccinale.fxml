@@ -8,7 +8,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-
 <Pane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegistraCentroVaccinaleController">
     <ImageView fx:id="image" fitHeight="175.0" fitWidth="333.0" layoutX="134.0" layoutY="-23.0" pickOnBounds="true" preserveRatio="true">
         <image>
@@ -21,11 +20,52 @@
    <Label layoutX="122.0" layoutY="150.0" text="Nome Centro:" />
    <Label layoutX="122.0" layoutY="110.0" text="Tipologia:" />
    <Label layoutX="123.0" layoutY="310.0" text="CAP:" />
-   <Button fx:id="button_addnewcenter" layoutX="217.0" layoutY="351.0" mnemonicParsing="false" onAction="#RegistraNuovoCentro" text="AGGIUNGI NUOVO CENTRO" />
-   <TextField fx:id="tf_nomecentro" layoutX="346.0" layoutY="146.0" />
-   <TextField fx:id="tf_indirizzo" layoutX="346.0" layoutY="186.0" />
-   <TextField fx:id="tf_comune" layoutX="346.0" layoutY="226.0" />
-   <TextField fx:id="tf_provincia" layoutX="346.0" layoutY="266.0" />
-   <TextField fx:id="tf_cap" layoutX="346.0" layoutY="306.0" />
+   <Button fx:id="button_addnewcenter" layoutX="217.0" layoutY="361.0" mnemonicParsing="false" onAction="#RegistraNuovoCentro" text="AGGIUNGI NUOVO CENTRO" />
+   <TextField fx:id="tf_nomecentro" layoutX="346.0" layoutY="146.0" onMouseEntered="#viewRegex1" />
+   <TextField fx:id="tf_indirizzo" layoutX="346.0" layoutY="186.0" onMouseEntered="#viewRegex2" />
+   <TextField fx:id="tf_comune" layoutX="346.0" layoutY="226.0" onMouseEntered="#viewRegex3" />
+   <TextField fx:id="tf_provincia" layoutX="346.0" layoutY="266.0" onMouseEntered="#viewRegex4" />
+   <TextField fx:id="tf_cap" layoutX="346.0" layoutY="306.0" onMouseEntered="#viewRegex5" />
    <ChoiceBox fx:id="choicebox_tipologia" layoutX="345.0" layoutY="106.0" prefWidth="150.0" />
+   <ImageView fx:id="cross_nomecentro" fitHeight="30.0" fitWidth="30.0" layoutX="526.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/cross.png" />
+      </image></ImageView>
+   <ImageView fx:id="cross_indirizzo" fitHeight="30.0" fitWidth="30.0" layoutX="526.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/cross.png" />
+      </image></ImageView>
+   <ImageView fx:id="cross_comune" fitHeight="30.0" fitWidth="30.0" layoutX="526.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/cross.png" />
+      </image></ImageView>
+   <ImageView fx:id="cross_provincia" fitHeight="30.0" fitWidth="30.0" layoutX="526.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/cross.png" />
+      </image></ImageView>
+   <ImageView fx:id="cross_cap" fitHeight="30.0" fitWidth="30.0" layoutX="526.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/cross.png" />
+      </image></ImageView>
+   <ImageView fx:id="checkmark_nomecentro" fitHeight="30.0" fitWidth="30.0" layoutX="526.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/check_mark.png" />
+      </image></ImageView>
+   <ImageView fx:id="checkmark_indirizzo" fitHeight="30.0" fitWidth="30.0" layoutX="526.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/check_mark.png" />
+      </image></ImageView>
+   <ImageView fx:id="checkmark_comune" fitHeight="30.0" fitWidth="30.0" layoutX="526.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/check_mark.png" />
+      </image></ImageView>
+   <ImageView fx:id="checkmark_provincia" fitHeight="30.0" fitWidth="30.0" layoutX="526.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/check_mark.png" />
+      </image></ImageView>
+   <ImageView fx:id="checkmark_cap" fitHeight="30.0" fitWidth="30.0" layoutX="526.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/check_mark.png" />
+      </image></ImageView>
+   <Label fx:id="infoRegex" layoutX="300.0" layoutY="334.0" prefHeight="17.0" prefWidth="0.0" textFill="#eb0404" />
 </Pane>
