@@ -36,8 +36,8 @@ public class RegistraVaccinatoController implements Initializable {
 
     public void RegistraNuovoVaccinato(ActionEvent actionEvent) throws RemoteException {
 
-        Cittadino nuovocittadino = null;
-        Vaccinazione nuovavaccinazione = null;
+        Cittadino nuovocittadino = new Cittadino();
+        Vaccinazione nuovavaccinazione = new Vaccinazione();
 
         String data = datepicker_data.getPromptText();
         String nomecentro = choicebox_nomecentro.getValue();
@@ -64,7 +64,7 @@ public class RegistraVaccinatoController implements Initializable {
             nuovavaccinazione.setCodiceFiscale(codicefiscale);
             nuovavaccinazione.setVaccinoSomministrato(tipovaccino);
             nuovavaccinazione.setDataVaccinazione(data);
-            nuovavaccinazione.setId();
+            //nuovavaccinazione.setId();
 
             RMIClient.server.registraVaccinato(nuovavaccinazione, nuovocittadino);
         }

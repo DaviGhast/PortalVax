@@ -13,14 +13,16 @@ public class EnumDao {
 
     public static String[] getEnumList(String enumName) {
         String[] result = null;
-        String SELECT_QUERY = "SELECT * FROM enum WHERE enum_name = ?";
+        String SELECT_QUERY = "SELECT * FROM enum WHERE name = ?";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(SELECT_QUERY);
             preparedStatement.setString(1, enumName);
 
             ResultSet rs = preparedStatement.executeQuery();
-            if (!rs.getString("enum_list").equals("[]"))
-                result = stringToArray(rs.getString("enum_list"));
+            rs.next();
+            String list = rs.getString("list");
+            if (!list.equals("[]"))
+                result = stringToArray(rs.getString("list"));
 
             preparedStatement.close();
             rs.close();

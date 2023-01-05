@@ -49,7 +49,7 @@ public class DBAccess {
             Properties props = new Properties();
             props.setProperty("user", username);
             props.setProperty("password", password);
-            props.setProperty("ssl", "true");
+            props.setProperty("ssl", "false");
             conn = DriverManager.getConnection(url, props);
             isValid = true;
             System.out.println("SQLite - Connection Established to: "+url);

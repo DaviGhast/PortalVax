@@ -1,15 +1,19 @@
 package controllers;
 
 import client.RMIClient;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import model.CentroVaccinale;
 
 import java.net.URL;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
@@ -84,7 +88,7 @@ public class RegistraCentroVaccinaleController implements Initializable {
 
     public void RegistraNuovoCentro(ActionEvent actionEvent) throws RemoteException {
 
-        CentroVaccinale nuovocentro = null;
+        CentroVaccinale nuovocentro = new CentroVaccinale();
 
         if (validatorfield1() & validatorfield2() & validatorfield3() & validatorfield4() & validatorfield5()) {
 
@@ -130,7 +134,9 @@ public class RegistraCentroVaccinaleController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            choicebox_tipologia.getItems().addAll(RMIClient.server.getTipologie());
+            image.setImage(new Image("images/banner.png"));
+            String[] tipologie = RMIClient.server.getTipologie();
+            choicebox_tipologia.setItems((FXCollections.observableArrayList(tipologie)));
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }

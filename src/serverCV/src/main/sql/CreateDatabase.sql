@@ -103,3 +103,4 @@ CREATE TABLE enum (
 	list varchar(255)
 );
 
+INSERT INTO enum (id,name,list) VALUES (1,'tipologie','[Hub, Aziendale, Ospedaliero]');

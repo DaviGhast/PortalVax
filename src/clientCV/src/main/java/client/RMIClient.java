@@ -8,6 +8,7 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.Arrays;
 
 public class RMIClient {
 
@@ -16,11 +17,13 @@ public class RMIClient {
     public static boolean serverConnection() {
         boolean isConnectedToServer = false;
         try {
-            Registry reg = LocateRegistry.getRegistry();
-            server = (RMIServerInterface)reg.lookup("Server");
+            Registry registro = LocateRegistry.getRegistry(1099);
+            RMIServerInterface stub = (RMIServerInterface) registro.lookup("PortalVaxServer");
+            server = stub;
             isConnectedToServer = true;
-        } catch (RemoteException | NotBoundException e) {
-            isConnectedToServer = false;
+        } catch (Exception e) {
+            System.err.println("Client exception: " + e.toString());
+            e.printStackTrace();
         }
         return isConnectedToServer;
     }

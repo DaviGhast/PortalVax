@@ -9,6 +9,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.Arrays;
 
 /**
  * The class <code>RMIServer</code>
@@ -19,8 +20,8 @@ public class RMIServer extends UnicastRemoteObject implements RMIServerInterface
 
     private static final long serialVersionUID = 1L;
 
-    private static GestoreCentriVaccinali gestoreCentriVaccinali;
-    private static GestoreCittadini gestoreCittadini;
+    private static GestoreCentriVaccinali gestoreCentriVaccinali = new GestoreCentriVaccinali();
+    private static GestoreCittadini gestoreCittadini = new GestoreCittadini();
 
     public RMIServer() throws RemoteException {
         super();
@@ -33,7 +34,7 @@ public class RMIServer extends UnicastRemoteObject implements RMIServerInterface
         try {
             Registry reg = LocateRegistry.createRegistry(1099);
             RMIServer server = new RMIServer();
-            reg.rebind("Server",server);
+            reg.rebind("PortalVaxServer",server);
             System.out.println("Server bounded in registry");
         }catch( Exception e) {
             System.err.println( "Server Main exception:"+e) ;
