@@ -31,11 +31,11 @@ public class MainClientUIController extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        /*if (RMIClient.serverConnection())
+        if (RMIClient.serverConnection())
             scene = new Scene(loadFXML("home"));
         else
-            scene = new Scene(loadFXML("error"));*/
-        scene = new Scene(loadFXML("home"));
+            scene = new Scene(loadFXML("error"));
+        //scene = new Scene(loadFXML("home"));
         //scene.setFill(Color.TRANSPARENT);
         //primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.initStyle(StageStyle.DECORATED);
