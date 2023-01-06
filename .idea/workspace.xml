@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebdf7d96-4419-4ffa-b976-839a740d49e0" name="Changes" comment="Added MainUIController to Server and Client">
-      <change afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/RegistraVaccinatoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/clientCV/src/main/resources/fxml/registra_vaccinato.fxml" afterDir="false" />
+    <list default="true" id="ebdf7d96-4419-4ffa-b976-839a740d49e0" name="Changes" comment="Added regex to RegistraCentroVaccinaleController">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/OperatoreHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/OperatoreHomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/RegistraCentroVaccinaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/RegistraCentroVaccinaleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/RegistraVaccinatoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/RegistraVaccinatoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/resources/fxml/registra_centro_vaccinale.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/resources/fxml/registra_centro_vaccinale.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/resources/fxml/registra_vaccinato.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/resources/fxml/registra_vaccinato.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672669566836</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added regex to RegistraCentroVaccinaleController">
+      <created>1672832367744</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1672832367744</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -236,7 +242,8 @@
     <MESSAGE value="Create CittadinoRegistratoDAO.java and EventoAvversoDAO.java" />
     <MESSAGE value="Aggiunto classe inserisciEventoAvverso" />
     <MESSAGE value="Added GUI fo server" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added GUI fo server" />
+    <MESSAGE value="Added regex to RegistraCentroVaccinaleController" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added regex to RegistraCentroVaccinaleController" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

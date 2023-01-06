@@ -29,7 +29,7 @@ public class RegistraCentroVaccinaleController implements Initializable {
     public ImageView image, cross_nomecentro, cross_comune, cross_indirizzo, cross_provincia, cross_cap, checkmark_nomecentro, checkmark_indirizzo, checkmark_comune, checkmark_provincia, checkmark_cap;
     public Button button_addnewcenter;
     public Label infoRegex;
-    public ImageView info_nomecentro;
+    public ImageView info_nomecentro, info_indirizzo, info_comune, info_provincia, info_cap;
 
     public boolean validatorfield1() {
         if (Pattern.matches("^[a-zA-Z0-9 ,.'-]{2,50}", tf_nomecentro.getText())) {
@@ -51,10 +51,14 @@ public class RegistraCentroVaccinaleController implements Initializable {
         if (Pattern.matches("^[a-zA-Z0-9 ,.'-]{2,255}", tf_indirizzo.getText())) {
             cross_indirizzo.setVisible(false);
             checkmark_indirizzo.setVisible(true);
+            StyleUI.removeRed(tf_indirizzo);
+            StyleUI.setGreen(tf_indirizzo);
             return true;
         } else {
             checkmark_indirizzo.setVisible(false);
             cross_indirizzo.setVisible(true);
+            StyleUI.removeGreen(tf_indirizzo);
+            StyleUI.setRed(tf_indirizzo);
             return false;
         }
     }
@@ -63,10 +67,14 @@ public class RegistraCentroVaccinaleController implements Initializable {
         if (Pattern.matches("^[a-zA-Z ']{2,50}", tf_comune.getText())) {
             cross_comune.setVisible(false);
             checkmark_comune.setVisible(true);
+            StyleUI.removeRed(tf_comune);
+            StyleUI.setGreen(tf_comune);
             return true;
         } else {
             checkmark_comune.setVisible(false);
             cross_comune.setVisible(true);
+            StyleUI.removeGreen(tf_comune);
+            StyleUI.setRed(tf_comune);
             return false;
         }
     }
@@ -75,10 +83,14 @@ public class RegistraCentroVaccinaleController implements Initializable {
         if (Pattern.matches("^[a-zA-Z]{2}", tf_provincia.getText())) {
             cross_provincia.setVisible(false);
             checkmark_provincia.setVisible(true);
+            StyleUI.removeRed(tf_provincia);
+            StyleUI.setGreen(tf_provincia);
             return true;
         } else {
             checkmark_provincia.setVisible(false);
             cross_provincia.setVisible(true);
+            StyleUI.removeGreen(tf_provincia);
+            StyleUI.setRed(tf_provincia);
             return false;
         }
     }
@@ -87,10 +99,14 @@ public class RegistraCentroVaccinaleController implements Initializable {
         if (Pattern.matches("^[0-9]{5}", tf_cap.getText())) {
             cross_cap.setVisible(false);
             checkmark_cap.setVisible(true);
+            StyleUI.removeRed(tf_cap);
+            StyleUI.setGreen(tf_cap);
             return true;
         } else {
             checkmark_cap.setVisible(false);
             cross_cap.setVisible(true);
+            StyleUI.removeGreen(tf_cap);
+            StyleUI.setRed(tf_cap);
             return false;
         }
     }
@@ -108,6 +124,7 @@ public class RegistraCentroVaccinaleController implements Initializable {
             nuovocentro.setCap(Integer.parseInt(tf_cap.getText()));
             nuovocentro.setIndirizzo(tf_indirizzo.getText());
             nuovocentro.setTipologia(choicebox_tipologia.getValue());
+            //setIdCentro
             RMIClient.server.registraCentroVaccinale(nuovocentro);
 
         } else {
@@ -154,6 +171,30 @@ public class RegistraCentroVaccinaleController implements Initializable {
             checkmark_nomecentro.setImage(new Image("images/check_mark.png"));
             cross_nomecentro.setVisible(false);
             checkmark_nomecentro.setVisible(false);
+
+            info_indirizzo.setImage(new Image("images/information.png"));
+            cross_indirizzo.setImage(new Image("images/cross.png"));
+            checkmark_indirizzo.setImage(new Image("images/check_mark.png"));
+            cross_indirizzo.setVisible(false);
+            checkmark_indirizzo.setVisible(false);
+
+            info_comune.setImage(new Image("images/information.png"));
+            cross_comune.setImage(new Image("images/cross.png"));
+            checkmark_comune.setImage(new Image("images/check_mark.png"));
+            cross_comune.setVisible(false);
+            checkmark_comune.setVisible(false);
+
+            info_provincia.setImage(new Image("images/information.png"));
+            cross_provincia.setImage(new Image("images/cross.png"));
+            checkmark_provincia.setImage(new Image("images/check_mark.png"));
+            cross_provincia.setVisible(false);
+            checkmark_provincia.setVisible(false);
+
+            info_cap.setImage(new Image("images/information.png"));
+            cross_cap.setImage(new Image("images/cross.png"));
+            checkmark_cap.setImage(new Image("images/check_mark.png"));
+            cross_cap.setVisible(false);
+            checkmark_cap.setVisible(false);
 
             String[] tipologie = RMIClient.server.getTipologie();
             choicebox_tipologia.setItems((FXCollections.observableArrayList(tipologie)));
