@@ -100,7 +100,7 @@ public class RegistraVaccinatoController implements Initializable {
 
             nuovavaccinazione.setCodiceFiscale(tf_codicefiscale.getText());
             nuovavaccinazione.setVaccinoSomministrato(choicebox_tipovaccino.getValue());
-            nuovavaccinazione.setDataVaccinazione(datepicker_data.getPromptText()); // stabilire tipo data o string
+            nuovavaccinazione.setDataVaccinazione(datepicker_data.getValue());
             //nuovavaccinazione.setId();
 
             RMIClient.server.registraVaccinato(nuovavaccinazione, nuovocittadino);

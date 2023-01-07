@@ -23,7 +23,7 @@ public class VaccinazioneDAO{
                 result.add(new Vaccinazione(
                         rs.getShort("id"),
                         rs.getString("vaccino_somministrato"),
-                        rs.getString("data_vaccinazione"),
+                        rs.getDate("data_vaccinazione").toLocalDate(),
                         rs.getShort("id_centro_vaccinale"),
                         rs.getString("codice_fiscale")
                 ));
@@ -44,7 +44,7 @@ public class VaccinazioneDAO{
             result = new Vaccinazione(
                     rs.getShort("id"),
                     rs.getString("vaccino_somministrato"),
-                    rs.getString("data_vaccinazione"),
+                    rs.getDate("data_vaccinazione").toLocalDate(),
                     rs.getShort("id_centro_vaccinale"),
                     rs.getString("codice_fiscale")
             );
@@ -65,7 +65,7 @@ public class VaccinazioneDAO{
                 result.add(new Vaccinazione(
                         rs.getShort("id"),
                         rs.getString("vaccino_somministrato"),
-                        rs.getString("data_vaccinazione"),
+                        rs.getDate("data_vaccinazione").toLocalDate(),
                         rs.getShort("id_centro_vaccinale"),
                         rs.getString("codice_fiscale")
                 ));
@@ -86,7 +86,7 @@ public class VaccinazioneDAO{
             result =new Vaccinazione(
                     rs.getShort("id"),
                     rs.getString("vaccino_somministrato"),
-                    rs.getString("data_vaccinazione"),
+                    rs.getDate("data_vaccinazione").toLocalDate(),
                     rs.getShort("id_centro_vaccinale"),
                     rs.getString("codice_fiscale")
             );
@@ -105,7 +105,7 @@ public class VaccinazioneDAO{
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setShort(1,vaccinazione.getId());
             preparedStatement.setString(2,vaccinazione.getVaccinoSomministrato());
-            preparedStatement.setString(3,vaccinazione.getDataVaccinazione());
+            preparedStatement.setDate(3,Date.valueOf(vaccinazione.getDataVaccinazione()));
             preparedStatement.setShort(4,vaccinazione.getIdCentroVaccinale());
             preparedStatement.setString(5,vaccinazione.getCodiceFiscale());
             result = preparedStatement.executeUpdate();
@@ -123,7 +123,7 @@ public class VaccinazioneDAO{
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1,vaccinazione.getVaccinoSomministrato());
-            preparedStatement.setString(2,vaccinazione.getDataVaccinazione());
+            preparedStatement.setDate(2,Date.valueOf(vaccinazione.getDataVaccinazione()));
             preparedStatement.setShort(3,vaccinazione.getIdCentroVaccinale());
             preparedStatement.setString(4,vaccinazione.getCodiceFiscale());
             preparedStatement.setShort(5,vaccinazione.getId());

@@ -29,7 +29,7 @@
 <TextField fx:id="tf_codicefiscale" layoutX="346.0" layoutY="226.0" />
 <ChoiceBox fx:id="choicebox_nomecentro" layoutX="345.0" layoutY="106.0" prefWidth="150.0" />
    <ChoiceBox fx:id="choicebox_tipovaccino" layoutX="345.0" layoutY="306.0" prefWidth="150.0" />
-   <DatePicker fx:id="datepicker_data" layoutX="345.0" layoutY="266.0" />
+   <DatePicker fx:id="datepicker_data" layoutX="345.0" layoutY="266.0" prefHeight="25.0" prefWidth="150.0" />
    <ImageView fx:id="cross_nome" fitHeight="30.0" fitWidth="30.0" layoutX="504.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../../../../../common/src/main/resources/images/cross.png" />

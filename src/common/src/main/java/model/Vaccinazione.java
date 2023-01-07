@@ -1,13 +1,15 @@
 package model;
 
+import java.time.LocalDate;
+
 public class Vaccinazione {
     private short id;
     private String vaccinoSomministrato;
-    private String dataVaccinazione;
+    private LocalDate dataVaccinazione;
     private short idCentroVaccinale;
     private String codiceFiscale;
 
-    public Vaccinazione(short id, String vaccinoSomministrato, String dataVaccinazione, short idCentroVaccinale,
+    public Vaccinazione(short id, String vaccinoSomministrato, LocalDate dataVaccinazione, short idCentroVaccinale,
                            String codiceFiscale){
         this.id = id;
         this.vaccinoSomministrato = vaccinoSomministrato;
@@ -35,11 +37,11 @@ public class Vaccinazione {
     public void setVaccinoSomministrato(String vaccinoSomministrato) {
         this.vaccinoSomministrato = vaccinoSomministrato; }
 
-    public String getDataVaccinazione() {
+    public LocalDate getDataVaccinazione() {
         return dataVaccinazione;
     }
 
-    public void setDataVaccinazione(String dataVaccinazione) {
+    public void setDataVaccinazione(LocalDate dataVaccinazione) {
         this.dataVaccinazione = dataVaccinazione;
     }
 

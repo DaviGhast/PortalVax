@@ -54,7 +54,7 @@
                     <shadedClassifierName>shaded</shadedClassifierName>
                     <transformers>
                         <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                            <mainClass>org.ghast.centrivaccinali.MainClient</mainClass>
+                            <mainClass>org.ghast.centrivaccinali.CentriVaccinali</mainClass>
                         </transformer>
                     </transformers>
                     <outputDirectory>../../out</outputDirectory>
