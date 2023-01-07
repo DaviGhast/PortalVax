@@ -54,8 +54,10 @@
                 <configuration>
                     <driver>org.postgresql.Driver</driver>
                     <url>jdbc:postgresql://localhost:5432/</url>
-                    <username>postgres</username>
-                    <password>1234</password>
+                    <!--suppress UnresolvedMavenProperty -->
+                    <username>${USER}</username>
+                    <!--suppress UnresolvedMavenProperty -->
+                    <password>${PWD}</password>
                     <settingsKey>sensibleKey</settingsKey>
                 </configuration>
 

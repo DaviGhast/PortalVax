@@ -1,6 +1,8 @@
 package model;
 
-public class Risposta {
+import java.io.Serializable;
+
+public class Risposta implements Serializable {
     private Stato stato;
     private String message;
     private Object object;

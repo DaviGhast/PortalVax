@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class EnumModel {
+public class EnumModel implements Serializable {
 
     private int enumID;
     private String enumName;

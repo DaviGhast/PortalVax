@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Vaccinazione {
+public class Vaccinazione implements Serializable {
     private short id;
     private String vaccinoSomministrato;
     private LocalDate dataVaccinazione;

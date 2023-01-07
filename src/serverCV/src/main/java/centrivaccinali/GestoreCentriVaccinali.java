@@ -27,6 +27,9 @@ public class GestoreCentriVaccinali {
         Risposta risposta = new Risposta();
         // controllo se parametro in input è valorizzzato
         if (centroVaccinale != null) {
+            if (centroVaccinale.getId() == 0){
+                centroVaccinale.setId((short) CentroVaccinaleDAO.nextID());
+            }
             // controllo se esiste già un CentroVaccinale con lo stesso nome
             if (CentroVaccinaleDAO.getByName(centroVaccinale.getNomeCentroVaccinale()).isEmpty()) {
                 if (CentroVaccinaleDAO.insert(centroVaccinale))

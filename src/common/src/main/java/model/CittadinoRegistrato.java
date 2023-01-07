@@ -1,6 +1,8 @@
 package model;
 
-public class CittadinoRegistrato {
+import java.io.Serializable;
+
+public class CittadinoRegistrato implements Serializable {
     private String userId;
     private String email;
     private String password;

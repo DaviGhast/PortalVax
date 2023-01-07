@@ -23,8 +23,8 @@ public class RegistraVaccinatoController implements Initializable {
 
 
 
-    public ChoiceBox<String> choicebox_nomecentro, choicebox_tipovaccino;
-    public TextField tf_nome, tf_cognome, tf_codicefiscale;
+    public ChoiceBox<String> choicebox_tipovaccino;
+    public TextField tf_nomecentro, tf_nome, tf_cognome, tf_codicefiscale;
 
     public DatePicker datepicker_data;
 
@@ -32,7 +32,9 @@ public class RegistraVaccinatoController implements Initializable {
 
     public Button button_addnewvaccinato;
 
-    public ImageView image, cross_nome, checkmark_nome, cross_cognome, checkmark_cognome, cross_codicefiscale, checkmark_codicefiscale, info_nome, info_cognome,info_codicefiscale;
+    public ImageView image, cross_nome, checkmark_nome, cross_cognome, checkmark_cognome, cross_codicefiscale,
+            checkmark_codicefiscale, info_nome, info_cognome, info_codicefiscale, cross_nomecentro,
+            checkmark_nomecentro, cross_data, checkmark_data, cross_vaccino, checkmark_vaccino, search, info_nomecentro;
 
     public boolean validatorfield1() {
         if (Pattern.matches("^[a-zA-Z]{2,30}", tf_nome.getText())) {
@@ -82,6 +84,38 @@ public class RegistraVaccinatoController implements Initializable {
         }
     }
 
+    public boolean validatorChoiseBox() {
+        if (!String.valueOf(choicebox_tipovaccino.getSelectionModel().getSelectedItem()).equals("null")) {
+            cross_vaccino.setVisible(false);
+            checkmark_vaccino.setVisible(true);
+            StyleUI.removeRed(choicebox_tipovaccino);
+            StyleUI.setGreen(choicebox_tipovaccino);
+            return true;
+        } else {
+            checkmark_vaccino.setVisible(false);
+            cross_vaccino.setVisible(true);
+            StyleUI.removeGreen(choicebox_tipovaccino);
+            StyleUI.setRed(choicebox_tipovaccino);
+            return false;
+        }
+    }
+
+    public boolean validatorDate() {
+        if (!String.valueOf(datepicker_data.getValue()).equals("null")) {
+            cross_data.setVisible(false);
+            checkmark_data.setVisible(true);
+            StyleUI.removeRed(datepicker_data);
+            StyleUI.setGreen(datepicker_data);
+            return true;
+        } else {
+            checkmark_data.setVisible(false);
+            cross_data.setVisible(true);
+            StyleUI.removeGreen(datepicker_data);
+            StyleUI.setRed(datepicker_data);
+            return false;
+        }
+    }
+
     //anche validator per campo data?
 
 
@@ -92,7 +126,7 @@ public class RegistraVaccinatoController implements Initializable {
         Vaccinazione nuovavaccinazione = new Vaccinazione();
 
 
-        if (validatorfield1() & validatorfield2() & validatorfield3()) {
+        if (validatorfield1() & validatorfield2() & validatorfield3() & validatorDate() & validatorChoiseBox()) {
 
             nuovocittadino.setCodiceFiscale(tf_codicefiscale.getText());
             nuovocittadino.setCognomeCittadino(tf_cognome.getText());
@@ -135,6 +169,13 @@ public class RegistraVaccinatoController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         image.setImage(new Image("images/banner.png"));
+        search.setImage(new Image("images/search.png"));
+
+        info_nomecentro.setImage(new Image("images/information.png"));
+        cross_nomecentro.setImage(new Image("images/cross.png"));
+        checkmark_nomecentro.setImage(new Image("images/check_mark.png"));
+        cross_nomecentro.setVisible(false);
+        checkmark_nomecentro.setVisible(false);
 
         info_nome.setImage(new Image("images/information.png"));
         cross_nome.setImage(new Image("images/cross.png"));
@@ -154,7 +195,16 @@ public class RegistraVaccinatoController implements Initializable {
         cross_codicefiscale.setVisible(false);
         checkmark_codicefiscale.setVisible(false);
 
-        choicebox_nomecentro.getItems().addAll(); //prendere nomi centri vaccinali da db
+        cross_data.setImage(new Image("images/cross.png"));
+        checkmark_data.setImage(new Image("images/check_mark.png"));
+        cross_data.setVisible(false);
+        checkmark_data.setVisible(false);
+
+        cross_vaccino.setImage(new Image("images/cross.png"));
+        checkmark_vaccino.setImage(new Image("images/check_mark.png"));
+        cross_vaccino.setVisible(false);
+        checkmark_vaccino.setVisible(false);
+
         choicebox_tipovaccino.getItems().addAll(); //prendere tipovaccino da db
 
     }

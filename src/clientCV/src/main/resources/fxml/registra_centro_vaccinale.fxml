@@ -10,7 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegistraCentroVaccinaleController">
+<Pane prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegistraCentroVaccinaleController">
     <ImageView fx:id="image" fitHeight="175.0" fitWidth="333.0" layoutX="134.0" layoutY="-23.0" pickOnBounds="true" preserveRatio="true">
         <image>
             <Image url="@../../../../../common/src/main/resources/images/banner.png" />
@@ -22,13 +22,13 @@
    <Label layoutX="122.0" layoutY="151.0" text="Nome Centro:" />
    <Label layoutX="122.0" layoutY="110.0" text="Tipologia:" />
    <Label layoutX="123.0" layoutY="310.0" text="CAP:" />
-   <Button fx:id="button_addnewcenter" layoutX="217.0" layoutY="361.0" mnemonicParsing="false" onAction="#RegistraNuovoCentro" text="AGGIUNGI NUOVO CENTRO" />
-   <TextField fx:id="tf_nomecentro" layoutX="346.0" layoutY="146.0" onKeyPressed="#validatorfield1" stylesheets="@../css/style.css" />
-   <TextField fx:id="tf_indirizzo" layoutX="346.0" layoutY="186.0" onKeyPressed="#validatorfield2" stylesheets="@../css/style.css" />
-   <TextField fx:id="tf_comune" layoutX="346.0" layoutY="226.0" onKeyPressed="#validatorfield3" stylesheets="@../css/style.css" />
-   <TextField fx:id="tf_provincia" layoutX="346.0" layoutY="266.0" onKeyPressed="#validatorfield4" stylesheets="@../css/style.css" />
-   <TextField fx:id="tf_cap" layoutX="346.0" layoutY="306.0" onKeyPressed="#validatorfield5" stylesheets="@../css/style.css" />
-   <ChoiceBox fx:id="choicebox_tipologia" layoutX="345.0" layoutY="106.0" prefWidth="150.0" />
+   <Button fx:id="button_addnewcenter" layoutX="217.0" layoutY="361.0" mnemonicParsing="false" onAction="#registraNuovoCentro" text="AGGIUNGI NUOVO CENTRO" />
+   <TextField fx:id="tf_nomecentro" layoutX="346.0" layoutY="146.0" onKeyReleased="#validatorfield1" />
+   <TextField fx:id="tf_indirizzo" layoutX="346.0" layoutY="186.0" onKeyReleased="#validatorfield2" />
+   <TextField fx:id="tf_comune" layoutX="346.0" layoutY="226.0" onKeyReleased="#validatorfield3" />
+   <TextField fx:id="tf_provincia" layoutX="346.0" layoutY="266.0" onKeyReleased="#validatorfield4" />
+   <TextField fx:id="tf_cap" layoutX="346.0" layoutY="306.0" onKeyReleased="#validatorfield5" />
+   <ChoiceBox fx:id="choicebox_tipologia" layoutX="345.0" layoutY="106.0" onAction="#validatorChoiseBox" prefWidth="150.0" />
    <ImageView fx:id="cross_nomecentro" fitHeight="30.0" fitWidth="30.0" layoutX="500.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../../../../../common/src/main/resources/images/cross.png" />
@@ -124,5 +124,15 @@
       <cursor>
          <Cursor fx:constant="HAND" />
       </cursor>
+   </ImageView>
+   <ImageView fx:id="cross_tipologia" fitHeight="30.0" fitWidth="30.0" layoutX="500.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/cross.png" />
+      </image>
+   </ImageView>
+   <ImageView fx:id="checkmark_tipologia" fitHeight="30.0" fitWidth="30.0" layoutX="500.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/check_mark.png" />
+      </image>
    </ImageView>
 </Pane>

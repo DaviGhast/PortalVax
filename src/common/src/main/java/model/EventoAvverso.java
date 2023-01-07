@@ -1,6 +1,8 @@
 package model;
 
-public class EventoAvverso {
+import java.io.Serializable;
+
+public class EventoAvverso implements Serializable {
     private short id;
     private String evento;
     private byte severita;

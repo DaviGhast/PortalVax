@@ -13,23 +13,40 @@ import javafx.scene.input.MouseEvent;
 import model.CentroVaccinale;
 
 import javax.xml.bind.ValidationException;
+import java.io.IOException;
 import java.net.URL;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.regex.Pattern;
 
+import model.Risposta;
 import util.StyleUI;
 
 public class RegistraCentroVaccinaleController implements Initializable {
     public ChoiceBox<String> choicebox_tipologia;
     public TextField tf_comune, tf_nomecentro, tf_cap, tf_provincia, tf_indirizzo;
-    public ImageView image, cross_nomecentro, cross_comune, cross_indirizzo, cross_provincia, cross_cap, checkmark_nomecentro, checkmark_indirizzo, checkmark_comune, checkmark_provincia, checkmark_cap;
+    public ImageView image, cross_nomecentro, cross_comune, cross_indirizzo, cross_provincia, cross_cap,
+            checkmark_nomecentro, checkmark_indirizzo, checkmark_comune, checkmark_provincia, checkmark_cap,
+            cross_tipologia, checkmark_tipologia;
     public Button button_addnewcenter;
     public Label infoRegex;
     public ImageView info_nomecentro, info_indirizzo, info_comune, info_provincia, info_cap;
+
+    public boolean validatorChoiseBox() {
+        if (!String.valueOf(choicebox_tipologia.getSelectionModel().getSelectedItem()).equals("null")) {
+            cross_tipologia.setVisible(false);
+            checkmark_tipologia.setVisible(true);
+            StyleUI.removeRed(choicebox_tipologia);
+            StyleUI.setGreen(choicebox_tipologia);
+            return true;
+        } else {
+            checkmark_tipologia.setVisible(false);
+            cross_tipologia.setVisible(true);
+            StyleUI.removeGreen(choicebox_tipologia);
+            StyleUI.setRed(choicebox_tipologia);
+            return false;
+        }
+    }
 
     public boolean validatorfield1() {
         if (Pattern.matches("^[a-zA-Z0-9 ,.'-]{2,50}", tf_nomecentro.getText())) {
@@ -112,11 +129,12 @@ public class RegistraCentroVaccinaleController implements Initializable {
     }
 
 
-    public void RegistraNuovoCentro(ActionEvent actionEvent) throws RemoteException {
+    public void registraNuovoCentro(ActionEvent actionEvent) throws IOException {
 
         CentroVaccinale nuovocentro = new CentroVaccinale();
 
-        if (validatorfield1() & validatorfield2() & validatorfield3() & validatorfield4() & validatorfield5()) {
+        if (validatorChoiseBox() & validatorfield1() & validatorfield2() & validatorfield3() & validatorfield4() &
+                validatorfield5()) {
 
             nuovocentro.setNomeCentroVaccinale(tf_nomecentro.getText());
             nuovocentro.setSiglaProvincia(tf_provincia.getText());
@@ -124,8 +142,29 @@ public class RegistraCentroVaccinaleController implements Initializable {
             nuovocentro.setCap(Integer.parseInt(tf_cap.getText()));
             nuovocentro.setIndirizzo(tf_indirizzo.getText());
             nuovocentro.setTipologia(choicebox_tipologia.getValue());
-            //setIdCentro
-            RMIClient.server.registraCentroVaccinale(nuovocentro);
+            Risposta risposta = RMIClient.server.registraCentroVaccinale(nuovocentro);
+
+            Alert alert = null;
+            switch (risposta.getStato()) {
+                case GOOD:
+                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    break;
+                case ERROR:
+                    alert = new Alert(Alert.AlertType.WARNING);
+                    break;
+                case BAD:
+                    alert = new Alert(Alert.AlertType.ERROR);
+                    break;
+            }
+            alert.setTitle(String.valueOf(risposta.getStato()));
+            alert.setHeaderText("Registrazione Centro vaccinale");
+            alert.setContentText(risposta.getMessage());
+            Optional<ButtonType> result = alert.showAndWait();
+            if(!result.isPresent()) {
+                // alert is exited, no button has been pressed.
+            } else if(result.get() == ButtonType.OK) {
+                MainClientUIController.setRoot("operatore_home");
+            }
 
         } else {
 
@@ -165,6 +204,11 @@ public class RegistraCentroVaccinaleController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             image.setImage(new Image("images/banner.png"));
+
+            cross_tipologia.setImage(new Image("images/cross.png"));
+            checkmark_tipologia.setImage(new Image("images/check_mark.png"));
+            cross_tipologia.setVisible(false);
+            checkmark_tipologia.setVisible(false);
 
             info_nomecentro.setImage(new Image("images/information.png"));
             cross_nomecentro.setImage(new Image("images/cross.png"));

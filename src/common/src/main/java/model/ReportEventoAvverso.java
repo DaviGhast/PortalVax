@@ -1,6 +1,8 @@
 package model;
 
-public class ReportEventoAvverso {
+import java.io.Serializable;
+
+public class ReportEventoAvverso implements Serializable {
     private String evento;
     private int numeroSegnalazioni;
     private double severitaMedia;

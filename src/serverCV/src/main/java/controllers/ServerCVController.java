@@ -34,6 +34,10 @@ public class ServerCVController implements Initializable {
         String portadatabase = et_portadatabase.getText();
         String host = et_host.getText();
 
+        if (username.isEmpty()) {
+            et_username.setText(et_username.getPromptText());
+            username = et_host.getText();
+        }
         if (host.isEmpty()) {
             et_host.setText(et_host.getPromptText());
             host = et_host.getText();
@@ -87,6 +91,7 @@ public class ServerCVController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         image.setImage(new Image("images/banner.png"));
 
+        et_username.setPromptText("postgres");
         et_host.setPromptText("localhost");
         et_portadatabase.setPromptText("5432");
         et_nomedatabase.setPromptText("portalvaxdb");

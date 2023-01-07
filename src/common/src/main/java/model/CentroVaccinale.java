@@ -1,6 +1,8 @@
 package model;
 
-public class CentroVaccinale {
+import java.io.Serializable;
+
+public class CentroVaccinale implements Serializable {
     /**
      * l' <code>id</code> univoco del centro vaccinale
      */
