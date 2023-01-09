@@ -1,21 +1,25 @@
 package controllers;
 
 import client.RMIClient;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import model.CentroVaccinale;
-import model.Cittadino;
-import model.Risposta;
-import model.Vaccinazione;
+import javafx.scene.layout.Pane;
+import model.*;
 import util.StyleUI;
 
+import java.io.IOException;
 import java.net.URL;
 import java.rmi.RemoteException;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
@@ -35,6 +39,26 @@ public class RegistraVaccinatoController implements Initializable {
     public ImageView image, cross_nome, checkmark_nome, cross_cognome, checkmark_cognome, cross_codicefiscale,
             checkmark_codicefiscale, info_nome, info_cognome, info_codicefiscale, cross_nomecentro,
             checkmark_nomecentro, cross_data, checkmark_data, cross_vaccino, checkmark_vaccino, search, info_nomecentro;
+    public Button indietro;
+
+    public boolean validatorNomeCentroEsistente() throws RemoteException {
+        Risposta risposta = RMIClient.server.esisteCentroVaccinale(tf_nomecentro.getText());
+
+        if ((boolean) risposta.getObject()){
+            cross_nomecentro.setVisible(false);
+            checkmark_nomecentro.setVisible(true);
+            StyleUI.removeRed(tf_nomecentro);
+            StyleUI.setGreen(tf_nomecentro);
+            return true;
+        } else {
+            checkmark_nomecentro.setVisible(false);
+            cross_nomecentro.setVisible(true);
+            StyleUI.removeGreen(tf_nomecentro);
+            StyleUI.setRed(tf_nomecentro);
+            return false;
+        }
+
+    }
 
     public boolean validatorfield1() {
         if (Pattern.matches("^[a-zA-Z]{2,30}", tf_nome.getText())) {
@@ -116,11 +140,28 @@ public class RegistraVaccinatoController implements Initializable {
         }
     }
 
-    //anche validator per campo data?
+    public void viewSearch(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(MainClientUIController.class.getClassLoader().getResource("fxml/search.fxml"));
+        DialogPane search_pane = fxmlLoader.load();
 
+        SearchController searchController = fxmlLoader.getController();
 
+        Alert search_dialog = new Alert(Alert.AlertType.NONE);
+        search_dialog.setDialogPane(search_pane);
+        search_dialog.setTitle("Cerca Centro Vaccinale");
+        search_dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
 
-    public void RegistraNuovoVaccinato(ActionEvent actionEvent) throws RemoteException {
+        Optional<ButtonType> result = search_dialog.showAndWait();
+        if (result.isPresent()) {
+            CentroVaccinale centroVaccinale = searchController.centroVaccinale;
+            tf_nomecentro.setText(centroVaccinale.getNomeCentroVaccinale());
+            validatorNomeCentroEsistente();
+        }
+
+    }
+
+    public void registraNuovoVaccinato(ActionEvent actionEvent) throws IOException {
 
         Cittadino nuovocittadino = new Cittadino();
         Vaccinazione nuovavaccinazione = new Vaccinazione();
@@ -137,7 +178,29 @@ public class RegistraVaccinatoController implements Initializable {
             nuovavaccinazione.setDataVaccinazione(datepicker_data.getValue());
             //nuovavaccinazione.setId();
 
-            RMIClient.server.registraVaccinato(nuovavaccinazione, nuovocittadino);
+            Risposta risposta = RMIClient.server.registraVaccinato(nuovavaccinazione, nuovocittadino);
+
+            Alert alert = null;
+            switch (risposta.getStato()) {
+                case GOOD:
+                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    break;
+                case ERROR:
+                    alert = new Alert(Alert.AlertType.WARNING);
+                    break;
+                case BAD:
+                    alert = new Alert(Alert.AlertType.ERROR);
+                    break;
+            }
+            alert.setTitle(String.valueOf(risposta.getStato()));
+            alert.setHeaderText("Registrazione Vaccinato");
+            alert.setContentText(risposta.getMessage());
+            Optional<ButtonType> result = alert.showAndWait();
+            if(!result.isPresent()) {
+                // alert is exited, no button has been pressed.
+            } else if(result.get() == ButtonType.OK) {
+                MainClientUIController.setRoot("operatore_home");
+            }
 
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -151,6 +214,10 @@ public class RegistraVaccinatoController implements Initializable {
 
     public void viewRegex0(MouseEvent mouseEvent) {
         infoRegex.setText("");
+    }
+
+    public void viewRegexNomeCentro(MouseEvent mouseEvent) {
+        infoRegex.setText("Nome Centro: inserisci o cerca il nome di un centro esistente");
     }
 
     public void viewRegex1(MouseEvent mouseEvent) {
@@ -205,7 +272,16 @@ public class RegistraVaccinatoController implements Initializable {
         cross_vaccino.setVisible(false);
         checkmark_vaccino.setVisible(false);
 
-        choicebox_tipovaccino.getItems().addAll(); //prendere tipovaccino da db
+        String[] vaccini = new String[0];
+        try {
+            vaccini = RMIClient.server.getVaccini();
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+        choicebox_tipovaccino.setItems((FXCollections.observableArrayList(vaccini)));
+    }
 
+    public void torna_indietro(ActionEvent actionEvent) throws IOException {
+        MainClientUIController.setRoot("operatore_home");
     }
 }

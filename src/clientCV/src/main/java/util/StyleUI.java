@@ -3,6 +3,7 @@ package util;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.util.Collections;
@@ -77,5 +78,13 @@ public class StyleUI {
     public static void removeGreen(DatePicker tf) {
         ObservableList<String> styleClass = tf.getStyleClass();
         styleClass.removeAll(Collections.singleton("ok"));
+    }
+
+    public static void setGreen(Label tf) {
+        ObservableList<String> styleClass = tf.getStyleClass();
+
+        if(!styleClass.contains("ok")) {
+            styleClass.add("ok");
+        }
     }
 }

@@ -142,6 +142,7 @@ public class RegistraCentroVaccinaleController implements Initializable {
             nuovocentro.setCap(Integer.parseInt(tf_cap.getText()));
             nuovocentro.setIndirizzo(tf_indirizzo.getText());
             nuovocentro.setTipologia(choicebox_tipologia.getValue());
+
             Risposta risposta = RMIClient.server.registraCentroVaccinale(nuovocentro);
 
             Alert alert = null;

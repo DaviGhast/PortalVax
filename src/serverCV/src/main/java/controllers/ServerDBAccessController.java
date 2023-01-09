@@ -1,32 +1,34 @@
 package controllers;
 
 import database.DBAccess;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.Popup;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import server.RMIServer;
 
 import javafx.scene.control.Button;
 
+import java.io.IOException;
 import java.net.URL;
-import java.rmi.RemoteException;
 import java.util.ResourceBundle;
 
-public class ServerCVController implements Initializable {
+public class ServerDBAccessController implements Initializable {
 
-    public Label label_error;
-    public Button button_startserver;
     public TextField et_username, et_password, et_nomedatabase, et_host, et_portadatabase ;
     public ImageView image;
+    public Button button_login_db;
 
-    Label error = label_error;
-
-    @FXML void startServerButton() {
+    @FXML void loginDB() throws IOException {
 
         String username = et_username.getText();
         String password = et_password.getText();
@@ -60,7 +62,6 @@ public class ServerCVController implements Initializable {
             alert.show();
 
         } else {
-
             DBAccess.setHost(host);
             DBAccess.setUsername(username);
             DBAccess.setPassword(password);
@@ -69,21 +70,11 @@ public class ServerCVController implements Initializable {
             DBAccess.getConnect();
 
             if(DBAccess.getValid()){
-                RMIServer.start();
-            } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText("Informazioni Errate");
-                String s ="Alcuni dei campi inseriti risultano errati";
-                alert.setContentText(s);
-                alert.show();
+                Stage stage = (Stage) button_login_db.getScene().getWindow();
+                stage.close();
             }
 
         }
-
-    }
-
-    public void CheckDBAccessAndStartServer() {
 
     }
 

@@ -1,5 +1,7 @@
 package database;
 
+import javafx.scene.control.Alert;
+
 import java.sql.*;
 import java.util.Properties;
 
@@ -55,8 +57,18 @@ public class DBAccess {
             System.out.println("SQLite - Connection Established to: "+url);
         } catch (SQLException sqlException) {
             System.err.println("SQLite - Connection Failed : " + sqlException);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("SQLite");
+            alert.setHeaderText("Connessione Fallita");
+            alert.setContentText(sqlException.getMessage());
+            alert.show();
         } catch (ClassNotFoundException classNotFoundException) {
             System.err.println("SQLite - Could Not Load Drivers : " + classNotFoundException);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("SQLite");
+            alert.setHeaderText("Impossibile caricare i driver");
+            alert.setContentText(classNotFoundException.getMessage());
+            alert.show();
         }
 
     }

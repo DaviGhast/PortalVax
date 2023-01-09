@@ -1,12 +1,10 @@
 package centrivaccinali;
 
-import database.CentroVaccinaleDAO;
-import database.CittadinoDAO;
-import database.EnumDao;
-import database.VaccinazioneDAO;
+import database.*;
 import model.*;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * la classe si occupa di definire le azioni disponibili agli Operatori dei centri vaccinali
@@ -62,14 +60,17 @@ public class GestoreCentriVaccinali {
     public Risposta registraVaccinato(Vaccinazione vaccinazione, Cittadino cittadino){
         Risposta risposta = new Risposta();
         if (vaccinazione != null && cittadino != null) {
+            if (vaccinazione.getId() == 0){
+                vaccinazione.setId((short) VaccinazioneDAO.nextID());
+            }
             if (VaccinazioneDAO.getByCodiceFiscale(cittadino.getCodiceFiscale()) != null) {
-                if (CittadinoDAO.insert(cittadino) & VaccinazioneDAO.insert(vaccinazione)) {
-                    risposta = new Risposta(Stato.GOOD, "Registrazione eseguita con Successo");
-                }
-                else {
-                    risposta = new Risposta(Stato.ERROR, "Registrazione non andata a buon fine");
-                    CittadinoDAO.delete(cittadino);
-                    VaccinazioneDAO.delete(vaccinazione);
+                if (VaccinazioneDAO.insert(vaccinazione)) {
+                    if (CittadinoDAO.insert(cittadino)) {
+                        risposta = new Risposta(Stato.GOOD, "Registrazione eseguita con Successo");
+                    } else {
+                        risposta = new Risposta(Stato.ERROR, "Registrazione non andata a buon fine");
+                        VaccinazioneDAO.delete(vaccinazione);
+                    }
                 }
             } else {
                 risposta = new Risposta(Stato.BAD,"Vaccinazione già inserita");
@@ -80,8 +81,134 @@ public class GestoreCentriVaccinali {
         return risposta;
     }
 
+    public Risposta cercaCentroVaccinale(String nomeCentroVaccinale) {
+        Risposta risposta = new Risposta();
+        if (!nomeCentroVaccinale.isEmpty()) {
+            ArrayList<CentroVaccinale> centriVaccinali = CentroVaccinaleDAO.getByName(nomeCentroVaccinale);
+            if (!centriVaccinali.isEmpty()) {
+                risposta = new Risposta(Stato.GOOD, centriVaccinali);
+            } else {
+                risposta = new Risposta(Stato.ERROR, "");
+            }
+        } else {
+            risposta = new Risposta(Stato.BAD, "");
+        }
+        return risposta;
+    }
+
+    public Risposta cercaCentroVaccinale(String comune, String tipologia) {
+        Risposta risposta = new Risposta();
+        if (!comune.isEmpty()) {
+            ArrayList<CentroVaccinale> centriVaccinali = CentroVaccinaleDAO.getByComune(comune);
+            if (!centriVaccinali.isEmpty()) {
+                if (!tipologia.isEmpty()) {
+                    risposta = new Risposta(Stato.GOOD, searchCentroByTipologia(centriVaccinali, tipologia));
+                } else {
+                    risposta = new Risposta(Stato.GOOD, centriVaccinali);
+                }
+            } else {
+                risposta = new Risposta(Stato.ERROR, "");
+            }
+        } else {
+            risposta = new Risposta(Stato.BAD, "");
+        }
+        return risposta;
+    }
+
+    /**
+     * il metodo si occupa di cercare il centro vaccinale di interesse tramite tipologia all'interno della tabella
+     * @param tipologia il nome della tipologia
+     * @return listarisultati contiene i centri vaccinali trovati
+     */
+    public ArrayList<CentroVaccinale> searchCentroByTipologia(ArrayList<CentroVaccinale> listaCentriVaccinali, String tipologia) {
+        ArrayList<CentroVaccinale> listaRisultati = new ArrayList<>();
+        for (CentroVaccinale centroVaccinale: listaCentriVaccinali) {
+            if (centroVaccinale.getTipologia().toLowerCase().contains(tipologia.toLowerCase()))
+                listaRisultati.add(centroVaccinale);
+        }
+        return listaRisultati;
+    }
+
+    public Risposta visulizzaInfoCentroVaccinale(CentroVaccinale centroVaccinale) {
+        Risposta risposta = new Risposta();
+        ArrayList<EventoAvverso> eventiAvversiCentro = new ArrayList<EventoAvverso>();
+        if (!Objects.equals(centroVaccinale, new CentroVaccinale())) {
+            ArrayList<Vaccinazione> vaccinazioni = VaccinazioneDAO.getByIdCentro(centroVaccinale.getId());
+            if (!vaccinazioni.isEmpty()) {
+                for (Vaccinazione vaccinazione: vaccinazioni) {
+                    CittadinoRegistrato cittadinoRegistrato = CittadinoRegistratoDAO.getByCodiceFiscale(vaccinazione.getCodiceFiscale());
+                    if (!Objects.equals(cittadinoRegistrato, new CittadinoRegistrato())) {
+                        ArrayList<EventoAvverso> eventiAvversiCittadino = EventoAvversoDAO.getByIdCittadino(cittadinoRegistrato.getUserId());
+                        eventiAvversiCentro.addAll(eventiAvversiCittadino);
+                    }
+                }
+                if (!eventiAvversiCentro.isEmpty()) {
+                    ArrayList<ReportEventoAvverso> listaReport = reportEventiAvversiCentro(eventiAvversiCentro);
+                    risposta = new Risposta(Stato.GOOD, listaReport);
+                } else {
+                    risposta = new Risposta(Stato.ERROR, "Nessun Evento Avverso");
+                }
+            } else {
+                risposta = new Risposta(Stato.ERROR, "Non sono state registrate Vaccinazioni in questo Centro Vaccinale");
+            }
+        } else {
+            risposta = new Risposta(Stato.BAD, "");
+        }
+        return risposta;
+    }
+
+    public ArrayList<ReportEventoAvverso> reportEventiAvversiCentro(ArrayList<EventoAvverso> eventiAvversiCentro) {
+        ArrayList<ReportEventoAvverso> listaReport = new ArrayList<ReportEventoAvverso>();
+        String[] eventi = EnumDao.getEnumList("eventi");
+        for (String evento: eventi) {
+            int numeroSegnalazioni = 0;
+            float somma = 0;
+            double severitaMedia = 0.0;
+            for (EventoAvverso eventoAvverso: eventiAvversiCentro) {
+                if (eventoAvverso.getEvento().equalsIgnoreCase(evento)) {
+                    numeroSegnalazioni += 1;
+                    somma += eventoAvverso.getSeverita();
+                }
+            }
+            severitaMedia = somma/numeroSegnalazioni;
+            listaReport.add(new ReportEventoAvverso(evento,numeroSegnalazioni, severitaMedia));
+        }
+        return listaReport;
+    }
+
     public String[] getTipologie() {
         return EnumDao.getEnumList("tipologie");
     }
 
+    public Risposta esisteCentroVaccinale(String nomeCentroVaccinale) {
+        Risposta risposta = new Risposta();
+        risposta = cercaCentroVaccinale(nomeCentroVaccinale);
+        if (risposta.getStato() == Stato.GOOD)
+            risposta.setObject(true);
+        else
+            risposta.setObject(false);
+        return risposta;
+    }
+
+    public String[] getVaccini() {
+        return EnumDao.getEnumList("vaccini");
+    }
+
+    public void checkEnum() {
+        if (getTipologie() == null)
+            EnumDao.insert(new EnumModel(EnumDao.nextID(),"tipologie",
+                    new String[]{"Hub", "Aziendale", "Ospedaliero"}));
+        else if (getTipologie().length < 1){
+            EnumDao.update(new EnumModel("tipologie",
+                    new String[]{"Hub", "Aziendale", "Ospedaliero"}));
+        }
+
+        if (getVaccini() == null)
+            EnumDao.insert(new EnumModel(EnumDao.nextID(),"vaccini",
+                    new String[]{"Pfizer", "Moderna", "AstraZeneca", "Janssen (J&J)"}));
+        else if (getVaccini().length < 1){
+            EnumDao.update(new EnumModel("vaccini",
+                    new String[]{"Pfizer", "Moderna", "AstraZeneca", "Janssen (J&J)"}));
+        }
+    }
 }

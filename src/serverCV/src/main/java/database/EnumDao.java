@@ -52,13 +52,12 @@ public class EnumDao {
     }
 
     public static boolean update(EnumModel enumModel) {
-        String sql = "UPDATE enum SET enum_name = ?, enum_list = ? WHERE enum_id = ?";
+        String sql = "UPDATE enum SET enum_list = ? WHERE enum_name = ?";
         int result = 0;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
-            preparedStatement.setString(1, enumModel.getEnumName());
-            preparedStatement.setString(2, Arrays.toString(enumModel.getEnumList()));
-            preparedStatement.setInt(3, enumModel.getEnumID());
+            preparedStatement.setString(1, Arrays.toString(enumModel.getEnumList()));
+            preparedStatement.setString(2, enumModel.getEnumName());
             result = preparedStatement.executeUpdate();
             preparedStatement.close();
         } catch (SQLException var5) {

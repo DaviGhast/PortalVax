@@ -5,11 +5,11 @@ import centrivaccinali.GestoreCentriVaccinali;
 import cittadini.GestoreCittadini;
 import model.*;
 
+import java.rmi.NoSuchObjectException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.Arrays;
 
 /**
  * The class <code>RMIServer</code>
@@ -19,9 +19,9 @@ import java.util.Arrays;
 public class RMIServer extends UnicastRemoteObject implements RMIServerInterface {
 
     private static final long serialVersionUID = 1L;
-
-    private static GestoreCentriVaccinali gestoreCentriVaccinali = new GestoreCentriVaccinali();
-    private static GestoreCittadini gestoreCittadini = new GestoreCittadini();
+    private static final GestoreCentriVaccinali gestoreCentriVaccinali = new GestoreCentriVaccinali();
+    private static final GestoreCittadini gestoreCittadini = new GestoreCittadini();
+    private static Registry registry;
 
     public RMIServer() throws RemoteException {
         super();
@@ -32,13 +32,18 @@ public class RMIServer extends UnicastRemoteObject implements RMIServerInterface
      */
     public static void start() {
         try {
-            Registry reg = LocateRegistry.createRegistry(1099);
+            registry = LocateRegistry.createRegistry(1099);
             RMIServer server = new RMIServer();
-            reg.rebind("PortalVaxServer",server);
+            registry.rebind("PortalVaxServer", server);
             System.out.println("Server bounded in registry");
         }catch( Exception e) {
             System.err.println( "Server Main exception:"+e) ;
         }
+    }
+
+    public static void stop() throws NoSuchObjectException {
+        System.out.println("Stopping rmi server.");
+        UnicastRemoteObject.unexportObject(registry, true);
     }
 
     @Override
@@ -67,18 +72,23 @@ public class RMIServer extends UnicastRemoteObject implements RMIServerInterface
     }
 
     @Override
+    public Risposta esisteCentroVaccinale(String nomeCentroVaccinale) throws RemoteException {
+        return gestoreCentriVaccinali.esisteCentroVaccinale(nomeCentroVaccinale);
+    }
+
+    @Override
     public Risposta cercaCentroVaccinale(String nomeCentroVaccinale) throws RemoteException {
-        return gestoreCittadini.cercaCentroVaccinale(nomeCentroVaccinale);
+        return gestoreCentriVaccinali.cercaCentroVaccinale(nomeCentroVaccinale);
     }
 
     @Override
     public Risposta cercaCentroVaccinale(String comune, String tipologia) throws RemoteException {
-        return gestoreCittadini.cercaCentroVaccinale(comune, tipologia);
+        return gestoreCentriVaccinali.cercaCentroVaccinale(comune, tipologia);
     }
 
     @Override
     public Risposta visulizzaInfoCentroVaccinale(CentroVaccinale centroVaccinale) throws RemoteException {
-        return gestoreCittadini.visulizzaInfoCentroVaccinale(centroVaccinale);
+        return gestoreCentriVaccinali.visulizzaInfoCentroVaccinale(centroVaccinale);
     }
 
     @Override
@@ -94,6 +104,16 @@ public class RMIServer extends UnicastRemoteObject implements RMIServerInterface
     @Override
     public String[] getTipologie() throws RemoteException {
         return gestoreCentriVaccinali.getTipologie();
+    }
+
+    @Override
+    public String[] getVaccini() throws RemoteException {
+        return gestoreCentriVaccinali.getVaccini();
+    }
+
+    public static void checkEnum() {
+        gestoreCentriVaccinali.checkEnum();
+        gestoreCittadini.checkEnum();
     }
 
 }

@@ -10,9 +10,16 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <Pane prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegistraVaccinatoController">
-<ImageView fx:id="image" fitHeight="175.0" fitWidth="333.0" layoutX="134.0" layoutY="-23.0" pickOnBounds="true" preserveRatio="true">
+   <Button fx:id="indietro" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#torna_indietro" text="&lt;- Indietro" />
+   <Label layoutX="197.0" layoutY="77.0" text="Registrazione Nuovo Vaccinato">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Label>
+<ImageView fx:id="image" fitHeight="149.0" fitWidth="333.0" layoutX="151.0" layoutY="-29.0" pickOnBounds="true" preserveRatio="true">
     <image>
         <Image url="@../../../../../common/src/main/resources/images/banner.png" />
     </image>
@@ -23,12 +30,28 @@
 <Label layoutX="122.0" layoutY="150.0" text="Nome:" />
 <Label layoutX="122.0" layoutY="110.0" text="Nome Centro:" />
 <Label layoutX="123.0" layoutY="310.0" text="Tipo Vaccino:" />
-<Button fx:id="button_addnewvaccinato" layoutX="207.0" layoutY="361.0" mnemonicParsing="false" onAction="#RegistraNuovoVaccinato" text="AGGIUNGI NUOVO VACCINATO" />
-<TextField fx:id="tf_nome" layoutX="346.0" layoutY="146.0" onKeyReleased="#validatorfield1"/>
-<TextField fx:id="tf_cognome" layoutX="346.0" layoutY="186.0" onKeyReleased="#validatorfield2"/>
-<TextField fx:id="tf_codicefiscale" layoutX="346.0" layoutY="226.0" onKeyReleased="#validatorfield3"/>
-   <ChoiceBox fx:id="choicebox_tipovaccino" layoutX="345.0" layoutY="306.0" prefWidth="150.0" onAction="#validatorChoiseBox" />
-   <DatePicker fx:id="datepicker_data" layoutX="345.0" layoutY="266.0" prefHeight="25.0" prefWidth="150.0" onAction="#validatorDate"/>
+<Button fx:id="button_addnewvaccinato" layoutX="207.0" layoutY="361.0" mnemonicParsing="false" onAction="#registraNuovoVaccinato" text="AGGIUNGI NUOVO VACCINATO" />
+   <TextField fx:id="tf_nomecentro" layoutX="346.0" layoutY="106.0" onKeyReleased="#validatorNomeCentroEsistente" prefHeight="25.0" prefWidth="112.0" />
+   <Button contentDisplay="GRAPHIC_ONLY" layoutX="462.0" layoutY="106.0" mnemonicParsing="false" onAction="#viewSearch" text="Button">
+      <graphic>
+         <ImageView fx:id="search" cache="true" fitHeight="17.0" fitWidth="17.0" onMouseEntered="#viewRegex1" onMouseExited="#viewRegex0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../../../common/src/main/resources/images/search.png" />
+            </image>
+            <effect>
+               <ColorAdjust brightness="0.51" />
+            </effect>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </ImageView>
+      </graphic>
+   </Button>
+<TextField fx:id="tf_nome" layoutX="346.0" layoutY="146.0" onKeyReleased="#validatorfield1" />
+<TextField fx:id="tf_cognome" layoutX="346.0" layoutY="186.0" onKeyReleased="#validatorfield2" />
+<TextField fx:id="tf_codicefiscale" layoutX="346.0" layoutY="226.0" onKeyReleased="#validatorfield3" />
+   <DatePicker fx:id="datepicker_data" layoutX="345.0" layoutY="266.0" onAction="#validatorDate" prefHeight="25.0" prefWidth="150.0" />
+   <ChoiceBox fx:id="choicebox_tipovaccino" layoutX="345.0" layoutY="306.0" onAction="#validatorChoiseBox" prefWidth="150.0" />
    <ImageView fx:id="cross_nome" fitHeight="30.0" fitWidth="30.0" layoutX="504.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../../../../../common/src/main/resources/images/cross.png" />
@@ -123,23 +146,7 @@
          <Image url="@../../../../../common/src/main/resources/images/check_mark.png" />
       </image>
    </ImageView>
-   <TextField fx:id="tf_nomecentro" layoutX="346.0" layoutY="106.0" prefHeight="25.0" prefWidth="112.0" />
-   <Button contentDisplay="GRAPHIC_ONLY" layoutX="462.0" layoutY="106.0" mnemonicParsing="false" text="Button">
-      <graphic>
-         <ImageView fx:id="search" cache="true" fitHeight="17.0" fitWidth="17.0" onMouseEntered="#viewRegex1" onMouseExited="#viewRegex0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../../../../../common/src/main/resources/images/search.png" />
-            </image>
-            <effect>
-               <ColorAdjust brightness="0.51" />
-            </effect>
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor>
-         </ImageView>
-      </graphic>
-   </Button>
-   <ImageView fx:id="info_nomecentro" cache="true" fitHeight="17.0" fitWidth="17.0" layoutX="205.0" layoutY="111.0" onMouseEntered="#viewRegex1" onMouseExited="#viewRegex0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fx:id="info_nomecentro" cache="true" fitHeight="17.0" fitWidth="17.0" layoutX="205.0" layoutY="111.0" onMouseEntered="#viewRegexNomeCentro" onMouseExited="#viewRegex0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../../../../../common/src/main/resources/images/information.png" />
       </image>

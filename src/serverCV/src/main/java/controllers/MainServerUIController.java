@@ -24,7 +24,7 @@ public class MainServerUIController extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        scene = new Scene(loadFXML("serverCV"));
+        scene = new Scene(loadFXML("server_home"));
         //scene.setFill(Color.TRANSPARENT);
         scene.setFill(Color.DARKGREEN);
         //primaryStage.initStyle(StageStyle.TRANSPARENT);
