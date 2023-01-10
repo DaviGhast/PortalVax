@@ -102,12 +102,13 @@ public class GestoreCittadini {
     }
 
     public void checkEnum() {
-        if (getEventi() == null)
-            EnumDao.insert(new EnumModel(EnumDao.nextID(),"tipologie",
-                    new String[]{}));
-        else if (getEventi().length < 1){
-            EnumDao.update(new EnumModel("tipologie",
-                    new String[]{}));
+        String[] eventi = getEventi();
+        if (eventi == null)
+            EnumDao.insert(new EnumModel(EnumDao.nextID(),"eventi",
+                    new String[]{"Mal di Testa", "Dolori Muscolari"}));
+        else if (eventi.length < 1){
+            EnumDao.update(new EnumModel("eventi",
+                    new String[]{"Mal di Testa", "Dolori Muscolari"}));
         }
     }
 

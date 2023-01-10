@@ -33,12 +33,13 @@ public class EnumDao {
     }
 
     public static boolean insert(EnumModel enumModel) {
-        String sql = "INSERT INTO enum(enum_name,enum_list) VALUES(?,?);";
+        String sql = "INSERT INTO enum(id,name,list) VALUES(?,?,?);";
         int result = 0;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
-            preparedStatement.setString(1, enumModel.getEnumName());
-            preparedStatement.setString(2, Arrays.toString(enumModel.getEnumList()));
+            preparedStatement.setInt(1, enumModel.getEnumID());
+            preparedStatement.setString(2, enumModel.getEnumName());
+            preparedStatement.setString(3, Arrays.toString(enumModel.getEnumList()));
             result = preparedStatement.executeUpdate();
             preparedStatement.close();
         } catch (SQLException var5) {
@@ -52,30 +53,12 @@ public class EnumDao {
     }
 
     public static boolean update(EnumModel enumModel) {
-        String sql = "UPDATE enum SET enum_list = ? WHERE enum_name = ?";
+        String sql = "UPDATE enum SET list = ? WHERE name = ?";
         int result = 0;
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, Arrays.toString(enumModel.getEnumList()));
             preparedStatement.setString(2, enumModel.getEnumName());
-            result = preparedStatement.executeUpdate();
-            preparedStatement.close();
-        } catch (SQLException var5) {
-            var5.printStackTrace();
-        }
-        if (result == 1){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public static boolean delete(EnumModel enumModel) {
-        String sql = "DELETE FROM user WHERE user_id = ? AND user_name = ? AND user_pwd = ? AND user_role = ?";
-        int result = 0;
-        try {
-            PreparedStatement preparedStatement = conn.prepareStatement(sql);
-
             result = preparedStatement.executeUpdate();
             preparedStatement.close();
         } catch (SQLException var5) {
@@ -96,9 +79,9 @@ public class EnumDao {
 
             while(rs.next()) {
                 result.add(new EnumModel(
-                        rs.getInt("enum_id"),
-                        rs.getString("enum_name"),
-                        stringToArray(rs.getString("enum_list"))
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        stringToArray(rs.getString("list"))
                 ));
             }
         } catch (SQLException var3) {

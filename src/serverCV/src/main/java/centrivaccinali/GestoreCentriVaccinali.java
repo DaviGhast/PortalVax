@@ -195,18 +195,20 @@ public class GestoreCentriVaccinali {
     }
 
     public void checkEnum() {
-        if (getTipologie() == null)
+        String[] tipologie = getTipologie();
+        if (tipologie == null)
             EnumDao.insert(new EnumModel(EnumDao.nextID(),"tipologie",
                     new String[]{"Hub", "Aziendale", "Ospedaliero"}));
-        else if (getTipologie().length < 1){
+        else if (tipologie.length < 1){
             EnumDao.update(new EnumModel("tipologie",
                     new String[]{"Hub", "Aziendale", "Ospedaliero"}));
         }
 
-        if (getVaccini() == null)
+        String[] vaccini = getVaccini();
+        if (vaccini == null)
             EnumDao.insert(new EnumModel(EnumDao.nextID(),"vaccini",
                     new String[]{"Pfizer", "Moderna", "AstraZeneca", "Janssen (J&J)"}));
-        else if (getVaccini().length < 1){
+        else if (vaccini.length < 1){
             EnumDao.update(new EnumModel("vaccini",
                     new String[]{"Pfizer", "Moderna", "AstraZeneca", "Janssen (J&J)"}));
         }
