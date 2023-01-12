@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.InfoCentroController">
+    <Button fx:id="indietro" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#torna_indietro" text="&lt;- Indietro" />
+    <Label layoutX="224.0" layoutY="77.0" text="Cerca Centro Vaccinale">
+        <font>
+            <Font name="System Bold" size="14.0" />
+        </font>
+    </Label>
+    <ImageView fx:id="image" fitHeight="149.0" fitWidth="333.0" layoutX="151.0" layoutY="-29.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../../../../../common/src/main/resources/images/banner.png" />
+        </image>
+    </ImageView>
+    <Label layoutX="123.0" layoutY="206.0" text="Comune:" />
+    <Label layoutX="123.0" layoutY="151.0" text="Nome Centro:" />
+    <Label layoutX="123.0" layoutY="261.0" text="Tipologia:" />
+    <Button fx:id="button_cercainfocentro" layoutX="206.0" layoutY="343.0" mnemonicParsing="false" onAction="#CercaCentro" text="CERCA INFORMAZIONI CENTRO" />
+    <TextField fx:id="tf_comune" layoutX="346.0" layoutY="202.0" onKeyReleased="#validatorfield2" />
+    <ChoiceBox fx:id="choicebox_tipologia" layoutX="345.0" layoutY="257.0" onAction="#validatorChoiseBox" prefWidth="150.0" />
+    <ImageView fx:id="cross_comune" fitHeight="30.0" fitWidth="30.0" layoutX="504.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../../../../../common/src/main/resources/images/cross.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="checkmark_comune" fitHeight="30.0" fitWidth="30.0" layoutX="504.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../../../../../common/src/main/resources/images/check_mark.png" />
+        </image>
+    </ImageView>
+    <Label fx:id="infoRegex" alignment="CENTER" layoutX="50.0" layoutY="338.0" prefHeight="17.0" prefWidth="500.0" textAlignment="CENTER" textOverrun="CLIP" />
+    <ImageView fx:id="info_comune" cache="true" fitHeight="17.0" fitWidth="17.0" layoutX="183.0" layoutY="208.0" onMouseEntered="#viewRegex2" onMouseExited="#viewRegex0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../../../../../common/src/main/resources/images/information.png" />
+        </image>
+        <effect>
+            <ColorAdjust brightness="-0.38" />
+        </effect>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+    </ImageView>
+    <ImageView fx:id="cross_nomecentro" fitHeight="30.0" fitWidth="30.0" layoutX="505.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../../../../../common/src/main/resources/images/cross.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="checkmark_nomecentro" fitHeight="30.0" fitWidth="30.0" layoutX="505.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../../../../../common/src/main/resources/images/check_mark.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="cross_tipologia" fitHeight="30.0" fitWidth="30.0" layoutX="505.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../../../../../common/src/main/resources/images/cross.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="checkmark_tipologia" fitHeight="30.0" fitWidth="30.0" layoutX="505.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../../../../../common/src/main/resources/images/check_mark.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="info_nomecentro" cache="true" fitHeight="17.0" fitWidth="17.0" layoutX="206.0" layoutY="152.0" onMouseEntered="#viewRegexNomeCentro" onMouseExited="#viewRegex0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../../../../../common/src/main/resources/images/information.png" />
+        </image>
+        <effect>
+            <ColorAdjust brightness="-0.38" />
+        </effect>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+    </ImageView>
+   <ChoiceBox fx:id="choicebox_nomecentro" layoutX="345.0" layoutY="147.0" onAction="#validatoreNomeCentro" prefWidth="150.0" />
+</Pane>
