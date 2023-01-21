@@ -12,6 +12,10 @@ public class CentroVaccinaleDAO{
 
     static Connection conn = getConnect();
 
+    /**
+     * Il Metodo <code>getAll</code> permette di ottenere tutte le informazioni del centro vaccinale
+     * @return Oggetto result valorizzato
+     */
     public static ArrayList<CentroVaccinale> getAll() {
         ArrayList<CentroVaccinale> result = new ArrayList<>();
         try {
@@ -35,6 +39,11 @@ public class CentroVaccinaleDAO{
         return result;
     }
 
+    /**
+     * Il Metodo <code>getByName</code> permette di ottenere tutte le informazioni di un determinato centro vaccinale in base al nome
+     * @param nomeCentroVaccinale stringa contenente il nome del centro vaccinale ricercato
+     * @return Oggetto result valorizzato
+     */
     public static ArrayList<CentroVaccinale> getByName(String nomeCentroVaccinale) {
         ArrayList<CentroVaccinale> result = new ArrayList<>();
         String sql = "SELECT * FROM centro_vaccinale WHERE nome_centro_vaccinale = ?;";
@@ -59,6 +68,11 @@ public class CentroVaccinaleDAO{
         return result;
     }
 
+    /**
+     * Il Metodo <code>getByComune</code> permette di ottenere tutte le informazioni di un determinato centro vaccinale in base al comune
+     * @param comune stringa contenente il nome del comune del centro vaccinale ricercato
+     * @return Oggetto result valorizzato
+     */
     public static ArrayList<CentroVaccinale> getByComune(String comune) {
         ArrayList<CentroVaccinale> result = new ArrayList<>();
         String sql = "SELECT nome_centro_vaccinale FROM centro_vaccinale WHERE comune = ?;";
@@ -83,6 +97,11 @@ public class CentroVaccinaleDAO{
         return result;
     }
 
+    /**
+     * Il Metodo <code>insert</code> permette di inserire un nuovo centro vaccinale
+     * @param centroVaccinale oggetto contenente tutte le informazini del nuovo centro vaccinale
+     * @return Oggetto result valorizzato
+     */
     public static boolean insert(CentroVaccinale centroVaccinale) {
         String sql = "INSERT INTO centro_vaccinale(id,nome_centro_vaccinale,indirizzo,comune,sigla_provincia," +
                 "cap,tipologia) VALUES(?,?,?,?,?,?,?)";
@@ -103,7 +122,11 @@ public class CentroVaccinaleDAO{
         }
         return result == 1;
     }
-
+    /**
+     * Il Metodo <code>update</code> permette di aggiornare le informazioni di un centro vaccinale
+     * @param centroVaccinale oggetto contenente tutte le informazini aggiornate del centro vaccinale
+     * @return Oggetto result valorizzato
+     */
     public static boolean update(CentroVaccinale centroVaccinale) {
         String sql = "UPDATE centro_vaccinale SET nome_centro_vaccinale = ?,indirizzo = ?,comune = ?," +
                 "sigla_provincia = ?,cap = ?,tipologia = ? WHERE id = ?";
@@ -124,7 +147,11 @@ public class CentroVaccinaleDAO{
         }
         return result == 1;
     }
-
+    /**
+     * Il Metodo <code>delete</code> permette di cancellare le informazioni di un centro vaccinale
+     * @param centroVaccinale oggetto contenente tutte le informazini del centro vaccinale da cancellare
+     * @return Oggetto result valorizzato
+     */
     public static boolean delete(CentroVaccinale centroVaccinale) {
         String sql = "DELETE FROM centro_vaccinale WHERE id = ?";
         int result = 0;

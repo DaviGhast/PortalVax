@@ -9,10 +9,10 @@ import java.util.Objects;
 public class GestoreCittadini {
 
     /**
-     *
-     * @param cittadinoRegistrato
-     * @param idVaccinazione
-     * @return
+     * Il Metodo <code>registraCittadino</code> permette di registrare un cittadino
+     * @param cittadinoRegistrato oggetto contenente tutte le informazioni del cittadino
+     * @param idVaccinazione short contenente l'id di vaccinazione del cittadino
+     * @return Oggetto risposta valorizzato
      */
     public Risposta registraCittadino(CittadinoRegistrato cittadinoRegistrato, short idVaccinazione) {
         // creazione Oggetto Risposta non valorizzato
@@ -50,6 +50,11 @@ public class GestoreCittadini {
         return risposta;
     }
 
+    /**
+     * Il Metodo <code>cercaIdVaccinazione</code> permette di cercare l'id di vaccinazione in base al codice fiscale
+     * @param codiceFiscale stringa contenente il codice fiscale in base al cui si cerca l'id
+     * @return Oggetto risposta valorizzato
+     */
     public Risposta cercaIdVaccinazione(String codiceFiscale) {
         Risposta risposta = new Risposta();
         Vaccinazione vaccinazione = VaccinazioneDAO.getByCodiceFiscale(codiceFiscale);
@@ -61,6 +66,12 @@ public class GestoreCittadini {
         return risposta;
     }
 
+    /**
+     * Il Metodo <code>loginCittadino</code> permette di fare il login
+     * @param emailAnduserid stringa contenente l'username
+     * @param password stringa contenente la password
+     * @return Oggetto risposta valorizzato
+     */
     public Risposta loginCittadino(String emailAnduserid, String password) {
         Risposta risposta = new Risposta();
         CittadinoRegistrato cittadinoRegistrato = new CittadinoRegistrato();
@@ -84,6 +95,11 @@ public class GestoreCittadini {
         return EnumDao.getEnumList("eventi");
     }
 
+    /**
+     * Il Metodo <code>inserisciEventiAvversi</code> permette inserire gli eventi avversi
+     * @param eventoAvverso oggetto contenente tutte le informazione dell'evento avverso
+     * @return Oggetto risposta valorizzato
+     */
     public Risposta inserisciEventiAvversi(EventoAvverso eventoAvverso) {
         Risposta risposta = new Risposta();
         if (!eventoAvverso.equals(new EventoAvverso())) {

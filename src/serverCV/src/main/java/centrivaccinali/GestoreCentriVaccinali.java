@@ -52,9 +52,9 @@ public class GestoreCentriVaccinali {
     }
 
     /**
-     * Il Metodo <code>registraVaccinato</code>
-     * @param vaccinazione
-     * @param cittadino
+     * Il Metodo <code>registraVaccinato</code> permette di registrare un cittadino vaccinato
+     * @param vaccinazione oggetto vaccinazione contenente tutte le informazioni della vaccinazione
+     * @param cittadino oggetto cittadino contenente tutte le informazioni del cittadino
      * @return Oggetto Risposta valorizzato
      */
     public Risposta registraVaccinato(Vaccinazione vaccinazione, Cittadino cittadino){
@@ -81,6 +81,11 @@ public class GestoreCentriVaccinali {
         return risposta;
     }
 
+    /**
+     * Il Metodo <code>cercaCentroVaccinale</code> permette di fare la ricerca di un centro vaccinale in base al nome
+     * @param nomeCentroVaccinale stringa contenente il nome del centro ricercato
+     * @return Oggetto Risposta valorizzato
+     */
     public Risposta cercaCentroVaccinale(String nomeCentroVaccinale) {
         Risposta risposta = new Risposta();
         if (!nomeCentroVaccinale.isEmpty()) {
@@ -96,6 +101,12 @@ public class GestoreCentriVaccinali {
         return risposta;
     }
 
+    /**
+     * Il Metodo <code>cercaCentroVaccinale</code> permette di fare la ricerca di un centro vaccinale in base al comune e alla tipologia
+     * @param comune stringa contenente il nome del comune del centro ricercato
+     * @param tipologia stringa contenente la tipologia del centro ricercato
+     * @return Oggetto Risposta valorizzato
+     */
     public Risposta cercaCentroVaccinale(String comune, String tipologia) {
         Risposta risposta = new Risposta();
         if (!comune.isEmpty()) {
@@ -116,7 +127,8 @@ public class GestoreCentriVaccinali {
     }
 
     /**
-     * il metodo si occupa di cercare il centro vaccinale di interesse tramite tipologia all'interno della tabella
+     * Il Metodo <code>searchCentroByTipologia</code> si occupa di cercare il centro vaccinale di interesse tramite tipologia all'interno della tabella
+     * @param listaCentriVaccinali lista contenente i centri vaccinali
      * @param tipologia il nome della tipologia
      * @return listarisultati contiene i centri vaccinali trovati
      */
@@ -129,6 +141,11 @@ public class GestoreCentriVaccinali {
         return listaRisultati;
     }
 
+    /**
+     * Il Metodo <code>visualizzaInfoCentroVaccinale</code> permette di visualizzare eventuali informazioni di un determinato centro
+     * @param centroVaccinale oggetto contenente le informazioni del centro di cui si volle visualizzare le informazioni
+     * @return Oggetto Risposta valorizzato
+     */
     public Risposta visulizzaInfoCentroVaccinale(CentroVaccinale centroVaccinale) {
         Risposta risposta = new Risposta();
         ArrayList<EventoAvverso> eventiAvversiCentro = new ArrayList<EventoAvverso>();
@@ -157,6 +174,11 @@ public class GestoreCentriVaccinali {
         return risposta;
     }
 
+    /**
+     * Il Metodo <code>reportEventiAvversiCentro</code> permette di avere una lista di report degli evventi avversi di un centro
+     * @param eventiAvversiCentro lista contenente gli eventi avversi del centro
+     * @return Oggetto listaReport valorizzato
+     */
     public ArrayList<ReportEventoAvverso> reportEventiAvversiCentro(ArrayList<EventoAvverso> eventiAvversiCentro) {
         ArrayList<ReportEventoAvverso> listaReport = new ArrayList<ReportEventoAvverso>();
         String[] eventi = EnumDao.getEnumList("eventi");
@@ -180,6 +202,11 @@ public class GestoreCentriVaccinali {
         return EnumDao.getEnumList("tipologie");
     }
 
+    /**
+     * Il Metodo <code>esisteCentroVaccinale</code> permette di fare una ricerca dei dentri vaccinali in base al nome
+     * @param nomeCentroVaccinale stringa contenente il nome del centro vaccinale ricercato
+     * @return Oggetto listaReport valorizzato
+     */
     public Risposta esisteCentroVaccinale(String nomeCentroVaccinale) {
         Risposta risposta = new Risposta();
         risposta = cercaCentroVaccinale(nomeCentroVaccinale);

@@ -13,6 +13,10 @@ public class VaccinazioneDAO{
 
     static Connection conn = getConnect();
 
+    /**
+     * Il Metodo <code>getAll</code> permette di ottenere tutte le informazioni della vaccinazione
+     * @return Oggetto result valorizzato
+     */
     public static ArrayList<Vaccinazione> getAll() {
         ArrayList<Vaccinazione> result = new ArrayList<>();
         try {
@@ -34,6 +38,11 @@ public class VaccinazioneDAO{
         return result;
     }
 
+    /**
+     * Il Metodo <code>getVaccinazione</code> permette di ottenere tutte le informazioni della vaccinazione in base all'id
+     * @param idVaccinazione short contenente l'id della vaccinazione ricercata
+     * @return Oggetto result valorizzato
+     */
     public static Vaccinazione getVaccinazione(short idVaccinazione) {
         Vaccinazione result = new Vaccinazione();
         String sql = "SELECT * FROM vaccinazione WHERE id = ?;";
@@ -53,7 +62,11 @@ public class VaccinazioneDAO{
         }
         return result;
     }
-
+    /**
+     * Il Metodo <code>getByIdCentro</code> permette di ottenere tutte le informazioni delle vaccinazioni di un determinato centro vaccinale
+     * @param idCentroVaccinale short contenente l'id del centro vaccinale di cui si ricercano le vaccinazioni
+     * @return Oggetto result valorizzato
+     */
     public static ArrayList<Vaccinazione> getByIdCentro(short idCentroVaccinale) {
         ArrayList<Vaccinazione> result = new ArrayList<>();
         String sql = "SELECT * FROM vaccinazione WHERE id_centro_vaccinale = ?;";
@@ -75,7 +88,11 @@ public class VaccinazioneDAO{
         }
         return result;
     }
-
+    /**
+     * Il Metodo <code>getByCodiceFiscale</code> permette di ottenere tutte le informazioni delle vaccinazioni in base a un determinato codice fiscale
+     * @param codiceFiscale stringa contenente il codice fiscale in base al cui si ricercano le vaccinazioni
+     * @return Oggetto result valorizzato
+     */
     public static Vaccinazione getByCodiceFiscale(String codiceFiscale) {
         Vaccinazione result = new Vaccinazione();
         String sql = "SELECT * FROM vaccinazione WHERE codice_fiscale = ?;";
@@ -97,6 +114,11 @@ public class VaccinazioneDAO{
         return result;
     }
 
+    /**
+     * Il Metodo <code>insert</code> permette di inserire una nuova vaccinazione
+     * @param vaccinazione oggetto contenente tutte le informazini della vaccinazione
+     * @return Oggetto result valorizzato
+     */
     public static boolean insert(Vaccinazione vaccinazione) {
         String sql = "INSERT INTO vaccinazione(id,vaccino_somministrato,data_vaccinazione,id_centro_vaccinale,codice_fiscale)" +
                 " VALUES(?,?,?,?,?)";
@@ -115,7 +137,11 @@ public class VaccinazioneDAO{
         }
         return result == 1;
     }
-
+    /**
+     * Il Metodo <code>update</code> permette di aggiornare le informazioni di una vaccinazione
+     * @param vaccinazione oggetto contenente tutte le informazini delLa vaccinazione
+     * @return Oggetto result valorizzato
+     */
     public static boolean update(Vaccinazione vaccinazione) {
         String sql = "UPDATE vaccinazione SET vaccino_somministarto = ?,data_vaccinazione = ?,id_centro_vaccinale = ?," +
                 "codice_fiscale = ? WHERE id = ?";
@@ -135,6 +161,11 @@ public class VaccinazioneDAO{
         return result == 1;
     }
 
+    /**
+     * Il Metodo <code>delete</code> permette di cancellare una vaccinazione
+     * @param vaccinazione oggetto contenente tutte le informazini della vaccinazione da cancellare
+     * @return Oggetto result valorizzato
+     */
     public static boolean delete(Vaccinazione vaccinazione) {
         String sql = "DELETE FROM vaccinazione WHERE id = ?";
         int result = 0;

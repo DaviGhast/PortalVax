@@ -10,6 +10,10 @@ import static database.DBAccess.getConnect;
 public class EventoAvversoDAO {
     static Connection conn = getConnect();
 
+    /**
+     * Il Metodo <code>getAll</code> permette di ottenere tutte le informazioni dell'evento avverso
+     * @return Oggetto result valorizzato
+     */
     public static ArrayList<EventoAvverso> getAll() {
         ArrayList<EventoAvverso> result = new ArrayList<>();
         try {
@@ -31,6 +35,11 @@ public class EventoAvversoDAO {
         return result;
     }
 
+    /**
+     * Il Metodo <code>getByIdCittadino</code> permette di ottenere tutte le informazioni degli eventi avversi di un cittadino in base al suo id
+     * @param idCittadino stringa contenente l'id del cittadino di cui cui si cerca gli eventi avversi
+     * @return Oggetto result valorizzato
+     */
     public static ArrayList<EventoAvverso> getByIdCittadino(String idCittadino) {
         ArrayList<EventoAvverso> result = new ArrayList<>();
         String sql = "SELECT * FROM evento_avverso WHERE id_cittadino = ?;";
@@ -53,7 +62,11 @@ public class EventoAvversoDAO {
         return result;
     }
 
-
+    /**
+     * Il Metodo <code>insert</code> permette di inserire un nuovo evento avverso
+     * @param eventoAvverso oggetto contenente tutte le informazini dell'evento avverso
+     * @return Oggetto result valorizzato
+     */
     public static boolean insert(EventoAvverso eventoAvverso) {
         String sql = "INSERT INTO evento_avverso(id,evento,severità,id_cittadino,note)" +
                 " VALUES(?,?,?,?,?)";
@@ -72,7 +85,11 @@ public class EventoAvversoDAO {
         }
         return result == 1;
     }
-
+    /**
+     * Il Metodo <code>update</code> permette di aggiornare le informazioni di un evento avverso
+     * @param eventoavverso oggetto contenente tutte le informazini delL'evento avverso
+     * @return Oggetto result valorizzato
+     */
     public static boolean update(EventoAvverso eventoavverso) {
         String sql = "UPDATE evento_avverso SET evento = ?,severità = ?,id_cittadino = ?,note = ? WHERE id = ?";
         int result = 0;
@@ -91,6 +108,11 @@ public class EventoAvversoDAO {
         return result == 1;
     }
 
+    /**
+     * Il Metodo <code>delete</code> permette di cancellare un evento avverso
+     * @param eventoavverso oggetto contenente tutte le informazini dell'evento avverso da cancellare
+     * @return Oggetto result valorizzato
+     */
     public static boolean delete(EventoAvverso eventoavverso) {
         String sql = "DELETE FROM evento_avverso WHERE id = ?";
         int result = 0;
