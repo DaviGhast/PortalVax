@@ -75,7 +75,7 @@ public class CentroVaccinaleDAO{
      */
     public static ArrayList<CentroVaccinale> getByComune(String comune) {
         ArrayList<CentroVaccinale> result = new ArrayList<>();
-        String sql = "SELECT nome_centro_vaccinale FROM centro_vaccinale WHERE comune = ?;";
+        String sql = "SELECT * FROM centro_vaccinale WHERE comune = ?;";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, comune);

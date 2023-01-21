@@ -27,6 +27,7 @@ public class HomeController implements Initializable {
         MainClientUIController.setRoot("operatore_home");
     }
 
-    public void cittadinoAction(ActionEvent actionEvent) {
+    public void cittadinoAction(ActionEvent actionEvent) throws IOException {
+        MainClientUIController.setRoot("cittadino_home");
     }
 }

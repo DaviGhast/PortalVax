@@ -45,7 +45,7 @@ CREATE TABLE vaccinazione (
 	id Integer primary key,
 	vaccino_somministrato varchar(255),
 	data_vaccinazione date,
-	id_centro_vaccinale Integer references centro_vaccinale,
+	id_centro_vaccinale Integer references centro_vaccinale(id),
 	codice_fiscale varchar(16) references cittadino
 );
 
@@ -85,7 +85,7 @@ CREATE TABLE evento_avverso (
 	evento varchar(30),
 	severità Integer,
 	note varchar(255),
-	id_cittadino varchar(12) references cittadino_registrato
+	id_cittadino varchar(12) references cittadino_registrato(userid)
 );
 
 ALTER TABLE evento_avverso ADD CONSTRAINT evento_not_null

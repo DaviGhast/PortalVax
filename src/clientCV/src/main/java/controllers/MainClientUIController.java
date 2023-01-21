@@ -29,6 +29,8 @@ public class MainClientUIController extends Application {
 
     private static Scene scene;
 
+    private static String backScene;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         if (RMIClient.serverConnection())
@@ -55,5 +57,12 @@ public class MainClientUIController extends Application {
        fxmlLoader.setLocation(MainClientUIController.class.getClassLoader().getResource("fxml/"+fxml+".fxml"));
        return fxmlLoader.load();
    }
-    
+
+    public static String getBackScene() {
+        return backScene;
+    }
+
+    public static void setBackScene(String backScene) {
+        MainClientUIController.backScene = backScene;
+    }
 }

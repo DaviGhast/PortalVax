@@ -94,12 +94,13 @@ public class VaccinazioneDAO{
      * @return Oggetto result valorizzato
      */
     public static Vaccinazione getByCodiceFiscale(String codiceFiscale) {
-        Vaccinazione result = new Vaccinazione();
-        String sql = "SELECT * FROM vaccinazione WHERE codice_fiscale = ?;";
+        Vaccinazione result = null;
+        String sql = "SELECT * FROM vaccinazione WHERE codice_fiscale = ?";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, codiceFiscale);
             ResultSet rs = preparedStatement.executeQuery();
+            rs.next();
             result =new Vaccinazione(
                     rs.getShort("id"),
                     rs.getString("vaccino_somministrato"),

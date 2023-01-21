@@ -27,7 +27,7 @@ public class SearchController implements Initializable {
     public TextField tf_nomecentro;
     public ImageView search;
     public DialogPane dialog;
-    public CentroVaccinale centroVaccinale = new CentroVaccinale();
+    private CentroVaccinale centroVaccinale = null;
     public TableView<CentroVaccinale> table;
     public TableColumn<CentroVaccinale,String> nome;
     public TableColumn<CentroVaccinale,String> tipologia;
@@ -51,9 +51,15 @@ public class SearchController implements Initializable {
 
         centroVaccinale = table.getSelectionModel().getSelectedItem();
 
-        info_selected.setText("Hai Selezionato: " + centroVaccinale.getNomeCentroVaccinale());
-        StyleUI.setGreen(info_selected);
+        if (centroVaccinale != null) {
+            info_selected.setText("Hai Selezionato: " + centroVaccinale.getNomeCentroVaccinale());
+            StyleUI.setGreen(info_selected);
+        }
 
+    }
+
+    public CentroVaccinale getCentroVaccinale() {
+        return centroVaccinale;
     }
 
     @Override

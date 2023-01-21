@@ -63,13 +63,13 @@ public class GestoreCentriVaccinali {
             if (vaccinazione.getId() == 0){
                 vaccinazione.setId((short) VaccinazioneDAO.nextID());
             }
-            if (VaccinazioneDAO.getByCodiceFiscale(cittadino.getCodiceFiscale()) != null) {
-                if (VaccinazioneDAO.insert(vaccinazione)) {
-                    if (CittadinoDAO.insert(cittadino)) {
+            if (VaccinazioneDAO.getByCodiceFiscale(cittadino.getCodiceFiscale()) == null) {
+                if (CittadinoDAO.insert(cittadino)) {
+                    if (VaccinazioneDAO.insert(vaccinazione)) {
                         risposta = new Risposta(Stato.GOOD, "Registrazione eseguita con Successo");
                     } else {
                         risposta = new Risposta(Stato.ERROR, "Registrazione non andata a buon fine");
-                        VaccinazioneDAO.delete(vaccinazione);
+                        CittadinoDAO.delete(cittadino);
                     }
                 }
             } else {
@@ -93,10 +93,10 @@ public class GestoreCentriVaccinali {
             if (!centriVaccinali.isEmpty()) {
                 risposta = new Risposta(Stato.GOOD, centriVaccinali);
             } else {
-                risposta = new Risposta(Stato.ERROR, "");
+                risposta = new Risposta(Stato.ERROR, "Non esiste nessun Centro Vaccinale con il nome: "+nomeCentroVaccinale);
             }
         } else {
-            risposta = new Risposta(Stato.BAD, "");
+            risposta = new Risposta(Stato.BAD, "Nome Centro inserito è nullo");
         }
         return risposta;
     }

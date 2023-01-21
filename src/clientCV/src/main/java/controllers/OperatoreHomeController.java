@@ -29,4 +29,8 @@ public class OperatoreHomeController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         image.setImage(new Image("images/banner.png"));
     }
+
+    public void torna_indietro(ActionEvent actionEvent) throws IOException {
+        MainClientUIController.setRoot("home");
+    }
 }

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegistrazioneCittadinoController">
+   <Button fx:id="indietro" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#torna_indietro" text="&lt;- Indietro" />
+<ImageView fx:id="image" fitHeight="149.0" fitWidth="333.0" layoutX="151.0" layoutY="-29.0" pickOnBounds="true" preserveRatio="true">
+    <image>
+        <Image url="@../../../../../common/src/main/resources/images/banner.png" />
+    </image>
+</ImageView>
+<Label layoutX="123.0" layoutY="151.0" text="Codice Fiscale" />
+<Label layoutX="123.0" layoutY="190.0" text="Email" />
+<Label layoutX="122.0" layoutY="110.0" text="ID Vaccinazione" />
+<Button fx:id="button_registracittadino" layoutX="261.0" layoutY="361.0" mnemonicParsing="false" onAction="#registraCittadino" text="REGISTRATI" />
+   <TextField fx:id="tf_idvaccinazione" layoutX="346.0" layoutY="106.0" onKeyReleased="#validatorIdVaccinazione" prefHeight="25.0" prefWidth="112.0" />
+   <Button contentDisplay="GRAPHIC_ONLY" layoutX="462.0" layoutY="106.0" mnemonicParsing="false" onAction="#viewSearch" text="Button">
+      <graphic>
+         <ImageView fx:id="search" cache="true" fitHeight="17.0" fitWidth="17.0" onMouseEntered="#viewRegex1" onMouseExited="#viewRegex0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../../../common/src/main/resources/images/search.png" />
+            </image>
+            <effect>
+               <ColorAdjust brightness="0.51" />
+            </effect>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </ImageView>
+      </graphic>
+   </Button>
+<TextField fx:id="tf_email" layoutX="346.0" layoutY="186.0" onKeyReleased="#validatorfield2" />
+<TextField fx:id="tf_codicefiscale" layoutX="346.0" layoutY="147.0" onKeyReleased="#validatorCodiceFiscale" />
+   <ImageView fx:id="cross_codicefiscale" fitHeight="30.0" fitWidth="30.0" layoutX="504.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/cross.png" />
+      </image>
+   </ImageView>
+   <ImageView fx:id="cross_email" fitHeight="30.0" fitWidth="30.0" layoutX="504.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/cross.png" />
+      </image>
+   </ImageView>
+   <ImageView fx:id="cross_userid" fitHeight="30.0" fitWidth="30.0" layoutX="504.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/cross.png" />
+      </image>
+   </ImageView>
+   <ImageView fx:id="checkmark_codicefiscale" fitHeight="30.0" fitWidth="30.0" layoutX="504.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/check_mark.png" />
+      </image>
+   </ImageView>
+   <ImageView fx:id="checkmark_email" fitHeight="30.0" fitWidth="30.0" layoutX="504.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/check_mark.png" />
+      </image>
+   </ImageView>
+   <ImageView fx:id="checkmark_userid" fitHeight="30.0" fitWidth="30.0" layoutX="504.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/check_mark.png" />
+      </image>
+   </ImageView>
+   <Label fx:id="infoRegex" alignment="CENTER" layoutX="50.0" layoutY="338.0" prefHeight="17.0" prefWidth="500.0" textAlignment="CENTER" textOverrun="CLIP" />
+   <ImageView fx:id="info_email" cache="true" fitHeight="17.0" fitWidth="17.0" layoutX="155.0" layoutY="190.0" onMouseEntered="#viewRegex2" onMouseExited="#viewRegex0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/information.png" />
+      </image>
+      <effect>
+         <ColorAdjust brightness="-0.38" />
+      </effect>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </ImageView>
+   <ImageView fx:id="info_codicefiscale" cache="true" fitHeight="17.0" fitWidth="17.0" layoutX="205.0" layoutY="151.0" onMouseEntered="#viewRegex3" onMouseExited="#viewRegex0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/information.png" />
+      </image>
+      <effect>
+         <ColorAdjust brightness="-0.38" />
+      </effect>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </ImageView>
+   <ImageView fx:id="cross_idvaccinazione" fitHeight="30.0" fitWidth="30.0" layoutX="504.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/cross.png" />
+      </image>
+   </ImageView>
+   <ImageView fx:id="checkmark_idvaccinazione" fitHeight="30.0" fitWidth="30.0" layoutX="504.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/check_mark.png" />
+      </image>
+   </ImageView>
+   <ImageView fx:id="cross_password" fitHeight="30.0" fitWidth="30.0" layoutX="504.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/cross.png" />
+      </image>
+   </ImageView>
+   <ImageView fx:id="checkmark_password" fitHeight="30.0" fitWidth="30.0" layoutX="504.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/check_mark.png" />
+      </image>
+   </ImageView>
+   <ImageView fx:id="cross_confermapassword" fitHeight="30.0" fitWidth="30.0" layoutX="504.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/cross.png" />
+      </image>
+   </ImageView>
+   <ImageView fx:id="checkmark_confermapassword" fitHeight="30.0" fitWidth="30.0" layoutX="504.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/check_mark.png" />
+      </image>
+   </ImageView>
+   <ImageView fx:id="info_idvaccinazione" cache="true" fitHeight="17.0" fitWidth="17.0" layoutX="214.0" layoutY="112.0" onMouseEntered="#viewRegexNomeCentro" onMouseExited="#viewRegex0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/information.png" />
+      </image>
+      <effect>
+         <ColorAdjust brightness="-0.38" />
+      </effect>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </ImageView>
+   <Label layoutX="192.0" layoutY="77.0" text="Registrazione al Portale Cittadini">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Label>
+   <Label layoutX="123.0" layoutY="231.0" text="UserID" />
+   <TextField fx:id="tf_userid" layoutX="346.0" layoutY="227.0" onKeyReleased="#validatorfield2" />
+   <ImageView fx:id="info_userid" cache="true" fitHeight="17.0" fitWidth="17.0" layoutX="164.0" layoutY="231.0" onMouseEntered="#viewRegex2" onMouseExited="#viewRegex0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/information.png" />
+      </image>
+      <effect>
+         <ColorAdjust brightness="-0.38" />
+      </effect>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </ImageView>
+   <Label layoutX="122.0" layoutY="270.0" text="Password" />
+   <ImageView fx:id="info_password" cache="true" fitHeight="17.0" fitWidth="17.0" layoutX="184.0" layoutY="270.0" onMouseEntered="#viewRegex2" onMouseExited="#viewRegex0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../common/src/main/resources/images/information.png" />
+      </image>
+      <effect>
+         <ColorAdjust brightness="-0.38" />
+      </effect>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </ImageView>
+   <PasswordField fx:id="password" layoutX="346.0" layoutY="267.0" onKeyReleased="#validatorfield3" />
+   <Label layoutX="123.0" layoutY="310.0" text="Conferma Password" />
+   <PasswordField fx:id="conferma_password" layoutX="347.0" layoutY="307.0" onKeyReleased="#validatorfield3" />
+</Pane>

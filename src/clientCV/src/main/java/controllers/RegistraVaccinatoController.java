@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import model.*;
 import util.StyleUI;
+import util.Validator;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,8 +25,6 @@ import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
 public class RegistraVaccinatoController implements Initializable {
-
-
 
     public ChoiceBox<String> choicebox_tipovaccino;
     public TextField tf_nomecentro, tf_nome, tf_cognome, tf_codicefiscale;
@@ -40,6 +39,7 @@ public class RegistraVaccinatoController implements Initializable {
             checkmark_codicefiscale, info_nome, info_cognome, info_codicefiscale, cross_nomecentro,
             checkmark_nomecentro, cross_data, checkmark_data, cross_vaccino, checkmark_vaccino, search, info_nomecentro;
     public Button indietro;
+    private CentroVaccinale centroVaccinaleScelto;
 
     public boolean validatorNomeCentroEsistente() throws RemoteException {
         Risposta risposta = RMIClient.server.esisteCentroVaccinale(tf_nomecentro.getText());
@@ -93,7 +93,7 @@ public class RegistraVaccinatoController implements Initializable {
     }
 
     public boolean validatorfield3() {
-        if (Pattern.matches("^[A-Z0-9]{16}", tf_codicefiscale.getText())) {
+        if (Validator.codiceFiscale(tf_codicefiscale.getText())) {
             cross_codicefiscale.setVisible(false);
             checkmark_codicefiscale.setVisible(true);
             StyleUI.removeRed(tf_codicefiscale);
@@ -154,9 +154,12 @@ public class RegistraVaccinatoController implements Initializable {
 
         Optional<ButtonType> result = search_dialog.showAndWait();
         if (result.isPresent()) {
-            CentroVaccinale centroVaccinale = searchController.centroVaccinale;
-            tf_nomecentro.setText(centroVaccinale.getNomeCentroVaccinale());
-            validatorNomeCentroEsistente();
+            CentroVaccinale centroVaccinale = searchController.getCentroVaccinale();
+            if (centroVaccinale != null) {
+                tf_nomecentro.setText(centroVaccinale.getNomeCentroVaccinale());
+                if (validatorNomeCentroEsistente())
+                    centroVaccinaleScelto = centroVaccinale;
+            }
         }
 
     }
@@ -176,7 +179,7 @@ public class RegistraVaccinatoController implements Initializable {
             nuovavaccinazione.setCodiceFiscale(tf_codicefiscale.getText());
             nuovavaccinazione.setVaccinoSomministrato(choicebox_tipovaccino.getValue());
             nuovavaccinazione.setDataVaccinazione(datepicker_data.getValue());
-            //nuovavaccinazione.setId();
+            nuovavaccinazione.setIdCentroVaccinale(centroVaccinaleScelto.getId());
 
             Risposta risposta = RMIClient.server.registraVaccinato(nuovavaccinazione, nuovocittadino);
 
@@ -198,7 +201,7 @@ public class RegistraVaccinatoController implements Initializable {
             Optional<ButtonType> result = alert.showAndWait();
             if(!result.isPresent()) {
                 // alert is exited, no button has been pressed.
-            } else if(result.get() == ButtonType.OK) {
+            } else if(result.get() == ButtonType.OK & risposta.getStato() == Stato.GOOD) {
                 MainClientUIController.setRoot("operatore_home");
             }
 
