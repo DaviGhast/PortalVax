@@ -22,10 +22,22 @@ import java.net.URL;
 import java.rmi.NoSuchObjectException;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
+/**
+ * La classe di interfaccia <code>ServerHomeController</code> permette di effettuare il collegamento al database
+ * @author Davide Mainardi 746490 VA
+ * @author Marc Cepraga 744101 VA
+ * @author Luca Muggiasca 744565 VA
+ * @author Brenno Re 747060 VA
+ */
 public class ServerHomeController implements Initializable {
-
+    /**
+     * E' un image view per il logo dell'applicazione e per i simboli di cross e checkmark
+     */
     public ImageView image, cross_db, checkmark_db;
+
+    /**
+     * Sono i tipi dei bottoni
+     */
     public Button button_db, button_stop, button_start, button_close;
 
 
@@ -50,7 +62,11 @@ public class ServerHomeController implements Initializable {
         }
 
     }
-
+    /**
+     *Il Metodo <code>initialize</code> inizializza i componenti della pagina
+     * @param location è un parametro di base del metodo
+     * @param resources è un parametro di base del metodo
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         image.setImage(new Image("images/banner.png"));
@@ -62,12 +78,21 @@ public class ServerHomeController implements Initializable {
 
     }
 
+    /**
+     * Il metodo <code>stopServer</code> stoppa il sevrer
+     * @param actionEvent
+     * @throws NoSuchObjectException
+     */
     public void stopServer(ActionEvent actionEvent) throws NoSuchObjectException {
         RMIServer.stop();
         button_stop.setDisable(true);
         button_start.setDisable(false);
     }
-
+    /**
+     * Il metodo <code>startServer</code> esegue il server
+     * @param actionEvent
+     * @throws NoSuchObjectException
+     */
     public void startServer(ActionEvent actionEvent) {
         RMIServer.start();
         RMIServer.checkEnum();

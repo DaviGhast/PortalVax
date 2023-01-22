@@ -46,6 +46,12 @@ public class RMIServer extends UnicastRemoteObject implements RMIServerInterface
         UnicastRemoteObject.unexportObject(registry, true);
     }
 
+    /**
+     *
+     * @param centroVaccinale
+     * @return
+     * @throws RemoteException
+     */
     @Override
     public Risposta registraCentroVaccinale(CentroVaccinale centroVaccinale) throws RemoteException {
         return gestoreCentriVaccinali.registraCentroVaccinale(centroVaccinale);

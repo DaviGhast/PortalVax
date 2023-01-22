@@ -21,7 +21,13 @@ import javafx.scene.control.Button;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
+/**
+ * La classe di interfaccia <code>ServerDBAccessController</code> permette di effettuare il collegamento al database
+ * @author Davide Mainardi 746490 VA
+ * @author Marc Cepraga 744101 VA
+ * @author Luca Muggiasca 744565 VA
+ * @author Brenno Re 747060 VA
+ */
 public class ServerDBAccessController implements Initializable {
 
     public TextField et_username, et_password, et_nomedatabase, et_host, et_portadatabase ;
@@ -78,6 +84,11 @@ public class ServerDBAccessController implements Initializable {
 
     }
 
+    /**
+     *Il Metodo <code>initialize</code> inizializza i componenti della pagina
+     * @param location è un parametro di base del metodo
+    * @param resources è un parametro di base del metodo
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         image.setImage(new Image("images/banner.png"));
