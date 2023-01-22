@@ -130,6 +130,9 @@ public class RegistrazioneCittadinoController implements Initializable {
                 // alert is exited, no button has been pressed.
             } else if(result.get() == ButtonType.OK & risposta.getStato() == Stato.GOOD) {
                 MainClientUIController.setRoot("cittadino_registrato_home");
+                CittadinoRegistratoHomeController cittadinoRegistratoHomeController =
+                        MainClientUIController.getFxmlLoader().getController();
+                cittadinoRegistratoHomeController.inflateUI((String) risposta.getObject());
             }
 
         } else {
@@ -146,24 +149,26 @@ public class RegistrazioneCittadinoController implements Initializable {
         infoRegex.setText("");
     }
 
-    public void viewRegexNomeCentro(MouseEvent mouseEvent) {
-        infoRegex.setText("Nome Centro: inserisci o cerca il nome di un centro esistente");
+    public void viewRegexIDVaccinazione(MouseEvent mouseEvent) {
+        infoRegex.setText("ID Vaccinazione: inserisci o recuperalo cliccando la lente di ricerca");
     }
 
-    public void viewRegex1(MouseEvent mouseEvent) {
-        infoRegex.setText("Nome vaccinato: inserire da 2 a 30 caratteri");
+    public void viewRegexEmail(MouseEvent mouseEvent) {
+        infoRegex.setText("Email: inserire da 2 a 30 caratteri");
+    }
+    public void viewRegexUserId(MouseEvent mouseEvent) {
+        infoRegex.setText("UserID: inserire da 2 a 30 caratteri");
+    }
+    public void viewRegexPassword(MouseEvent mouseEvent) {
+        infoRegex.setText("Password: inserire da 2 a 30 caratteri");
     }
 
-    public void viewRegex2(MouseEvent mouseEvent) {
-        infoRegex.setText("Cognome vaccinato: inserire da 2 a 30 caratteri");
-    }
-
-    public void viewRegex3(MouseEvent mouseEvent) {
+    public void viewRegexCodiceFiscale(MouseEvent mouseEvent) {
         infoRegex.setText("Codice Fiscale: Inserire 16 caratteri alfanumerici");
     }
 
     public void torna_indietro(ActionEvent actionEvent) throws IOException {
-        MainClientUIController.setRoot("operatore_home");
+        MainClientUIController.setRoot("cittadino_home");
     }
 
     public boolean validatorCodiceFiscale() {
@@ -183,12 +188,83 @@ public class RegistrazioneCittadinoController implements Initializable {
     }
 
 
-    public void validatorIdVaccinazione(KeyEvent keyEvent) {
+    public boolean validatorIdVaccinazione(KeyEvent keyEvent) {
+        if (!tf_idvaccinazione.getText().isEmpty()) {
+            cross_idvaccinazione.setVisible(false);
+            checkmark_idvaccinazione.setVisible(true);
+            StyleUI.removeRed(tf_idvaccinazione);
+            StyleUI.setGreen(tf_idvaccinazione);
+            return true;
+        } else {
+            checkmark_idvaccinazione.setVisible(false);
+            cross_idvaccinazione.setVisible(true);
+            StyleUI.removeGreen(tf_idvaccinazione);
+            StyleUI.setRed(tf_idvaccinazione);
+            return false;
+        }
     }
 
-    public void validatorfield2(KeyEvent keyEvent) {
+    public boolean validatorEmail(KeyEvent keyEvent) {
+        if (Validator.email(tf_email.getText())) {
+            cross_email.setVisible(false);
+            checkmark_email.setVisible(true);
+            StyleUI.removeRed(tf_email);
+            StyleUI.setGreen(tf_email);
+            return true;
+        } else {
+            checkmark_email.setVisible(false);
+            cross_email.setVisible(true);
+            StyleUI.removeGreen(tf_email);
+            StyleUI.setRed(tf_email);
+            return false;
+        }
     }
 
-    public void validatorfield3(KeyEvent keyEvent) {
+    public boolean validatorUserID(KeyEvent keyEvent) {
+        if (Validator.userId(tf_userid.getText())) {
+            cross_userid.setVisible(false);
+            checkmark_userid.setVisible(true);
+            StyleUI.removeRed(tf_userid);
+            StyleUI.setGreen(tf_userid);
+            return true;
+        } else {
+            checkmark_userid.setVisible(false);
+            cross_userid.setVisible(true);
+            StyleUI.removeGreen(tf_userid);
+            StyleUI.setRed(tf_userid);
+            return false;
+        }
+    }
+
+    public boolean validatorPassword(KeyEvent keyEvent) {
+        if (Validator.password(password.getText())) {
+            cross_password.setVisible(false);
+            checkmark_password.setVisible(true);
+            StyleUI.removeRed(password);
+            StyleUI.setGreen(password);
+            return true;
+        } else {
+            checkmark_password.setVisible(false);
+            cross_password.setVisible(true);
+            StyleUI.removeGreen(password);
+            StyleUI.setRed(password);
+            return false;
+        }
+    }
+
+    public boolean validatorConfermaPassword(KeyEvent keyEvent) {
+        if (conferma_password.getText().equals(password.getText())) {
+            cross_confermapassword.setVisible(false);
+            checkmark_confermapassword.setVisible(true);
+            StyleUI.removeRed(conferma_password);
+            StyleUI.setGreen(conferma_password);
+            return true;
+        } else {
+            checkmark_confermapassword.setVisible(false);
+            cross_confermapassword.setVisible(true);
+            StyleUI.removeGreen(conferma_password);
+            StyleUI.setRed(conferma_password);
+            return false;
+        }
     }
 }

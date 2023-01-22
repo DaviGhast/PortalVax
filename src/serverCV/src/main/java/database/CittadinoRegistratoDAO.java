@@ -41,18 +41,20 @@ public class CittadinoRegistratoDAO {
      * @return Oggetto result valorizzato
      */
     public static CittadinoRegistrato getByCodiceFiscale(String CodiceFiscale) {
-        CittadinoRegistrato result = new CittadinoRegistrato();
+        CittadinoRegistrato result = null;
         String sql = "SELECT * FROM cittadino_registrato WHERE codice_fiscale = ?;";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, CodiceFiscale);
             ResultSet rs = preparedStatement.executeQuery();
-            result = new CittadinoRegistrato(
-                    rs.getString("userid"),
-                    rs.getString("email"),
-                    rs.getString("password"),
-                    rs.getString("codice_fiscale")
-            );
+            while(rs.next()) {
+                result = new CittadinoRegistrato(
+                        rs.getString("userid"),
+                        rs.getString("email"),
+                        rs.getString("password"),
+                        rs.getString("codice_fiscale")
+                );
+            }
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
@@ -65,18 +67,20 @@ public class CittadinoRegistratoDAO {
      * @return Oggetto result valorizzato
      */
     public static CittadinoRegistrato getByUserId(String userid) {
-        CittadinoRegistrato result = new CittadinoRegistrato();
+        CittadinoRegistrato result = null;
         String sql = "SELECT * FROM cittadino_registrato WHERE userid = ?;";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, userid.toLowerCase());
             ResultSet rs = preparedStatement.executeQuery();
-            result = new CittadinoRegistrato(
-                    rs.getString("userid"),
-                    rs.getString("email"),
-                    rs.getString("password"),
-                    rs.getString("codice_fiscale")
-            );
+            while(rs.next()) {
+                result = new CittadinoRegistrato(
+                        rs.getString("userid"),
+                        rs.getString("email"),
+                        rs.getString("password"),
+                        rs.getString("codice_fiscale")
+                );
+            }
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
@@ -88,18 +92,20 @@ public class CittadinoRegistratoDAO {
      * @return Oggetto result valorizzato
      */
     public static CittadinoRegistrato getByEmail(String email) {
-        CittadinoRegistrato result = new CittadinoRegistrato();
+        CittadinoRegistrato result = null;
         String sql = "SELECT * FROM cittadino_registrato WHERE email = ?;";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, email.toLowerCase());
             ResultSet rs = preparedStatement.executeQuery();
-            result = new CittadinoRegistrato(
-                    rs.getString("userid"),
-                    rs.getString("email"),
-                    rs.getString("password"),
-                    rs.getString("codice_fiscale")
-            );
+            while(rs.next()) {
+                result = new CittadinoRegistrato(
+                        rs.getString("userid"),
+                        rs.getString("email"),
+                        rs.getString("password"),
+                        rs.getString("codice_fiscale")
+                );
+            }
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }

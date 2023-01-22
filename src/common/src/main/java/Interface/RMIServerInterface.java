@@ -26,6 +26,8 @@ public interface RMIServerInterface extends Remote {
 
     Risposta inserisciEventiAvversi(EventoAvverso eventoAvverso) throws RemoteException;
 
+    Risposta visualizzaEventiAvversi(String userid) throws RemoteException;
+
     String[] getEventi() throws RemoteException;
 
     String[] getTipologie() throws RemoteException;

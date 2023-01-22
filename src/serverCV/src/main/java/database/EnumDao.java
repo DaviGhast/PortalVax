@@ -17,15 +17,14 @@ public class EnumDao {
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(SELECT_QUERY);
             preparedStatement.setString(1, enumName);
-
             ResultSet rs = preparedStatement.executeQuery();
-            rs.next();
-            String list = rs.getString("list");
-            if (!list.equals("[]"))
-                result = stringToArray(rs.getString("list"));
 
-            preparedStatement.close();
-            rs.close();
+            while(rs.next()) {
+                String list = rs.getString("list");
+                if (!list.equals("[]"))
+                    result = stringToArray(rs.getString("list"));
+            }
+
         } catch (SQLException var3) {
             var3.printStackTrace();
         }

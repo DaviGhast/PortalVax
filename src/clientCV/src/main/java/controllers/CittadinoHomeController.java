@@ -49,7 +49,7 @@ public class CittadinoHomeController implements Initializable {
     }
 
     public void login(ActionEvent actionEvent) throws IOException {
-        MainClientUIController.setRoot("login");
+        MainClientUIController.setRoot("login_cittadino");
     }
 
     @Override

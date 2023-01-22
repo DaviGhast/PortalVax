@@ -154,7 +154,7 @@ public class GestoreCentriVaccinali {
             if (!vaccinazioni.isEmpty()) {
                 for (Vaccinazione vaccinazione: vaccinazioni) {
                     CittadinoRegistrato cittadinoRegistrato = CittadinoRegistratoDAO.getByCodiceFiscale(vaccinazione.getCodiceFiscale());
-                    if (!Objects.equals(cittadinoRegistrato, new CittadinoRegistrato())) {
+                    if (cittadinoRegistrato != null) {
                         ArrayList<EventoAvverso> eventiAvversiCittadino = EventoAvversoDAO.getByIdCittadino(cittadinoRegistrato.getUserId());
                         eventiAvversiCentro.addAll(eventiAvversiCittadino);
                     }

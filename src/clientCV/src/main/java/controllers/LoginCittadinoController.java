@@ -1,0 +1,137 @@
+package controllers;
+
+import client.RMIClient;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import model.CittadinoRegistrato;
+import model.Risposta;
+import model.Stato;
+import util.StyleUI;
+import util.Validator;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.Optional;
+import java.util.ResourceBundle;
+
+public class LoginCittadinoController implements Initializable {
+
+    public TextField tf_emailuserid;
+    public Label infoRegex;
+    public Button button_registracittadino, indietro;
+    public ImageView image, cross_email, checkmark_email, info_email, checkmark_password, cross_password, info_password;
+    public PasswordField password;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        image.setImage(new Image("images/banner.png"));
+
+        info_email.setImage(new Image("images/information.png"));
+        cross_email.setImage(new Image("images/cross.png"));
+        checkmark_email.setImage(new Image("images/check_mark.png"));
+        cross_email.setVisible(false);
+        checkmark_email.setVisible(false);
+
+        info_password.setImage(new Image("images/information.png"));
+        cross_password.setImage(new Image("images/cross.png"));
+        checkmark_password.setImage(new Image("images/check_mark.png"));
+        cross_password.setVisible(false);
+        checkmark_password.setVisible(false);
+
+    }
+
+    public void registraCittadino(ActionEvent actionEvent) throws IOException {
+
+        if (!tf_emailuserid.getText().isEmpty() & !password.getText().isEmpty()) {
+
+            Risposta risposta = RMIClient.server.loginCittadino(tf_emailuserid.getText(), password.getText());
+
+            Alert alert = null;
+            switch (risposta.getStato()) {
+                case GOOD:
+                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    break;
+                case ERROR:
+                    alert = new Alert(Alert.AlertType.WARNING);
+                    break;
+                case BAD:
+                    alert = new Alert(Alert.AlertType.ERROR);
+                    break;
+            }
+            alert.setTitle(String.valueOf(risposta.getStato()));
+            alert.setHeaderText("Esito Login");
+            alert.setContentText(risposta.getMessage());
+            Optional<ButtonType> result = alert.showAndWait();
+            if(!result.isPresent()) {
+                // alert is exited, no button has been pressed.
+            } else if(result.get() == ButtonType.OK & risposta.getStato() == Stato.GOOD) {
+                MainClientUIController.setRoot("cittadino_registrato_home");
+                CittadinoRegistratoHomeController cittadinoRegistratoHomeController =
+                        MainClientUIController.getFxmlLoader().getController();
+                cittadinoRegistratoHomeController.inflateUI((String) risposta.getObject());
+            }
+
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Informazioni non Sufficienti");
+            String s ="Controlla e Compila tutti i campi presenti nel form";
+            alert.setContentText(s);
+            alert.show();
+        }
+    }
+
+    public void viewRegex0(MouseEvent mouseEvent) {
+        infoRegex.setText("");
+    }
+
+    public void viewRegexEmail(MouseEvent mouseEvent) {
+        infoRegex.setText("Email: inserire da 2 a 30 caratteri");
+    }
+
+    public void viewRegexPassword(MouseEvent mouseEvent) {
+        infoRegex.setText("Password: inserire da 2 a 30 caratteri");
+    }
+    public void torna_indietro(ActionEvent actionEvent) throws IOException {
+        MainClientUIController.setRoot("cittadino_home");
+    }
+
+    public boolean validatorEmail(KeyEvent keyEvent) {
+        if (!tf_emailuserid.getText().isEmpty()) {
+            cross_email.setVisible(false);
+            checkmark_email.setVisible(true);
+            StyleUI.removeRed(tf_emailuserid);
+            StyleUI.setGreen(tf_emailuserid);
+            return true;
+        } else {
+            checkmark_email.setVisible(false);
+            cross_email.setVisible(true);
+            StyleUI.removeGreen(tf_emailuserid);
+            StyleUI.setRed(tf_emailuserid);
+            return false;
+        }
+    }
+
+    public boolean validatorPassword(KeyEvent keyEvent) {
+        if (!password.getText().isEmpty()) {
+            cross_password.setVisible(false);
+            checkmark_password.setVisible(true);
+            StyleUI.removeRed(password);
+            StyleUI.setGreen(password);
+            return true;
+        } else {
+            checkmark_password.setVisible(false);
+            cross_password.setVisible(true);
+            StyleUI.removeGreen(password);
+            StyleUI.setRed(password);
+            return false;
+        }
+    }
+}

@@ -62,11 +62,8 @@ public class InfoCentroController implements Initializable {
 
     }
 
-    public void validatoreNomeCentro(ActionEvent actionEvent) {
-    }
-
     public void torna_indietro(ActionEvent actionEvent) throws IOException {
-        MainClientUIController.setRoot("cittadino_home");
+        MainClientUIController.setRoot(MainClientUIController.getBackScene());
     }
 
     public void setRicerca(ActionEvent actionEvent) {

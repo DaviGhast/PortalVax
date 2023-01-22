@@ -20,7 +20,7 @@ public class GestoreCittadini {
         // controllo se parametro in input è valorizzzato
         if (cittadinoRegistrato != null) {
             //controllo se l'utente si è già registrato
-            if (CittadinoRegistratoDAO.getByCodiceFiscale(cittadinoRegistrato.getCodiceFiscale()) != null) {
+            if (CittadinoRegistratoDAO.getByCodiceFiscale(cittadinoRegistrato.getCodiceFiscale()) == null) {
                 //controllo se idVaccinazione è corretto
                 if (VaccinazioneDAO.getVaccinazione(idVaccinazione) != null){
                     //controllo se idVaccinazione è quello associato al codice fiscale
@@ -84,7 +84,7 @@ public class GestoreCittadini {
         }
         assert cittadinoRegistrato != null;
         if (cittadinoRegistrato.getPassword().equals(password)) {
-            risposta = new Risposta(Stato.GOOD, "Login Effettuato!");
+            risposta = new Risposta(Stato.GOOD, "Login Effettuato!", cittadinoRegistrato.getUserId());
         } else {
             risposta = new Risposta(Stato.BAD, "Password errata");
         }
@@ -102,7 +102,7 @@ public class GestoreCittadini {
      */
     public Risposta inserisciEventiAvversi(EventoAvverso eventoAvverso) {
         Risposta risposta = new Risposta();
-        if (!eventoAvverso.equals(new EventoAvverso())) {
+        if (eventoAvverso.getId() == 0) {
             eventoAvverso.setId((short) EventoAvversoDAO.nextID());
             if (EventoAvversoDAO.insert(eventoAvverso)) {
                 risposta = new Risposta(Stato.GOOD, "Registrazione eseguita con Successo");
@@ -110,6 +110,27 @@ public class GestoreCittadini {
             else {
                 risposta = new Risposta(Stato.ERROR, "Registrazione non andata a buon fine");
                 EventoAvversoDAO.delete(eventoAvverso);
+            }
+        } else {
+            risposta = new Risposta(Stato.BAD, "");
+        }
+        return risposta;
+    }
+
+    /**
+     * Il Metodo <code>visualizzaEventiAvversi</code> permette inserire gli eventi avversi
+     * @param userId oggetto contenente tutte le informazione dell'evento avverso
+     * @return Oggetto risposta valorizzato
+     */
+    public Risposta visualizzaEventiAvversi(String userId) {
+        Risposta risposta = new Risposta();
+        if (!userId.isEmpty()) {
+            ArrayList<EventoAvverso> eventiAvversi = EventoAvversoDAO.getByIdCittadino(userId);
+            if (!eventiAvversi.isEmpty()) {
+                risposta = new Risposta(Stato.GOOD, eventiAvversi);
+            }
+            else {
+                risposta = new Risposta(Stato.ERROR, "Nessun Evento Avverso");
             }
         } else {
             risposta = new Risposta(Stato.BAD, "");

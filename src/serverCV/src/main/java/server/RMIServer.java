@@ -97,6 +97,11 @@ public class RMIServer extends UnicastRemoteObject implements RMIServerInterface
     }
 
     @Override
+    public Risposta visualizzaEventiAvversi(String userId) throws RemoteException {
+        return gestoreCittadini.visualizzaEventiAvversi(userId);
+    }
+
+    @Override
     public String[] getEventi() throws RemoteException {
         return gestoreCittadini.getEventi();
     }

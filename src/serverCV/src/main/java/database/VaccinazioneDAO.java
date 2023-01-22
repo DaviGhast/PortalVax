@@ -44,19 +44,21 @@ public class VaccinazioneDAO{
      * @return Oggetto result valorizzato
      */
     public static Vaccinazione getVaccinazione(short idVaccinazione) {
-        Vaccinazione result = new Vaccinazione();
+        Vaccinazione result = null;
         String sql = "SELECT * FROM vaccinazione WHERE id = ?;";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setShort(1, idVaccinazione);
             ResultSet rs = preparedStatement.executeQuery();
-            result = new Vaccinazione(
-                    rs.getShort("id"),
-                    rs.getString("vaccino_somministrato"),
-                    rs.getDate("data_vaccinazione").toLocalDate(),
-                    rs.getShort("id_centro_vaccinale"),
-                    rs.getString("codice_fiscale")
-            );
+            while(rs.next()) {
+                result = new Vaccinazione(
+                        rs.getShort("id"),
+                        rs.getString("vaccino_somministrato"),
+                        rs.getDate("data_vaccinazione").toLocalDate(),
+                        rs.getShort("id_centro_vaccinale"),
+                        rs.getString("codice_fiscale")
+                );
+            }
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
@@ -100,14 +102,15 @@ public class VaccinazioneDAO{
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, codiceFiscale);
             ResultSet rs = preparedStatement.executeQuery();
-            rs.next();
-            result =new Vaccinazione(
-                    rs.getShort("id"),
-                    rs.getString("vaccino_somministrato"),
-                    rs.getDate("data_vaccinazione").toLocalDate(),
-                    rs.getShort("id_centro_vaccinale"),
-                    rs.getString("codice_fiscale")
-            );
+            while(rs.next()) {
+                result =new Vaccinazione(
+                        rs.getShort("id"),
+                        rs.getString("vaccino_somministrato"),
+                        rs.getDate("data_vaccinazione").toLocalDate(),
+                        rs.getShort("id_centro_vaccinale"),
+                        rs.getString("codice_fiscale")
+                );
+            }
 
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<DialogPane fx:id="dialog" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.InserisciEventoController">
+   <content>
+      <Pane prefHeight="330.0" prefWidth="500.0" stylesheets="@../css/style.css">
+         <Label layoutX="150.0" layoutY="14.0" text="Inserisci Evento Avverso">
+            <font>
+               <Font name="System Bold" size="18.0" />
+            </font>
+         </Label>
+         <Label layoutX="73.0" layoutY="72.0" text="Evento" />
+         <ImageView fx:id="info_evento" cache="true" fitHeight="17.0" fitWidth="17.0" layoutX="119.0" layoutY="72.0" onMouseEntered="#viewRegexEvento" onMouseExited="#viewRegex0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../../../common/src/main/resources/images/information.png" />
+            </image>
+            <effect>
+               <ColorAdjust brightness="-0.38" />
+            </effect>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </ImageView>
+         <ChoiceBox fx:id="choisebox_evento" layoutX="282.0" layoutY="68.0" onAction="#validatorChoiseBoxEvento" prefWidth="150.0" />
+         <ImageView fx:id="cross_evento" fitHeight="30.0" fitWidth="30.0" layoutX="440.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../../../common/src/main/resources/images/cross.png" />
+            </image>
+         </ImageView>
+         <ImageView fx:id="checkmark_evento" fitHeight="30.0" fitWidth="30.0" layoutX="440.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../../../common/src/main/resources/images/check_mark.png" />
+            </image>
+         </ImageView>
+         <Label layoutX="73.0" layoutY="128.0" text="Severità" />
+         <ImageView fx:id="info_severita" cache="true" fitHeight="17.0" fitWidth="17.0" layoutX="127.0" layoutY="128.0" onMouseEntered="#viewRegexSeverita" onMouseExited="#viewRegex0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../../../common/src/main/resources/images/information.png" />
+            </image>
+            <effect>
+               <ColorAdjust brightness="-0.38" />
+            </effect>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </ImageView>
+         <ChoiceBox fx:id="choisebox_severita" layoutX="282.0" layoutY="124.0" onAction="#validatorChoiseBoxSeverita" prefWidth="150.0" />
+         <ImageView fx:id="cross_severita" fitHeight="30.0" fitWidth="30.0" layoutX="440.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../../../common/src/main/resources/images/cross.png" />
+            </image>
+         </ImageView>
+         <ImageView fx:id="checkmark_severita" fitHeight="30.0" fitWidth="30.0" layoutX="440.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../../../common/src/main/resources/images/check_mark.png" />
+            </image>
+         </ImageView>
+         <Label layoutX="73.0" layoutY="188.0" text="Note" />
+         <ImageView fx:id="info_note" cache="true" fitHeight="17.0" fitWidth="17.0" layoutX="111.0" layoutY="188.0" onMouseEntered="#viewRegexNote" onMouseExited="#viewRegex0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../../../common/src/main/resources/images/information.png" />
+            </image>
+            <effect>
+               <ColorAdjust brightness="-0.38" />
+            </effect>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </ImageView>
+         <TextArea fx:id="ta_note" layoutX="153.0" layoutY="182.0" onKeyReleased="#validatorNote" prefHeight="68.0" prefWidth="279.0" />
+         <ImageView fx:id="cross_note" fitHeight="30.0" fitWidth="30.0" layoutX="440.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../../../common/src/main/resources/images/cross.png" />
+            </image>
+         </ImageView>
+         <ImageView fx:id="checkmark_note" fitHeight="30.0" fitWidth="30.0" layoutX="440.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../../../common/src/main/resources/images/check_mark.png" />
+            </image>
+         </ImageView>
+         <Text layoutX="301.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caratteri Rimanenti:" />
+         <Text fx:id="count_down" layoutX="412.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="255" />
+         <Label fx:id="infoRegex" alignment="CENTER" layoutY="279.0" prefHeight="17.0" prefWidth="500.0" textAlignment="CENTER" textOverrun="CLIP" />
+      </Pane>
+   </content>
+</DialogPane>

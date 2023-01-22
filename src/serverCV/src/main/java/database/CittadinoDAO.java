@@ -42,17 +42,19 @@ public class CittadinoDAO{
      * @return Oggetto result valorizzato
      */
     public static Cittadino getCittadino(String CodiceFiscale) {
-        Cittadino result = new Cittadino();
+        Cittadino result = null;
         String sql = "SELECT * FROM cittadino WHERE codice_fiscale = ?;";
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, CodiceFiscale);
             ResultSet rs = preparedStatement.executeQuery();
-            result = new Cittadino(
-                    rs.getString("codice_fiscale"),
-                    rs.getString("nome_cittadino"),
-                    rs.getString("cognome_cittadino")
-            );
+            while(rs.next()) {
+                result = new Cittadino(
+                        rs.getString("codice_fiscale"),
+                        rs.getString("nome_cittadino"),
+                        rs.getString("cognome_cittadino")
+                );
+            }
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }

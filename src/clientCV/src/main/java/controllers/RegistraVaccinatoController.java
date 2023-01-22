@@ -220,7 +220,7 @@ public class RegistraVaccinatoController implements Initializable {
     }
 
     public void viewRegexNomeCentro(MouseEvent mouseEvent) {
-        infoRegex.setText("Nome Centro: inserisci o cerca il nome di un centro esistente");
+        infoRegex.setText("Nome Centro: cerca il nome di un centro esistente cliccando sulla lente di ricerca");
     }
 
     public void viewRegex1(MouseEvent mouseEvent) {

@@ -29,6 +29,8 @@ public class MainClientUIController extends Application {
 
     private static Scene scene;
 
+    private static FXMLLoader fxmlLoader;
+
     private static String backScene;
 
     @Override
@@ -53,7 +55,7 @@ public class MainClientUIController extends Application {
    }
 
    private static Parent loadFXML(String fxml) throws IOException {
-       FXMLLoader fxmlLoader = new FXMLLoader();
+       fxmlLoader = new FXMLLoader();
        fxmlLoader.setLocation(MainClientUIController.class.getClassLoader().getResource("fxml/"+fxml+".fxml"));
        return fxmlLoader.load();
    }
@@ -65,4 +67,9 @@ public class MainClientUIController extends Application {
     public static void setBackScene(String backScene) {
         MainClientUIController.backScene = backScene;
     }
+
+    public static FXMLLoader getFxmlLoader() {
+        return fxmlLoader;
+    }
+
 }
