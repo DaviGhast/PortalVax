@@ -77,8 +77,8 @@ public class ServerHomeController implements Initializable {
 
     /**
      * Il metodo <code>stopServer</code> stoppa il sevrer
-     * @param actionEvent
-     * @throws NoSuchObjectException
+     * @param actionEvent evento generato dalla view
+     * @throws NoSuchObjectException esclude tutte le eccezioni <code>NoSuchObjectn</code> che possono verificarsi
      */
     public void stopServer(ActionEvent actionEvent) throws NoSuchObjectException {
         RMIServer.stop();
@@ -87,8 +87,7 @@ public class ServerHomeController implements Initializable {
     }
     /**
      * Il metodo <code>startServer</code> esegue il server
-     * @param actionEvent
-     * @throws NoSuchObjectException
+     * @param actionEvent evento generato dalla view
      */
     public void startServer(ActionEvent actionEvent) {
         RMIServer.start();

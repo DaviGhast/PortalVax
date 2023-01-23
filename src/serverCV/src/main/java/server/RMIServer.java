@@ -47,16 +47,25 @@ public class RMIServer extends UnicastRemoteObject implements RMIServerInterface
     }
 
     /**
-     *
-     * @param centroVaccinale
-     * @return
-     * @throws RemoteException
+     * richiama il metodo con il medesimo nome contenuto nella classe di logica {@link GestoreCentriVaccinali}
+     * @see GestoreCentriVaccinali#registraCentroVaccinale(CentroVaccinale)
+     * @param centroVaccinale oggetto proveniente dal client
+     * @return oggetto di ritorno da mandare al client
+     * @throws RemoteException esclude tutte le eccezioni <code>Remote</code> che possono verificarsi
      */
     @Override
     public Risposta registraCentroVaccinale(CentroVaccinale centroVaccinale) throws RemoteException {
         return gestoreCentriVaccinali.registraCentroVaccinale(centroVaccinale);
     }
 
+    /**
+     * richiama il metodo con il medesimo nome contenuto nella classe di logica {@link GestoreCentriVaccinali}
+     * @see GestoreCentriVaccinali#registraVaccinato(Vaccinazione, Cittadino)
+     * @param vaccinazione oggetto di tipo Vaccinazione proveniente dal client
+     * @param cittadino oggetto di tipo Cittadino proveniente dal client
+     * @return oggetto di ritorno da mandare al client
+     * @throws RemoteException esclude tutte le eccezioni <code>Remote</code> che possono verificarsi
+     */
     @Override
     public Risposta registraVaccinato(Vaccinazione vaccinazione, Cittadino cittadino) throws RemoteException {
         return gestoreCentriVaccinali.registraVaccinato(vaccinazione,cittadino);
