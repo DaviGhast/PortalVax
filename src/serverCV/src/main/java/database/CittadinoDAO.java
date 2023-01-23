@@ -16,7 +16,10 @@ import static database.DBAccess.getConnect;
  * @author Brenno Re 747060 VA
  */
 public class CittadinoDAO{
-
+    /**
+     * Rappresenta la connessione con il database stabilita con il metodo <code>getConnect</code> della classe {@link DBAccess}
+     * @see DBAccess#getConnect()
+     */
     static Connection conn = getConnect();
 
     /**

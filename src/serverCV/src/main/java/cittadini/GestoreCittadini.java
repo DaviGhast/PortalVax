@@ -143,6 +143,9 @@ public class GestoreCittadini {
         return risposta;
     }
 
+    /**
+     * Il metodo <code>checkEnum</code> permette di inserire gli enum
+     */
     public void checkEnum() {
         String[] eventiDefault = {"Mal di testa","Febbre","Dolori muscolari e articolari","linfoadenopatia",
                 "tachicardia","crisi ipertensiva"};

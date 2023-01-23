@@ -15,7 +15,10 @@ import static database.DBAccess.getConnect;
  * @author Brenno Re 747060 VA
  */
 public class CentroVaccinaleDAO{
-
+    /**
+     * Rappresenta la connessione con il database stabilita con il metodo <code>getConnect</code> della classe {@link DBAccess}
+     * @see DBAccess#getConnect()
+     */
     static Connection conn = getConnect();
 
     /**
@@ -171,7 +174,10 @@ public class CentroVaccinaleDAO{
         }
         return result == 1;
     }
-
+    /**
+     * Il metodo <code>nextID</code> restituisce il prossimo id utile per l'inserimento di un nuovo oggeto nella tabella della base dati
+     * @return restituisce il valore
+     */
     public static int nextID(){
         ArrayList<CentroVaccinale> arrayList = getAll();
         if (arrayList.size() > 0){

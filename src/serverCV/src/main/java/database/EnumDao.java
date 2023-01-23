@@ -13,9 +13,17 @@ import static database.DBAccess.getConnect;
  * @author Brenno Re 747060 VA
  */
 public class EnumDao {
-
+    /**
+     * Rappresenta la connessione con il database stabilita con il metodo <code>getConnect</code> della classe {@link DBAccess}
+     * @see DBAccess#getConnect()
+     */
     static Connection conn = getConnect();
 
+    /**
+     * Il metodo <code>getEnumList</code> permette di ottenere la lista dei enum
+     * @param enumName il valore del none della lista ricercata
+     * @return result contenente la lista
+     */
     public static String[] getEnumList(String enumName) {
         String[] result = null;
         String SELECT_QUERY = "SELECT * FROM enum WHERE name = ?";
@@ -36,6 +44,11 @@ public class EnumDao {
         return result;
     }
 
+    /**
+     * Il metodo <code>insert</code> permette di inserire dei valori dell'enum
+     * @param enumModel oggetto contenente tutti i valori dell'enum
+     * @return risposta ture/false
+     */
     public static boolean insert(EnumModel enumModel) {
         String sql = "INSERT INTO enum(id,name,list) VALUES(?,?,?);";
         int result = 0;
@@ -55,7 +68,11 @@ public class EnumDao {
             return false;
         }
     }
-
+    /**
+     * Il Metodo <code>update</code> permette di aggiornare le informazioni dell'enum
+     * @param enumModel oggetto contenente tutte le informazini aggiornate dell'enum
+     * @return risposta ture/false
+     */
     public static boolean update(EnumModel enumModel) {
         String sql = "UPDATE enum SET list = ? WHERE name = ?";
         int result = 0;
@@ -74,7 +91,10 @@ public class EnumDao {
             return false;
         }
     }
-
+    /**
+     * Il Metodo <code>getAll</code> permette di ottenere tutte le informazioni dell'enum
+     * @return Oggetto result valorizzato
+     */
     public static ArrayList<EnumModel> getAll() {
         ArrayList<EnumModel> result = new ArrayList<>();
         try {
@@ -94,6 +114,10 @@ public class EnumDao {
         return result;
     }
 
+    /**
+     * Il metodo <code>nextID</code> restituisce il prossimo id utile per l'inserimento di un nuovo oggeto nella tabella della base dati
+     * @return restituisce il valore
+     */
     public static int nextID(){
         ArrayList<EnumModel> arrayList = getAll();
         if (arrayList.size() > 0){
@@ -104,6 +128,11 @@ public class EnumDao {
         }
     }
 
+    /**
+     * Il metodo <code>stringToArray</code> metodo che transforma una stringa in array
+     * @param string la stringa da trasformare
+     * @return ritorna l'array
+     */
     public static String[] stringToArray(String string) {
         return string.replace("[","").replace("]","").split(", ");
     }

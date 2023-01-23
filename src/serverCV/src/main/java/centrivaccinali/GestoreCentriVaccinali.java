@@ -233,10 +233,16 @@ public class GestoreCentriVaccinali {
         return risposta;
     }
 
+    /**
+     * Il metodo <code>getVaccini</code> ritorna i vaccini
+     * @return lista enum dei vaccini
+     */
     public String[] getVaccini() {
         return EnumDao.getEnumList("vaccini");
     }
-
+    /**
+     * Il metodo <code>checkEnum</code> permette di inserire gli enum
+     */
     public void checkEnum() {
         String[] tipologieDefault = {"Hub", "Aziendale", "Ospedaliero"};
         String[] tipologie = getTipologie();

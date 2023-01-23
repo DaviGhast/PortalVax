@@ -37,7 +37,11 @@ public class ServerHomeController implements Initializable {
      */
     public Button button_db, button_stop, button_start, button_close;
 
-
+    /**
+     * Il metodo <code>loginDB</code> permette di effettuar eil login al data base
+     * @param actionEvent
+     * @throws IOException
+     */
     public void loginDB(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(MainServerUIController.class.getClassLoader().getResource("fxml/server_db_access.fxml"));
