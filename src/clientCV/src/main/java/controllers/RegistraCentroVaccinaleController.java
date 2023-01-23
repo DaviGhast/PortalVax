@@ -12,7 +12,6 @@ import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import model.CentroVaccinale;
 
-import javax.xml.bind.ValidationException;
 import java.io.IOException;
 import java.net.URL;
 import java.rmi.RemoteException;
