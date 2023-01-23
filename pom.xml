@@ -33,13 +33,16 @@
                 </configuration>
                 <executions>
                     <execution>
-                        <id>create-javadoc</id>
+                        <!--This shall generate the package inside the /target folder of parent module-->
                         <phase>package</phase>
+                        <inherited>false</inherited>
                         <goals>
-                            <goal>aggregate</goal>
+                            <goal>aggregate-jar</goal>
                         </goals>
                         <configuration>
-                            <source>1.8</source>
+                            <destDir>../../target</destDir>
+                            <show>protected</show>
+                            <detectLinks>true</detectLinks>
                         </configuration>
                     </execution>
                 </executions>

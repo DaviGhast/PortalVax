@@ -1,0 +1,1 @@
+INSERT INTO enum (id,name,list) VALUES (1,'tipologie','[Hub, Aziendale, Ospedaliero]');
