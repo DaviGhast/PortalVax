@@ -29,6 +29,7 @@ public class EventiAvversiController implements Initializable {
     public TableColumn<EventoAvverso,Byte> severita;
     public TableColumn<EventoAvverso,String> note;
     public Label titolo;
+    private String userId;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -42,6 +43,7 @@ public class EventiAvversiController implements Initializable {
 
     public void inflateUI(String userId) throws RemoteException {
 
+        this.userId = userId;
         titolo.setText(titolo.getText() + userId);
 
         Risposta risposta = RMIClient.server.visualizzaEventiAvversi(userId);
@@ -75,6 +77,7 @@ public class EventiAvversiController implements Initializable {
         if (result.isPresent()) {
             EventoAvverso eventoAvverso = inserisciEventoController.getEventoAvverso();
             if (eventoAvverso != null){
+                eventoAvverso.setIdCittadino(userId);
                 Risposta risposta = RMIClient.server.inserisciEventiAvversi(eventoAvverso);
 
                 Alert alert = null;

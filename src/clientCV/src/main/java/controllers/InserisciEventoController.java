@@ -73,8 +73,11 @@ public class InserisciEventoController implements Initializable {
     }
 
     public boolean validatorNote() {
-        count_down.setText(String.valueOf(Integer.parseInt(count_down.getText())-1));
-        if (ta_note.getText().length() > 1 & ta_note.getText().length() < 255) {
+        int max = 256;
+        int length = ta_note.getText().length();
+        int count = max -length;
+        count_down.setText(String.valueOf(count));
+        if (count >= 0 & count <= 256) {
             cross_note.setVisible(false);
             checkmark_note.setVisible(true);
             return true;

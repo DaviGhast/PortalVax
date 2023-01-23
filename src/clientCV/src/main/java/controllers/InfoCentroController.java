@@ -16,6 +16,7 @@ import model.CentroVaccinale;
 import model.ReportEventoAvverso;
 import model.Risposta;
 import model.Stato;
+import util.FixInput;
 import util.StyleUI;
 
 import java.io.IOException;
@@ -53,7 +54,7 @@ public class InfoCentroController implements Initializable {
         nome.setCellValueFactory(new PropertyValueFactory("nomeCentroVaccinale"));
         indirizzo.setCellValueFactory(new PropertyValueFactory("indirizzo"));
         comune.setCellValueFactory(new PropertyValueFactory("comune"));
-        provincia.setCellValueFactory(new PropertyValueFactory("provincia"));
+        provincia.setCellValueFactory(new PropertyValueFactory("siglaProvincia"));
         tipologia.setCellValueFactory(new PropertyValueFactory("tipologia"));
 
 
@@ -105,9 +106,11 @@ public class InfoCentroController implements Initializable {
                             risposta = RMIClient.server.cercaCentroVaccinale(textfield.getText());
                             break;
                         case "Comune":
+                            textfield.setText(FixInput.tuttePrimeLettereMaiuscole(textfield.getText()));
                             risposta = RMIClient.server.cercaCentroVaccinale(textfield.getText(), "");
                             break;
                         case "Comune e Tipologia":
+                            textfield.setText(FixInput.tuttePrimeLettereMaiuscole(textfield.getText()));
                             risposta = RMIClient.server.cercaCentroVaccinale(textfield.getText(), choicebox_tipologia.getValue());
                             break;
                     }

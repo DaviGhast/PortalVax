@@ -18,11 +18,11 @@
          <font>
             <Font name="System Bold" size="30.0" />
          </font></Label>
-      <Button fx:id="button_stop" alignment="BOTTOM_CENTER" contentDisplay="CENTER" defaultButton="true" disable="true" layoutX="164.0" layoutY="280.0" mnemonicParsing="false" onAction="#stopServer" text="STOP SERVER">
+      <Button fx:id="button_stop" alignment="BOTTOM_CENTER" contentDisplay="CENTER" defaultButton="true" disable="true" layoutX="164.0" layoutY="302.0" mnemonicParsing="false" onAction="#stopServer" text="STOP SERVER">
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Button fx:id="button_start" alignment="BOTTOM_CENTER" contentDisplay="CENTER" defaultButton="true" disable="true" layoutX="337.0" layoutY="280.0" mnemonicParsing="false" onAction="#startServer" text="AVVIA SERVER">
+      <Button fx:id="button_start" alignment="BOTTOM_CENTER" contentDisplay="CENTER" defaultButton="true" disable="true" layoutX="337.0" layoutY="302.0" mnemonicParsing="false" onAction="#startServer" text="AVVIA SERVER">
          <font>
             <Font size="14.0" />
          </font>
@@ -42,10 +42,5 @@
             <Image url="@../../../../../common/src/main/resources/images/check_mark.png" />
          </image>
       </ImageView>
-      <Button fx:id="button_close" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="221.0" layoutY="344.0" mnemonicParsing="false" onAction="#close" text="CHIUDI PROGRAMMA">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
    </children>
 </Pane>

@@ -14,7 +14,7 @@
 
 <DialogPane fx:id="dialog" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.InserisciEventoController">
    <content>
-      <Pane prefHeight="330.0" prefWidth="500.0" stylesheets="@../css/style.css">
+      <Pane prefHeight="330.0" prefWidth="500.0">
          <Label layoutX="150.0" layoutY="14.0" text="Inserisci Evento Avverso">
             <font>
                <Font name="System Bold" size="18.0" />
@@ -32,7 +32,7 @@
                <Cursor fx:constant="HAND" />
             </cursor>
          </ImageView>
-         <ChoiceBox fx:id="choisebox_evento" layoutX="282.0" layoutY="68.0" onAction="#validatorChoiseBoxEvento" prefWidth="150.0" />
+         <ChoiceBox fx:id="choisebox_evento" layoutX="200.0" layoutY="68.0" onAction="#validatorChoiseBoxEvento" prefHeight="25.0" prefWidth="232.0" />
          <ImageView fx:id="cross_evento" fitHeight="30.0" fitWidth="30.0" layoutX="440.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../../../../../common/src/main/resources/images/cross.png" />
@@ -55,7 +55,7 @@
                <Cursor fx:constant="HAND" />
             </cursor>
          </ImageView>
-         <ChoiceBox fx:id="choisebox_severita" layoutX="282.0" layoutY="124.0" onAction="#validatorChoiseBoxSeverita" prefWidth="150.0" />
+         <ChoiceBox fx:id="choisebox_severita" layoutX="315.0" layoutY="124.0" onAction="#validatorChoiseBoxSeverita" prefHeight="25.0" prefWidth="117.0" />
          <ImageView fx:id="cross_severita" fitHeight="30.0" fitWidth="30.0" layoutX="440.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../../../../../common/src/main/resources/images/cross.png" />

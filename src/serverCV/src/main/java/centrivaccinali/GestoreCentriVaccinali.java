@@ -89,11 +89,11 @@ public class GestoreCentriVaccinali {
     public Risposta cercaCentroVaccinale(String nomeCentroVaccinale) {
         Risposta risposta = new Risposta();
         if (!nomeCentroVaccinale.isEmpty()) {
-            ArrayList<CentroVaccinale> centriVaccinali = CentroVaccinaleDAO.getByName(nomeCentroVaccinale);
+            ArrayList<CentroVaccinale> centriVaccinali = searchCentroByName(CentroVaccinaleDAO.getAll(),nomeCentroVaccinale);
             if (!centriVaccinali.isEmpty()) {
                 risposta = new Risposta(Stato.GOOD, centriVaccinali);
             } else {
-                risposta = new Risposta(Stato.ERROR, "Non esiste nessun Centro Vaccinale con il nome: "+nomeCentroVaccinale);
+                risposta = new Risposta(Stato.ERROR, "Non esiste nessun Centro Vaccinale con al suo interno la stringa: "+nomeCentroVaccinale);
             }
         } else {
             risposta = new Risposta(Stato.BAD, "Nome Centro inserito è nullo");
@@ -124,6 +124,22 @@ public class GestoreCentriVaccinali {
             risposta = new Risposta(Stato.BAD, "");
         }
         return risposta;
+    }
+
+    /**
+     * Il Metodo <code>searchCentroByName</code> si occupa di cercare il centro vaccinale di interesse tramite il nome
+     * del centro all'interno di una lista di Centri Vaccinali
+     * @param listaCentriVaccinali lista contenente i centri vaccinali
+     * @param nomeCentroVaccinale è il parametro di ricerca
+     * @return ListaRisultati centri vaccinali trovati nel file csv
+     */
+    public ArrayList<CentroVaccinale> searchCentroByName(ArrayList<CentroVaccinale> listaCentriVaccinali, String nomeCentroVaccinale) {
+        ArrayList<CentroVaccinale> listaRisultati = new ArrayList<>();
+        for (CentroVaccinale centroVaccinale: listaCentriVaccinali) {
+            if (centroVaccinale.getNomeCentroVaccinale().toLowerCase().contains(nomeCentroVaccinale.toLowerCase()))
+                listaRisultati.add(centroVaccinale);
+        }
+        return listaRisultati;
     }
 
     /**
@@ -222,22 +238,20 @@ public class GestoreCentriVaccinali {
     }
 
     public void checkEnum() {
+        String[] tipologieDefault = {"Hub", "Aziendale", "Ospedaliero"};
         String[] tipologie = getTipologie();
         if (tipologie == null)
-            EnumDao.insert(new EnumModel(EnumDao.nextID(),"tipologie",
-                    new String[]{"Hub", "Aziendale", "Ospedaliero"}));
+            EnumDao.insert(new EnumModel(EnumDao.nextID(),"tipologie",tipologieDefault));
         else if (tipologie.length < 1){
-            EnumDao.update(new EnumModel("tipologie",
-                    new String[]{"Hub", "Aziendale", "Ospedaliero"}));
+            EnumDao.update(new EnumModel("tipologie",tipologieDefault));
         }
 
+        String[] vacciniDefault = {"Pfizer", "Moderna", "AstraZeneca", "Janssen (J&J)"};
         String[] vaccini = getVaccini();
         if (vaccini == null)
-            EnumDao.insert(new EnumModel(EnumDao.nextID(),"vaccini",
-                    new String[]{"Pfizer", "Moderna", "AstraZeneca", "Janssen (J&J)"}));
+            EnumDao.insert(new EnumModel(EnumDao.nextID(),"vaccini",vacciniDefault));
         else if (vaccini.length < 1){
-            EnumDao.update(new EnumModel("vaccini",
-                    new String[]{"Pfizer", "Moderna", "AstraZeneca", "Janssen (J&J)"}));
+            EnumDao.update(new EnumModel("vaccini",vacciniDefault));
         }
     }
 }

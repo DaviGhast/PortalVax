@@ -5,12 +5,16 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import server.RMIServer;
 
 import java.io.IOException;
+import java.util.Optional;
 
 /**
  * La classe <code>MainServerUIController</code> gestisce la finestra dell'interfaccia grafica
@@ -39,6 +43,24 @@ public class MainServerUIController extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("PortalVax Server - Portale Vaccinale");
         primaryStage.setResizable(false);
+        primaryStage.setOnCloseRequest(event -> {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Close");
+            alert.setHeaderText("Chiusura Programma");
+            String s = "Sei sicuro di vuoler chiudere il programma?";
+            alert.setContentText(s);
+            Optional<ButtonType> result = alert.showAndWait();
+            if(!result.isPresent()) {
+                // l'alert esiste, nessun bottone premuto
+            } else if(result.get() == ButtonType.OK) {
+                try {
+                    stop();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                System.exit(0);
+            }
+        });
         primaryStage.show();
    }
 

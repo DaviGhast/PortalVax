@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import model.*;
+import util.AlgoritmoMD5;
 import util.StyleUI;
 import util.Validator;
 
@@ -99,6 +100,9 @@ public class RegistrazioneCittadinoController implements Initializable {
 
     public void registraCittadino(ActionEvent actionEvent) throws IOException {
 
+        tf_email.setText(tf_email.getText().toLowerCase());
+        tf_userid.setText(tf_userid.getText().toLowerCase());
+
         CittadinoRegistrato cittadinoRegistrato = new CittadinoRegistrato();
         
         if (validatorCodiceFiscale()) {
@@ -106,7 +110,7 @@ public class RegistrazioneCittadinoController implements Initializable {
             cittadinoRegistrato.setCodiceFiscale(tf_codicefiscale.getText());
             cittadinoRegistrato.setEmail(tf_email.getText());
             cittadinoRegistrato.setUserId(tf_userid.getText());
-            cittadinoRegistrato.setPassword(password.getText());
+            cittadinoRegistrato.setPassword(AlgoritmoMD5.converti(password.getText()));
 
             Risposta risposta = RMIClient.server.registraCittadino(cittadinoRegistrato,Short.parseShort(tf_idvaccinazione.getText()));
 
@@ -127,7 +131,7 @@ public class RegistrazioneCittadinoController implements Initializable {
             alert.setContentText(risposta.getMessage());
             Optional<ButtonType> result = alert.showAndWait();
             if(!result.isPresent()) {
-                // alert is exited, no button has been pressed.
+                // l'alert esiste, nessun bottone premuto
             } else if(result.get() == ButtonType.OK & risposta.getStato() == Stato.GOOD) {
                 MainClientUIController.setRoot("cittadino_registrato_home");
                 CittadinoRegistratoHomeController cittadinoRegistratoHomeController =

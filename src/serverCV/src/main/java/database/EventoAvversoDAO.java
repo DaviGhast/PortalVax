@@ -31,7 +31,7 @@ public class EventoAvversoDAO {
                         rs.getShort("id"),
                         rs.getString("evento"),
                         rs.getByte("severità"),
-                        rs.getShort("id_cittadino"),
+                        rs.getString("id_cittadino"),
                         rs.getString("note")
                 ));
             }
@@ -58,7 +58,7 @@ public class EventoAvversoDAO {
                         rs.getShort("id"),
                         rs.getString("evento"),
                         rs.getByte("severità"),
-                        rs.getShort("id_cittadino"),
+                        rs.getString("id_cittadino"),
                         rs.getString("note")
                 ));
             }
@@ -82,7 +82,7 @@ public class EventoAvversoDAO {
             preparedStatement.setShort(1,eventoAvverso.getId());
             preparedStatement.setString(2,eventoAvverso.getEvento());
             preparedStatement.setByte(3, eventoAvverso.getSeverita());
-            preparedStatement.setShort(4, eventoAvverso.getIdCittadino());
+            preparedStatement.setString(4, eventoAvverso.getIdCittadino());
             preparedStatement.setString(5, eventoAvverso.getNote());
             result = preparedStatement.executeUpdate();
             preparedStatement.close();
@@ -103,7 +103,7 @@ public class EventoAvversoDAO {
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1,eventoavverso.getEvento());
             preparedStatement.setByte(2,eventoavverso.getSeverita());
-            preparedStatement.setShort(3,eventoavverso.getIdCittadino());
+            preparedStatement.setString(3,eventoavverso.getIdCittadino());
             preparedStatement.setString(4,eventoavverso.getNote());
             preparedStatement.setShort(5,eventoavverso.getId());
             result = preparedStatement.executeUpdate();

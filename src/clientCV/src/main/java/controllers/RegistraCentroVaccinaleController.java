@@ -20,7 +20,9 @@ import java.util.*;
 import java.util.regex.Pattern;
 
 import model.Risposta;
+import util.FixInput;
 import util.StyleUI;
+import util.Validator;
 
 public class RegistraCentroVaccinaleController implements Initializable {
     public ChoiceBox<String> choicebox_tipologia;
@@ -33,19 +35,7 @@ public class RegistraCentroVaccinaleController implements Initializable {
     public ImageView info_nomecentro, info_indirizzo, info_comune, info_provincia, info_cap;
 
     public boolean validatorChoiseBox() {
-        if (!String.valueOf(choicebox_tipologia.getSelectionModel().getSelectedItem()).equals("null")) {
-            cross_tipologia.setVisible(false);
-            checkmark_tipologia.setVisible(true);
-            StyleUI.removeRed(choicebox_tipologia);
-            StyleUI.setGreen(choicebox_tipologia);
-            return true;
-        } else {
-            checkmark_tipologia.setVisible(false);
-            cross_tipologia.setVisible(true);
-            StyleUI.removeGreen(choicebox_tipologia);
-            StyleUI.setRed(choicebox_tipologia);
-            return false;
-        }
+        return Validator.choiseBox(choicebox_tipologia,cross_tipologia,checkmark_tipologia);
     }
 
     public boolean validatorfield1() {
@@ -65,19 +55,8 @@ public class RegistraCentroVaccinaleController implements Initializable {
     }
 
     public boolean validatorfield2() {
-        if (Pattern.matches("^[a-zA-Z0-9 ,.'-]{2,255}", tf_indirizzo.getText())) {
-            cross_indirizzo.setVisible(false);
-            checkmark_indirizzo.setVisible(true);
-            StyleUI.removeRed(tf_indirizzo);
-            StyleUI.setGreen(tf_indirizzo);
-            return true;
-        } else {
-            checkmark_indirizzo.setVisible(false);
-            cross_indirizzo.setVisible(true);
-            StyleUI.removeGreen(tf_indirizzo);
-            StyleUI.setRed(tf_indirizzo);
-            return false;
-        }
+        return Validator.textField(Validator.indirizzo(tf_indirizzo.getText()),
+                tf_indirizzo,cross_indirizzo,checkmark_indirizzo);
     }
 
     public boolean validatorfield3() {
@@ -113,23 +92,16 @@ public class RegistraCentroVaccinaleController implements Initializable {
     }
 
     public boolean validatorfield5() {
-        if (Pattern.matches("^[0-9]{5}", tf_cap.getText())) {
-            cross_cap.setVisible(false);
-            checkmark_cap.setVisible(true);
-            StyleUI.removeRed(tf_cap);
-            StyleUI.setGreen(tf_cap);
-            return true;
-        } else {
-            checkmark_cap.setVisible(false);
-            cross_cap.setVisible(true);
-            StyleUI.removeGreen(tf_cap);
-            StyleUI.setRed(tf_cap);
-            return false;
-        }
+        return Validator.textField(Validator.cap(tf_cap.getText()),tf_cap,cross_cap,checkmark_cap);
     }
 
 
     public void registraNuovoCentro(ActionEvent actionEvent) throws IOException {
+
+        tf_nomecentro.setText(FixInput.tuttePrimeLettereMaiuscole(FixInput.aggiungiSpazi(tf_nomecentro.getText())));
+        tf_indirizzo.setText(FixInput.tuttePrimeLettereMaiuscole(FixInput.aggiungiSpazi(tf_nomecentro.getText())));
+        tf_comune.setText(FixInput.tuttePrimeLettereMaiuscole(tf_comune.getText()));
+        tf_provincia.setText(tf_provincia.getText().toUpperCase());
 
         CentroVaccinale nuovocentro = new CentroVaccinale();
 
@@ -162,7 +134,7 @@ public class RegistraCentroVaccinaleController implements Initializable {
             alert.setContentText(risposta.getMessage());
             Optional<ButtonType> result = alert.showAndWait();
             if(!result.isPresent()) {
-                // alert is exited, no button has been pressed.
+                // l'alert esiste, nessun bottone premuto
             } else if(result.get() == ButtonType.OK) {
                 MainClientUIController.setRoot("operatore_home");
             }
@@ -186,7 +158,7 @@ public class RegistraCentroVaccinaleController implements Initializable {
     }
 
     public void viewRegex2() {
-        infoRegex.setText("Indirizzo: Inserire da 2 a 255 caratteri");
+        infoRegex.setText("Indirizzo: Inserire indirizzo (qualificatore via/v.le/p.za/ecc.., nome, numero civico)");
     }
 
     public void viewRegex3() {

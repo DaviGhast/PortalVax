@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -18,6 +19,7 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.Optional;
 
 /**
  * @author Davide Mainardi 746490 VA
@@ -35,10 +37,7 @@ public class MainClientUIController extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        if (RMIClient.serverConnection())
-            scene = new Scene(loadFXML("home"));
-        else
-            scene = new Scene(loadFXML("error"));
+        scene = new Scene(loadFXML("client_home"));
         //scene = new Scene(loadFXML("home"));
         //scene.setFill(Color.TRANSPARENT);
         //primaryStage.initStyle(StageStyle.TRANSPARENT);
@@ -47,6 +46,24 @@ public class MainClientUIController extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("PortalVax Client - Portale Vaccinale");
         primaryStage.setResizable(false);
+        primaryStage.setOnCloseRequest(event -> {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Close");
+            alert.setHeaderText("Chiusura Programma");
+            String s = "Sei sicuro di vuoler chiudere il programma?";
+            alert.setContentText(s);
+            Optional<ButtonType> result = alert.showAndWait();
+            if(!result.isPresent()) {
+                // l'alert esiste, nessun bottone premuto
+            } else if(result.get() == ButtonType.OK) {
+                try {
+                    stop();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                System.exit(0);
+            }
+        });
         primaryStage.show();
    }
 

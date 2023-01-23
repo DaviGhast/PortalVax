@@ -12,7 +12,7 @@ public class EventoAvverso implements Serializable {
     private short id;
     private String evento;
     private byte severita;
-    private short idCittadino;
+    private String idCittadino;
     private String note;
     /**
      * Costruttore per l'oggetto EventoAvverso
@@ -22,7 +22,7 @@ public class EventoAvverso implements Serializable {
      * @param idCittadino è l'id del cittadino
      * @param note sono le note
      */
-    public EventoAvverso(short id, String evento, byte severita, short idCittadino, String note){
+    public EventoAvverso(short id, String evento, byte severita, String idCittadino, String note){
         this.id = id;
         this.evento = evento;
         this.severita = severita;
@@ -72,13 +72,13 @@ public class EventoAvverso implements Serializable {
      * Il Metodo <code>getIdCittadino</code> è il metodo che recupera l'id del cittadino
      * @return ritorna il valore del'id del cittadino
      */
-    public short getIdCittadino() {
+    public String getIdCittadino() {
         return idCittadino;  }
     /**
      * Il Metodo <code>setIdCittadino</code> è il metodo che salva l'id del citadino
      * @param idCittadino contiene l'id del cittadino
      */
-    public void setIdCittadino(short idCittadino) {
+    public void setIdCittadino(String idCittadino) {
         this.idCittadino = idCittadino;
     }
     /**

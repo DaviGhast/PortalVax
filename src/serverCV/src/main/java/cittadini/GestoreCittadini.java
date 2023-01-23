@@ -144,13 +144,13 @@ public class GestoreCittadini {
     }
 
     public void checkEnum() {
+        String[] eventiDefault = {"Mal di testa","Febbre","Dolori muscolari e articolari","linfoadenopatia",
+                "tachicardia","crisi ipertensiva"};
         String[] eventi = getEventi();
         if (eventi == null)
-            EnumDao.insert(new EnumModel(EnumDao.nextID(),"eventi",
-                    new String[]{"Mal di Testa", "Dolori Muscolari"}));
+            EnumDao.insert(new EnumModel(EnumDao.nextID(),"eventi",eventiDefault));
         else if (eventi.length < 1){
-            EnumDao.update(new EnumModel("eventi",
-                    new String[]{"Mal di Testa", "Dolori Muscolari"}));
+            EnumDao.update(new EnumModel("eventi",eventiDefault));
         }
     }
 

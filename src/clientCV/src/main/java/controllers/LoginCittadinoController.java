@@ -12,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 import model.CittadinoRegistrato;
 import model.Risposta;
 import model.Stato;
+import util.AlgoritmoMD5;
 import util.StyleUI;
 import util.Validator;
 
@@ -51,7 +52,8 @@ public class LoginCittadinoController implements Initializable {
 
         if (!tf_emailuserid.getText().isEmpty() & !password.getText().isEmpty()) {
 
-            Risposta risposta = RMIClient.server.loginCittadino(tf_emailuserid.getText(), password.getText());
+            Risposta risposta = RMIClient.server.loginCittadino(tf_emailuserid.getText(),
+                    AlgoritmoMD5.converti(password.getText()));
 
             Alert alert = null;
             switch (risposta.getStato()) {
@@ -70,7 +72,7 @@ public class LoginCittadinoController implements Initializable {
             alert.setContentText(risposta.getMessage());
             Optional<ButtonType> result = alert.showAndWait();
             if(!result.isPresent()) {
-                // alert is exited, no button has been pressed.
+                // l'alert esiste, nessun bottone premuto
             } else if(result.get() == ButtonType.OK & risposta.getStato() == Stato.GOOD) {
                 MainClientUIController.setRoot("cittadino_registrato_home");
                 CittadinoRegistratoHomeController cittadinoRegistratoHomeController =

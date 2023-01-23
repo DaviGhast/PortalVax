@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import model.*;
+import util.FixInput;
 import util.StyleUI;
 import util.Validator;
 
@@ -166,9 +167,11 @@ public class RegistraVaccinatoController implements Initializable {
 
     public void registraNuovoVaccinato(ActionEvent actionEvent) throws IOException {
 
+        tf_cognome.setText(FixInput.tuttePrimeLettereMaiuscole(FixInput.aggiungiSpazi(tf_cognome.getText())));
+        tf_nome.setText(FixInput.tuttePrimeLettereMaiuscole(FixInput.aggiungiSpazi(tf_nome.getText())));
+
         Cittadino nuovocittadino = new Cittadino();
         Vaccinazione nuovavaccinazione = new Vaccinazione();
-
 
         if (validatorfield1() & validatorfield2() & validatorfield3() & validatorDate() & validatorChoiseBox()) {
 
@@ -200,7 +203,7 @@ public class RegistraVaccinatoController implements Initializable {
             alert.setContentText(risposta.getMessage());
             Optional<ButtonType> result = alert.showAndWait();
             if(!result.isPresent()) {
-                // alert is exited, no button has been pressed.
+                // l'alert esiste, nessun bottone premuto
             } else if(result.get() == ButtonType.OK & risposta.getStato() == Stato.GOOD) {
                 MainClientUIController.setRoot("operatore_home");
             }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ClientHomeController">
+   <children>
+      <ImageView fx:id="image" fitHeight="217.0" fitWidth="429.0" layoutX="86.0" layoutY="-15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../common/src/main/resources/images/banner.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="194.0" layoutY="142.0" text="Pannello Client">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font></Label>
+      <Button fx:id="button_start" alignment="BOTTOM_CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="256.0" layoutY="334.0" mnemonicParsing="false" onAction="#start" text="AVVIA APP">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Text layoutX="175.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ti trovi sullo stesso PC dove è avviato il Server?" />
+      <TextField fx:id="tf_nomepc" layoutX="201.0" layoutY="293.0" prefHeight="25.0" prefWidth="199.0" />
+      <RadioButton layoutX="211.0" layoutY="229.0" mnemonicParsing="false" onAction="#cliccaSi" selected="true" text="SI">
+         <toggleGroup>
+            <ToggleGroup fx:id="scelta" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton layoutX="356.0" layoutY="229.0" mnemonicParsing="false" onAction="#cliccaNo" text="No" toggleGroup="$scelta" />
+      <Text fx:id="text" layoutX="150.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Allora inserisci qui il nome del PC dove è avviato il Server" />
+   </children>
+</Pane>

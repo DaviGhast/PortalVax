@@ -1,9 +1,11 @@
 package client;
 
 import Interface.RMIServerInterface;
+import com.sun.jndi.cosnaming.IiopUrl;
 import controllers.MainClientUIController;
 import javafx.scene.control.Alert;
 
+import java.net.InetAddress;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -14,10 +16,18 @@ public class RMIClient {
 
     public static RMIServerInterface server;
 
+    public static String nameServer;
+
     public static boolean serverConnection() {
         boolean isConnectedToServer = false;
         try {
-            Registry registro = LocateRegistry.getRegistry(1099);
+            Registry registro = null;
+            if (nameServer.isEmpty() | nameServer.equalsIgnoreCase("localhost")){
+                registro = LocateRegistry.getRegistry(1099);
+            } else {
+                String ipServer = String.valueOf(InetAddress.getByName(nameServer).getHostAddress());
+                registro = LocateRegistry.getRegistry(ipServer,1099);
+            }
             RMIServerInterface stub = (RMIServerInterface) registro.lookup("PortalVaxServer");
             server = stub;
             isConnectedToServer = true;
@@ -28,4 +38,7 @@ public class RMIClient {
         return isConnectedToServer;
     }
 
+    public static void setNameServer(String nameServer) {
+        RMIClient.nameServer = nameServer;
+    }
 }

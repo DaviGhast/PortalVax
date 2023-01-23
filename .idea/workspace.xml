@@ -4,28 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebdf7d96-4419-4ffa-b976-839a740d49e0" name="Changes" comment="Aggiunto commenti javadoc">
+    <list default="true" id="ebdf7d96-4419-4ffa-b976-839a740d49e0" name="Changes" comment="List of commit changes:&#10;- Client's GUI continued &amp; fixed&#10;- Server's methods fixed">
+      <change afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/ClientHomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/util/AlgoritmoMD5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/clientCV/src/main/resources/fxml/client_home.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/src/main/java/model/CentroVaccinale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/src/main/java/model/CentroVaccinale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/src/main/java/model/Cittadino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/src/main/java/model/Cittadino.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/src/main/java/model/CittadinoRegistrato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/src/main/java/model/CittadinoRegistrato.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/src/main/java/model/EnumModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/src/main/java/model/EnumModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/client/RMIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/client/RMIClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/EventiAvversiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/EventiAvversiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/InfoCentroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/InfoCentroController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/InserisciEventoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/InserisciEventoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/LoginCittadinoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/LoginCittadinoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/MainClientUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/MainClientUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/RegistraCentroVaccinaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/RegistraCentroVaccinaleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/RegistraVaccinatoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/RegistraVaccinatoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/RegistrazioneCittadinoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/RegistrazioneCittadinoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/util/FixInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/util/FixInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/util/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/util/Validator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/resources/fxml/error.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/resources/fxml/error.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/resources/fxml/inserisci_evento.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/resources/fxml/inserisci_evento.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/common/src/main/java/model/EventoAvverso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/src/main/java/model/EventoAvverso.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/src/main/java/model/ReportEventoAvverso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/src/main/java/model/ReportEventoAvverso.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/src/main/java/model/Risposta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/src/main/java/model/Risposta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/src/main/java/model/Vaccinazione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/src/main/java/model/Vaccinazione.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/centrivaccinali/GestoreCentriVaccinali.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/centrivaccinali/GestoreCentriVaccinali.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/cittadini/GestoreCittadini.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/cittadini/GestoreCittadini.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/controllers/MainServerUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/controllers/MainServerUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/controllers/ServerDBAccessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/controllers/ServerDBAccessController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/controllers/ServerHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/controllers/ServerHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/database/CentroVaccinaleDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/database/CentroVaccinaleDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/database/CittadinoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/database/CittadinoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/database/CittadinoRegistratoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/database/CittadinoRegistratoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/database/DBAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/database/DBAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/database/EnumDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/database/EnumDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/database/EventoAvversoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/database/EventoAvversoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/database/VaccinazioneDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/database/VaccinazioneDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/server/RMIServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/server/RMIServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/resources/fxml/server_home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/resources/fxml/server_home.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +39,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -56,39 +59,108 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.2" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/DavideMainardi/Documents/GitHub/PortalVax/src/common/src/main/java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\brenn\IdeaProjects\PortalVax\Doc" />
+      <recent name="C:\Users\DavideMainardi\Documents\GitHub\PortalVax\src\common\src\main\java" />
+      <recent name="C:\Users\DavideMainardi\Documents\GitHub\PortalVax\src\clientCV\src\main\resources\fxml" />
+      <recent name="C:\Users\DavideMainardi\Documents\GitHub\PortalVax\src\serverCV\src\main\resources\fxml" />
+      <recent name="C:\Users\DavideMainardi\Documents\GitHub\PortalVax" />
+      <recent name="C:\Users\DavideMainardi\Documents\GitHub\PortalVax\src\clientCV\src\main\resources\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\lucam\IdeaProjects\PortalVax\src\serverCV\src\main\resources\fxml" />
       <recent name="C:\Users\DavideMainardi\Documents\GitHub\PortalVax\src\serverCV\src\main\sql" />
       <recent name="C:\Users\lucam\IdeaProjects\PortalVax\src\serverCV" />
       <recent name="D:\IdeaProjects\PortalVax\src" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="controllers" />
+      <recent name="util" />
       <recent name="database" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="portalvax" />
+  <component name="RunManager" selected="Application.MainServerUIController">
+    <configuration name="MainClientUIController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="controllers.MainClientUIController" />
+      <module name="portalvax-client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="portalvax" />
-      <option name="filePath" />
+    <configuration name="MainServerUIController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="controllers.MainServerUIController" />
+      <module name="portalvax-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="mvn" type="BatchConfigurationType" factoryName="Batch" temporary="true">
+      <module name="portalvax" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="mvn.cmd" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="portalvax [install]" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="install" />
+                <option value="-DUSER=postgres" />
+                <option value="-DPWD=1234" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainClientUIController" />
+        <item itemvalue="Application.MainServerUIController" />
+        <item itemvalue="Batch.mvn" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -197,35 +269,84 @@
       <option name="project" value="LOCAL" />
       <updated>1670529938833</updated>
     </task>
-    <task id="LOCAL-00015" summary="Added GUI fo server">
-      <created>1672669566835</created>
+    <task id="LOCAL-00015" summary="Created EnumDao, EnumModel and ReportEventoAvverso classes. Fixed EventoAvverso, EventoAvversoDAO classes. Added cercaCentroVaccinale, visulizzaInfoCentroVaccinale methods and many sub-methods in GestoreCentriVaccinali and GestoreCittadini classes">
+      <created>1670932200731</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1672669566836</updated>
+      <updated>1670932200731</updated>
     </task>
-    <task id="LOCAL-00016" summary="Added regex to RegistraCentroVaccinaleController">
-      <created>1672832367744</created>
+    <task id="LOCAL-00016" summary="Added getEventi and inserisciEventiAvversi methods in GestoreCittadini">
+      <created>1670933156998</created>
       <option name="number" value="00016" />
       <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
-      <updated>1672832367744</updated>
+      <updated>1670933156998</updated>
     </task>
-    <task id="LOCAL-00017" summary="RegistraCentroVaccinaleController and RegistraVaccinatoController modified">
-      <created>1672999343187</created>
+    <task id="LOCAL-00017" summary="Fixed server-pom.xml and CreateDatabase.sql">
+      <created>1671893021078</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1672999343187</updated>
+      <updated>1671893021078</updated>
     </task>
-    <task id="LOCAL-00018" summary="Aggiunto commenti javadoc">
-      <created>1674292224584</created>
+    <task id="LOCAL-00018" summary="Commit's changelist:&#10;- Added INSET INTO for tipologie list in enum table in CreateDatabase.sql&#10;- Fixed generated url db connection in DBAccess.java&#10;- Fixed getEnumList method in EnumDao.java&#10;- Fixed client GUI in RegistraCentroVaccinaleController.java&#10;- Fixed serverConnection method in RMIClient.java">
+      <created>1672913894469</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1674292224584</updated>
+      <updated>1672913894469</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Validator in client GUI commit's changelist:&#10;- Added style for validator input&#10;- Fixed info regex">
+      <created>1672927803338</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1672927803338</updated>
+    </task>
+    <task id="LOCAL-00020" summary="List of commit changes:&#10;- Fix models&#10;- Changed server pom.xml &#10;- Client's GUI continued &amp; fixed">
+      <created>1673106852329</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1673106852329</updated>
+    </task>
+    <task id="LOCAL-00021" summary="List of commit changes:&#10;- Client's GUI continued &amp; fixed&#10;- Server's GUI continued &amp; fixed&#10;- Changed server's methods">
+      <created>1673291711854</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1673291711854</updated>
+    </task>
+    <task id="LOCAL-00022" summary="List of commit changes:&#10;- Added Enum check in server startup method">
+      <created>1673337938391</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1673337938391</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Fix script for generate JavaDoc">
+      <created>1674155103995</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1674155103995</updated>
+    </task>
+    <task id="LOCAL-00024" summary="List of commit changes:&#10;- Client's GUI continued &amp; fixed&#10;- Server's methods fixed">
+      <created>1674328811394</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1674328811394</updated>
+    </task>
+    <task id="LOCAL-00025" summary="List of commit changes:&#10;- Client's GUI continued &amp; fixed&#10;- Server's methods fixed">
+      <created>1674397358391</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1674397358391</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -241,7 +362,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added createTable.sql" />
@@ -256,11 +376,68 @@
     <MESSAGE value="Create CittadinoDAO.java" />
     <MESSAGE value="Create CittadinoRegistratoDAO.java and EventoAvversoDAO.java" />
     <MESSAGE value="Aggiunto classe inserisciEventoAvverso" />
-    <MESSAGE value="Added GUI fo server" />
-    <MESSAGE value="Added regex to RegistraCentroVaccinaleController" />
-    <MESSAGE value="RegistraCentroVaccinaleController and RegistraVaccinatoController modified" />
-    <MESSAGE value="Aggiunto commenti javadoc" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunto commenti javadoc" />
+    <MESSAGE value="Created EnumDao, EnumModel and ReportEventoAvverso classes. Fixed EventoAvverso, EventoAvversoDAO classes. Added cercaCentroVaccinale, visulizzaInfoCentroVaccinale methods and many sub-methods in GestoreCentriVaccinali and GestoreCittadini classes" />
+    <MESSAGE value="Added getEventi and inserisciEventiAvversi methods in GestoreCittadini" />
+    <MESSAGE value="Fixed server-pom.xml and CreateDatabase.sql" />
+    <MESSAGE value="Commit's changelist:&#10;- Added INSET INTO for tipologie list in enum table in CreateDatabase.sql&#10;- Fixed generated url db connection in DBAccess.java&#10;- Fixed getEnumList method in EnumDao.java&#10;- Fixed client GUI in RegistraCentroVaccinaleController.java&#10;- Fixed serverConnection method in RMIClient.java" />
+    <MESSAGE value="Validator in client GUI commit's changelist:&#10;- Added style for validator input&#10;- Fixed info regex" />
+    <MESSAGE value="List of commit changes:&#10;- Fix models&#10;- Changed server pom.xml &#10;- Client's GUI continued &amp; fixed" />
+    <MESSAGE value="List of commit changes:&#10;- Client's GUI continued &amp; fixed&#10;- Server's GUI continued &amp; fixed&#10;- Changed server's methods" />
+    <MESSAGE value="List of commit changes:&#10;- Added Enum check in server startup method" />
+    <MESSAGE value="Fix script for generate JavaDoc" />
+    <MESSAGE value="List of commit changes:&#10;- Client's GUI continued &amp; fixed&#10;- Server's methods fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="List of commit changes:&#10;- Client's GUI continued &amp; fixed&#10;- Server's methods fixed" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/clientCV/src/main/java/controllers/InfoCentroController.java</url>
+          <line>158</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/clientCV/src/main/java/controllers/InfoCentroController.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/serverCV/src/main/java/centrivaccinali/GestoreCentriVaccinali.java</url>
+          <line>110</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/serverCV/src/main/java/database/CentroVaccinaleDAO.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/serverCV/src/main/java/centrivaccinali/GestoreCentriVaccinali.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/serverCV/src/main/java/cittadini/GestoreCittadini.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/serverCV/src/main/java/centrivaccinali/GestoreCentriVaccinali.java</url>
+          <line>165</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/serverCV/src/main/java/database/EventoAvversoDAO.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/serverCV/src/main/java/database/CittadinoRegistratoDAO.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
