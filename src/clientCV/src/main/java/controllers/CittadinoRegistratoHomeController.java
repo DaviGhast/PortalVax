@@ -27,7 +27,7 @@ public class CittadinoRegistratoHomeController extends CittadinoHomeController i
     }
 
     public void logout(ActionEvent actionEvent) throws IOException {
-        MainClientUIController.setRoot("home");
+        MainClientUIController.setRoot("cittadino_home");
     }
 
     public void eventiAvversi(ActionEvent actionEvent) throws IOException {
