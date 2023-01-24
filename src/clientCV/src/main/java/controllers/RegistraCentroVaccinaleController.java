@@ -23,7 +23,12 @@ import model.Risposta;
 import util.FixInput;
 import util.StyleUI;
 import util.Validator;
-
+/**
+ * @author Davide Mainardi 746490 VA
+ * @author Marc Cepraga 744101 VA
+ * @author Luca Muggiasca 744565 VA
+ * @author Brenno Re 747060 VA
+ */
 public class RegistraCentroVaccinaleController implements Initializable {
     public ChoiceBox<String> choicebox_tipologia;
     public TextField tf_comune, tf_nomecentro, tf_cap, tf_provincia, tf_indirizzo;

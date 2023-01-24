@@ -24,7 +24,12 @@ import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
-
+/**
+ * @author Davide Mainardi 746490 VA
+ * @author Marc Cepraga 744101 VA
+ * @author Luca Muggiasca 744565 VA
+ * @author Brenno Re 747060 VA
+ */
 public class RegistraVaccinatoController implements Initializable {
 
     public ChoiceBox<String> choicebox_tipovaccino;

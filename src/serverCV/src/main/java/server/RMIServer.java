@@ -72,7 +72,7 @@ public class RMIServer extends UnicastRemoteObject implements RMIServerInterface
     }
     /**
      * richiama il metodo con il medesimo nome contenuto nella classe di logica {@link GestoreCittadini}
-     * @see GestoreCittadini#registraCittadino(CittadinoRegistrato, short)
+     * @see GestoreCittadini#registraCittadino(CittadinoRegistrato, Short)
      * @param cittadinoRegistrato oggetto di tipo cittadinoVaccinato
      * @param idVaccinazione oggetto di tipo Cittadino proveniente dal client
      * @return oggetto di ritorno da mandare al client
