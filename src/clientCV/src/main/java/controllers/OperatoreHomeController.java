@@ -29,12 +29,21 @@ public class OperatoreHomeController implements Initializable {
     public void registraNuovoVaccinato(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("registra_vaccinato");
     }
-
+    /**
+     * Il metodo <code>initialize</code> permette di inizializare la finestra
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         image.setImage(new Image("images/banner.png"));
     }
-
+    /**
+     * Il metodo <code>logout</code> richiama il metodo setRoot e permette di spostarsi alla finestra home {@link MainClientUIController}
+     * @see MainClientUIController #setRoot(String)
+     * @param actionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     */
     public void torna_indietro(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("home");
     }

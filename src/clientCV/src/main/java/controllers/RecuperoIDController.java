@@ -57,7 +57,11 @@ public class RecuperoIDController implements Initializable {
             }
         }
     }
-
+    /**
+     * Il metodo <code>initialize</code> permette di inizializare la finestra
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         search.setImage(new Image("images/search.png"));

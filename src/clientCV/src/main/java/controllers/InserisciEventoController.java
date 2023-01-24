@@ -29,7 +29,11 @@ public class InserisciEventoController implements Initializable {
     public Text count_down;
     public Label infoRegex;
     public TextArea ta_note;
-
+    /**
+     * Il metodo <code>initialize</code> permette di inizializare la finestra
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 

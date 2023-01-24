@@ -33,7 +33,11 @@ public class LoginCittadinoController implements Initializable {
     public Button button_registracittadino, indietro;
     public ImageView image, cross_email, checkmark_email, info_email, checkmark_password, cross_password, info_password;
     public PasswordField password;
-
+    /**
+     * Il metodo <code>initialize</code> permette di inizializare la finestra
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 

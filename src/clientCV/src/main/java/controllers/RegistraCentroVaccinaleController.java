@@ -176,7 +176,11 @@ public class RegistraCentroVaccinaleController implements Initializable {
     public void viewRegex5() {
         infoRegex.setText("CAP: Inserire 5 caratteri numerici");
     }
-
+    /**
+     * Il metodo <code>initialize</code> permette di inizializare la finestra
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
@@ -223,6 +227,12 @@ public class RegistraCentroVaccinaleController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+    /**
+     * Il metodo <code>logout</code> richiama il metodo setRoot e permette di spostarsi alla finestra operatore_home {@link MainClientUIController}
+     * @see MainClientUIController #setRoot(String)
+     * @param actionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     */
     public void torna_indietro(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("operatore_home");
     }

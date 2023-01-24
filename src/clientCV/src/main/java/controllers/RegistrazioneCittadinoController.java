@@ -36,7 +36,11 @@ public class RegistrazioneCittadinoController implements Initializable {
             info_email, checkmark_userid, cross_userid, info_userid, checkmark_password, cross_password, info_password,
             checkmark_confermapassword, cross_confermapassword;
     public PasswordField password, conferma_password;
-
+    /**
+     * Il metodo <code>initialize</code> permette di inizializare la finestra
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -175,7 +179,12 @@ public class RegistrazioneCittadinoController implements Initializable {
     public void viewRegexCodiceFiscale(MouseEvent mouseEvent) {
         infoRegex.setText("Codice Fiscale: Inserire 16 caratteri alfanumerici");
     }
-
+    /**
+     * Il metodo <code>logout</code> richiama il metodo setRoot e permette di spostarsi alla finestra cittadino_home {@link MainClientUIController}
+     * @see MainClientUIController #setRoot(String)
+     * @param actionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     */
     public void torna_indietro(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("cittadino_home");
     }

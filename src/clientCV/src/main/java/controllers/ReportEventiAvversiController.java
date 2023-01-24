@@ -26,7 +26,11 @@ public class ReportEventiAvversiController implements Initializable {
     public TableColumn<ReportEventoAvverso,Integer> segnalazioni;
     public TableColumn<ReportEventoAvverso,Double> severita;
     public Label info_selected;
-
+    /**
+     * Il metodo <code>initialize</code> permette di inizializare la finestra
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
