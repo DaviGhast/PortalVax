@@ -238,7 +238,10 @@ public class RegistraVaccinatoController implements Initializable {
     public void viewRegex0(MouseEvent mouseEvent) {
         infoRegex.setText("");
     }
-
+    /**
+     * Il metodo <code>viewRegexNomeCentro</code> permettono di visualizzare a schermo la regola usata per validare quel campo input
+     * @param mouseEvent oggetto di tipo MouseEvent
+     */
     public void viewRegexNomeCentro(MouseEvent mouseEvent) {
         infoRegex.setText("Nome Centro: cerca il nome di un centro esistente cliccando sulla lente di ricerca");
     }

@@ -11,6 +11,7 @@ import javafx.scene.text.Text;
 import model.EventoAvverso;
 import util.Validator;
 
+import java.io.IOException;
 import java.net.URL;
 import java.rmi.RemoteException;
 import java.util.ResourceBundle;
@@ -66,6 +67,10 @@ public class InserisciEventoController implements Initializable {
         choisebox_severita.setItems((FXCollections.observableArrayList(1,2,3,4,5)));
     }
 
+    /**
+     * Il metodo <code>getEventoAvverso</code> prende i dati dalla view e  restituisce un evento avverso generato con quei dati
+     * @return oggetto di tipo EventoAvverso
+     */
     public EventoAvverso getEventoAvverso() {
         EventoAvverso eventoAvverso = null;
         if (validatorChoiseBoxEvento() & validatorChoiseBoxSeverita() & validatorNote()) {
@@ -77,10 +82,17 @@ public class InserisciEventoController implements Initializable {
         return eventoAvverso;
     }
 
+    /**
+     * Il metodo <code>viewRegex0</code> nasconde il messaggio della regola  prima reso visibile
+     * @param mouseEvent oggetto di tipo MouseEvent
+     */
     public void viewRegex0(MouseEvent mouseEvent) {
         infoRegex.setText("");
     }
+    /**
+     * Il metodo <code>validatorNote</code> verifica che il campo Note abbia una lunghezza maggiore o uguale a 0 e minore o uguale a 255
 
+     */
     public boolean validatorNote() {
         int max = 256;
         int length = ta_note.getText().length();
@@ -96,23 +108,39 @@ public class InserisciEventoController implements Initializable {
             return false;
         }
     }
-
+    /**
+     * Il metodo <code>validatorChoiseBoxEvento</code> chiama il metodo descritto dentro la classe validator {@link Validator}
+     * @see Validator #choiseBox(ChoiseBox, ImageView, ImageView)
+     */
     public boolean validatorChoiseBoxEvento() {
         return Validator.choiseBox(choisebox_evento,cross_evento,checkmark_evento);
     }
-
+    /**
+     * Il metodo <code>validatorChoiseBoxEvento</code> chiama il metodo descritto dentro la classe validator {@link Validator}
+     * @see Validator #choiseBox(ChoiseBox, ImageView, ImageView)
+     */
     public boolean validatorChoiseBoxSeverita() {
         return Validator.choiseBox(choisebox_severita,cross_severita,checkmark_severita);
     }
 
+    /**
+     * Il metodo <code>viewRegexEvento</code> permettono di visualizzare a schermo la regola usata per validare quel campo input
+     * @param mouseEvent oggetto di tipo MouseEvent
+     */
     public void viewRegexEvento(MouseEvent mouseEvent) {
         infoRegex.setText("Nome Centro: cerca il nome di un centro esistente cliccando sulla lente di ricerca");
     }
-
+    /**
+     * Il metodo <code>viewRegexEvento</code> permettono di visualizzare a schermo la regola usata per validare quel campo input
+     * @param mouseEvent oggetto di tipo MouseEvent
+     */
     public void viewRegexSeverita(MouseEvent mouseEvent) {
         infoRegex.setText("Nome Centro: cerca il nome di un centro esistente cliccando sulla lente di ricerca");
     }
-
+    /**
+     * Il metodo <code>viewRegexEvento</code> permettono di visualizzare a schermo la regola usata per validare quel campo input
+     * @param mouseEvent oggetto di tipo MouseEvent
+     */
     public void viewRegexNote(MouseEvent mouseEvent) {
         infoRegex.setText("Nome Centro: cerca il nome di un centro esistente cliccando sulla lente di ricerca");
     }

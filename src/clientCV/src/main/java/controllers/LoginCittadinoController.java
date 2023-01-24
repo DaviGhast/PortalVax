@@ -98,15 +98,24 @@ public class LoginCittadinoController implements Initializable {
             alert.show();
         }
     }
-
+    /**
+     * Il metodo <code>viewRegex0</code> nasconde il messaggio della regola  prima reso visibile
+     * @param mouseEvent oggetto di tipo MouseEvent
+     */
     public void viewRegex0(MouseEvent mouseEvent) {
         infoRegex.setText("");
     }
-
+    /**
+     * Il metodo <code>viewRegexEmail</code> permettono di visualizzare a schermo la regola usata per validare quel campo input
+     * @param mouseEvent oggetto di tipo MouseEvent
+     */
     public void viewRegexEmail(MouseEvent mouseEvent) {
         infoRegex.setText("Email: inserire da 2 a 30 caratteri");
     }
-
+    /**
+     * Il metodo <code>viewRegexPassword</code> permettono di visualizzare a schermo la regola usata per validare quel campo input
+     * @param mouseEvent oggetto di tipo MouseEvent
+     */
     public void viewRegexPassword(MouseEvent mouseEvent) {
         infoRegex.setText("Password: inserire da 2 a 30 caratteri");
     }

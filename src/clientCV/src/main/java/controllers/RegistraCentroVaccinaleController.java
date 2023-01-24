@@ -153,10 +153,15 @@ public class RegistraCentroVaccinaleController implements Initializable {
             alert.show();
         }
     }
-
+    /**
+     * Il metodo <code>viewRegex0</code> nasconde il messaggio della regola  prima reso visibile
+     */
     public void viewRegex0() {
         infoRegex.setText(" ");
     }
+    /**
+     * Il metodo <code>viewRegex1</code> fa vedere il messaggio per inserire il nome del centro
+     */
     public void viewRegex1() {
         infoRegex.setText("Nome Centro: Inserire da 2 a 50 caratteri");
     }
