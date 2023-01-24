@@ -25,7 +25,13 @@ public class CittadinoRegistratoHomeController extends CittadinoHomeController i
     public Button button_logout, button_infocentro, button_idvaccinazione, button_eventi;
     public Text tf_userid;
     private String userid;
-
+    /**
+     * Il metodo <code>infoCentro</code> richiama il metodo setRoot e permette di spostarsi alla finestra infocentro {@link MainClientUIController}
+     * @see MainClientUIController #setRoot(String)
+     * @see MainClientUIController #setBackScene(String)
+     * @param actionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     */
     public void infoCentro(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("infocentro");
         InfoCentroController infoCentroController =
@@ -33,11 +39,21 @@ public class CittadinoRegistratoHomeController extends CittadinoHomeController i
         infoCentroController.inflateUI(userid);
         MainClientUIController.setBackScene("cittadino_registrato_home");
     }
-
+    /**
+     * Il metodo <code>logout</code> richiama il metodo setRoot e permette di spostarsi alla finestra cittadino_home {@link MainClientUIController}
+     * @see MainClientUIController #setRoot(String)
+     * @param actionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     */
     public void logout(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("cittadino_home");
     }
-
+    /**
+     * Il metodo <code>eventiAvversi</code> richiama il metodo setRoot e permette di spostarsi alla finestra eventi_avversi {@link MainClientUIController}
+     * @see MainClientUIController #setRoot(String)
+     * @param actionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     */
     public void eventiAvversi(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("eventi_avversi");
         EventiAvversiController eventiAvversiController =

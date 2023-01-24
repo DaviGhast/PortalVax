@@ -29,7 +29,11 @@ public class ClientHomeController implements Initializable {
     public Button button_start;
     public TextField tf_nomepc;
     public Text text;
-
+    /**
+     * Il metodo <code>initialize</code> permette di inizializare la finestra
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         image.setImage(new Image("images/banner.png"));
@@ -39,6 +43,12 @@ public class ClientHomeController implements Initializable {
 
     }
 
+    /**
+     *Il metodo <code>start</code> richiama il metodo setRoot e permette di spostarsi alla finestra home {@link MainClientUIController}
+     *@see MainClientUIController #setRoot(String)
+     * @param actionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     */
     public void start(ActionEvent actionEvent) throws IOException {
         RMIClient.setNameServer(tf_nomepc.getText());
         if (RMIClient.serverConnection()) {
@@ -62,13 +72,17 @@ public class ClientHomeController implements Initializable {
             }
         }
     }
-
+/**
+ * Il metodo <code>cliccaSi</code> viene laciato quando si clicca il bototne SI
+ */
     public void cliccaSi(ActionEvent actionEvent) {
         tf_nomepc.setText("");
         text.setVisible(false);
         tf_nomepc.setVisible(false);
     }
-
+    /**
+     * Il metodo <code>cliccaNo</code> viene laciato quando si clicca il bototne NO
+     */
     public void cliccaNo(ActionEvent actionEvent) {
         tf_nomepc.setText("");
         text.setVisible(true);

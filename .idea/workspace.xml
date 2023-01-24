@@ -6,24 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ebdf7d96-4419-4ffa-b976-839a740d49e0" name="Changes" comment="Aggiunto commenti javadoc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/client/RMIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/client/RMIClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/CittadinoHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/CittadinoHomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/CittadinoRegistratoHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/CittadinoRegistratoHomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/ClientHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/ClientHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/ErrorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/ErrorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/EventiAvversiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/EventiAvversiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/InfoCentroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/InfoCentroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/InserisciEventoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/InserisciEventoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/LoginCittadinoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/LoginCittadinoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/OperatoreHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/OperatoreHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/RecuperoIDController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/RecuperoIDController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/RegistraCentroVaccinaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/RegistraCentroVaccinaleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/RegistraVaccinatoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/RegistraVaccinatoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/RegistrazioneCittadinoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/RegistrazioneCittadinoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/ReportEventiAvversiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/ReportEventiAvversiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientCV/src/main/java/controllers/SearchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serverCV/src/main/java/server/RMIServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverCV/src/main/java/server/RMIServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -349,7 +334,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674496690763</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Aggiunto commenti javadoc">
+      <created>1674573503291</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1674573503291</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -398,12 +390,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/clientCV/src/main/java/controllers/InfoCentroController.java</url>
-          <line>163</line>
+          <line>164</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/clientCV/src/main/java/controllers/InfoCentroController.java</url>
-          <line>97</line>
+          <line>98</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

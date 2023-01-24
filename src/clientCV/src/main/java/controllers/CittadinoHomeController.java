@@ -51,7 +51,7 @@ public class CittadinoHomeController implements Initializable {
     }
 
     /**
-     *Il metodo <code>recuperaIDVaccinazione</code>
+     *Il metodo <code>recuperaIDVaccinazione</code> avvia il popup per recuperare l'id di vaccinazione
      * @param actionEvent
      * @throws IOException esclude tutte le eccezioni che possono verificarsi
      */
@@ -88,7 +88,7 @@ public class CittadinoHomeController implements Initializable {
     }
 
     /**
-     * Il metodo <code>initialize</code> permette di inizializare la finestra principale
+     * Il metodo <code>initialize</code> permette di inizializare la finestra
      * @param location
      * @param resources
      */
