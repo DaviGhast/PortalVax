@@ -205,6 +205,18 @@ public class RegistraVaccinatoController implements Initializable {
             if(!result.isPresent()) {
                 // l'alert esiste, nessun bottone premuto
             } else if(result.get() == ButtonType.OK & risposta.getStato() == Stato.GOOD) {
+                Risposta risposta1 = RMIClient.server.cercaIdVaccinazione(nuovocittadino.getCodiceFiscale());
+
+                if (risposta1.getStato() == Stato.GOOD) {
+                    String idVaccinazione = String.valueOf(risposta1.getObject());
+
+                    Alert alert1 = new Alert(Alert.AlertType.ERROR);
+                    alert1.setTitle("ID Vaccinazione");
+                    alert1.setHeaderText("ID di vaccinazione generato");
+                    alert1.setContentText("il cittadino "+nuovocittadino.getNomeCittadino()+" "+
+                            nuovocittadino.getCognomeCittadino()+" è associato alla vaccinazione: "+idVaccinazione);
+                    alert1.show();
+                }
                 MainClientUIController.setRoot("operatore_home");
             }
 

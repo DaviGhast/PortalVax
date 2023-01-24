@@ -136,7 +136,7 @@ public class RegistrazioneCittadinoController implements Initializable {
                 MainClientUIController.setRoot("cittadino_registrato_home");
                 CittadinoRegistratoHomeController cittadinoRegistratoHomeController =
                         MainClientUIController.getFxmlLoader().getController();
-                cittadinoRegistratoHomeController.inflateUI((String) risposta.getObject());
+                cittadinoRegistratoHomeController.inflateUI(cittadinoRegistrato.getUserId());
             }
 
         } else {

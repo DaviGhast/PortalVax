@@ -37,6 +37,7 @@ public class InfoCentroController implements Initializable {
     public TableColumn<CentroVaccinale,String> comune;
     public Text promt_text, promt_tipologia;
     public TextField textfield;
+    private String userid;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -65,6 +66,11 @@ public class InfoCentroController implements Initializable {
 
     public void torna_indietro(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot(MainClientUIController.getBackScene());
+        if (MainClientUIController.getBackScene().equals("cittadino_registrato_home")) {
+            CittadinoRegistratoHomeController cittadinoRegistratoHomeController =
+                    MainClientUIController.getFxmlLoader().getController();
+            cittadinoRegistratoHomeController.inflateUI(userid);
+        }
     }
 
     public void setRicerca(ActionEvent actionEvent) {
@@ -186,5 +192,9 @@ public class InfoCentroController implements Initializable {
         }
 
 
+    }
+
+    public void inflateUI(String userid) {
+        this.userid = userid;
     }
 }

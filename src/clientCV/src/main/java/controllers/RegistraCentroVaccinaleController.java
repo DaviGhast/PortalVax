@@ -98,7 +98,7 @@ public class RegistraCentroVaccinaleController implements Initializable {
     public void registraNuovoCentro(ActionEvent actionEvent) throws IOException {
 
         tf_nomecentro.setText(FixInput.tuttePrimeLettereMaiuscole(FixInput.aggiungiSpazi(tf_nomecentro.getText())));
-        tf_indirizzo.setText(FixInput.tuttePrimeLettereMaiuscole(FixInput.aggiungiSpazi(tf_nomecentro.getText())));
+        tf_indirizzo.setText(FixInput.tuttePrimeLettereMaiuscole(FixInput.aggiungiSpazi(tf_indirizzo.getText())));
         tf_comune.setText(FixInput.tuttePrimeLettereMaiuscole(tf_comune.getText()));
         tf_provincia.setText(tf_provincia.getText().toUpperCase());
 

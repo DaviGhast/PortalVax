@@ -23,6 +23,9 @@ public class CittadinoRegistratoHomeController extends CittadinoHomeController i
 
     public void infoCentro(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("infocentro");
+        InfoCentroController infoCentroController =
+                MainClientUIController.getFxmlLoader().getController();
+        infoCentroController.inflateUI(userid);
         MainClientUIController.setBackScene("cittadino_registrato_home");
     }
 

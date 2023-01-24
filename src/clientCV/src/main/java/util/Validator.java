@@ -27,7 +27,7 @@ public class Validator {
     }
 
     public static boolean indirizzo(String string) {
-        return Pattern.matches("^(via|corso|viale|piazza|c.so|v.le|p.za) [a-zA-Z ]{1,241}?,?\\d{1,4}",
+        return Pattern.matches("^(via|corso|viale|piazza|c.so|v.le|p.za) [a-zA-Z ]{1,241}?,? \\d{1,4}",
                 string.toLowerCase());
     }
 

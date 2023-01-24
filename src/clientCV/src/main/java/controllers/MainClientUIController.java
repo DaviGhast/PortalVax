@@ -53,15 +53,15 @@ public class MainClientUIController extends Application {
             String s = "Sei sicuro di vuoler chiudere il programma?";
             alert.setContentText(s);
             Optional<ButtonType> result = alert.showAndWait();
-            if(!result.isPresent()) {
-                // l'alert esiste, nessun bottone premuto
-            } else if(result.get() == ButtonType.OK) {
+            if(result.get() == ButtonType.OK) {
                 try {
                     stop();
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
                 System.exit(0);
+            } else {
+                event.consume();
             }
         });
         primaryStage.show();
