@@ -43,7 +43,11 @@ public class InfoCentroController implements Initializable {
     public Text promt_text, promt_tipologia;
     public TextField textfield;
     private String userid;
-
+    /**
+     * Il metodo <code>initialize</code> permette di inizializare la finestra
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         image.setImage(new Image("images/banner.png"));
@@ -69,6 +73,13 @@ public class InfoCentroController implements Initializable {
 
     }
 
+    /**
+     * Il metodo <code>torna_indietro</code> richiama il metodo setRoot e poi il metodo getBackScene che permette di spostarsi alla finestra cittadino_registrato_home {@link MainClientUIController}
+     * @see MainClientUIController #setRoot(String)
+     * @see MainClientUIController #setBackScene(String)
+     * @param actionEvent
+     * @throws IOException
+     */
     public void torna_indietro(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot(MainClientUIController.getBackScene());
         if (MainClientUIController.getBackScene().equals("cittadino_registrato_home")) {
@@ -78,6 +89,10 @@ public class InfoCentroController implements Initializable {
         }
     }
 
+    /**
+     * Il metodo <code>setRicerca</code> apre la finestra che permette di fare la ricerca
+     * @param actionEvent oggetto di tipo ActionEvent
+     */
     public void setRicerca(ActionEvent actionEvent) {
         switch (choicebox_ricerca.getValue()) {
             case "Nome":

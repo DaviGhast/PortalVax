@@ -21,7 +21,11 @@ import java.util.ResourceBundle;
 public class ErrorController implements Initializable {
     public ImageView image;
     public ImageView image1;
-
+    /**
+     * Il metodo <code>initialize</code> permette di inizializare la finestra
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         image.setImage(new Image("images/banner.png"));
