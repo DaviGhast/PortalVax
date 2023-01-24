@@ -10,7 +10,7 @@ import java.util.Objects;
  * @author Marc Cepraga 744101 VA
  * @author Luca Muggiasca 744565 VA
  * @author Brenno Re 747060 VA
- *  * la classe si occupa di definire le azioni disponibili ai cittadini
+ *  la classe si occupa di definire le azioni disponibili ai cittadini
  */
 public class GestoreCittadini {
 
