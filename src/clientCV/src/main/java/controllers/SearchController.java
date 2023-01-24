@@ -28,6 +28,9 @@ import java.util.ResourceBundle;
  * @author Luca Muggiasca 744565 VA
  * @author Brenno Re 747060 VA
  */
+/**
+ * La classe contenente il controller della ricerca della parte UI
+ */
 public class SearchController implements Initializable {
     public TextField tf_nomecentro;
     public ImageView search;

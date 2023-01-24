@@ -28,6 +28,9 @@ import util.Validator;
  * @author Luca Muggiasca 744565 VA
  * @author Brenno Re 747060 VA
  */
+/**
+ * La classe contenente il controller della registrazione dei centri vaccinali della parte UI
+ */
 public class RegistraCentroVaccinaleController implements Initializable {
     public ChoiceBox<String> choicebox_tipologia;
     public TextField tf_comune, tf_nomecentro, tf_cap, tf_provincia, tf_indirizzo;

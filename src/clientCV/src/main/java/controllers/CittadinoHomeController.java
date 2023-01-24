@@ -23,6 +23,10 @@ import java.util.ResourceBundle;
  * @author Luca Muggiasca 744565 VA
  * @author Brenno Re 747060 VA
  */
+
+/**
+ * La classe contenente il controller del Cittadino della parte UI
+ */
 public class CittadinoHomeController implements Initializable {
 
     public ImageView image;

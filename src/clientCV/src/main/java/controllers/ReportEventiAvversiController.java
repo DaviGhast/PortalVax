@@ -17,6 +17,9 @@ import java.util.ResourceBundle;
  * @author Luca Muggiasca 744565 VA
  * @author Brenno Re 747060 VA
  */
+/**
+ * La classe contenente il controller dei report degli eventi avversi della parte UI
+ */
 public class ReportEventiAvversiController implements Initializable {
     public TextField tf_nomecentro;
     public ImageView search;

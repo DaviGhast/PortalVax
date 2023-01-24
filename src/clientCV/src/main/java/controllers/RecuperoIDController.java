@@ -25,6 +25,8 @@ import java.util.ResourceBundle;
  * @author Marc Cepraga 744101 VA
  * @author Luca Muggiasca 744565 VA
  * @author Brenno Re 747060 VA
+ *//**
+ * La classe contenente il controller del del recupero id della parte UI
  */
 public class RecuperoIDController implements Initializable {
     public TextField tf_cf, tf_result;

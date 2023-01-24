@@ -26,6 +26,9 @@ import java.util.regex.Pattern;
  * @author Luca Muggiasca 744565 VA
  * @author Brenno Re 747060 VA
  */
+/**
+ * La classe contenente il controller della registrazione dei cittadini della parte UI
+ */
 public class RegistrazioneCittadinoController implements Initializable {
 
     public TextField tf_idvaccinazione, tf_email, tf_userid, tf_codicefiscale;

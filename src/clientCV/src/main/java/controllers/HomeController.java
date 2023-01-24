@@ -18,6 +18,9 @@ import java.util.ResourceBundle;
  * @author Luca Muggiasca 744565 VA
  * @author Brenno Re 747060 VA
  */
+/**
+ * La classe contenente il controller del Home della parte UI
+ */
 public class HomeController implements Initializable {
     public Button button_op;
     public ImageView image;

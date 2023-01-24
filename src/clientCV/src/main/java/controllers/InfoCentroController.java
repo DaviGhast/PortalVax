@@ -30,6 +30,9 @@ import java.util.ResourceBundle;
  * @author Luca Muggiasca 744565 VA
  * @author Brenno Re 747060 VA
  */
+/**
+ * La classe contenente il controller degli informazioni dei centri della parte UI
+ */
 public class InfoCentroController implements Initializable {
 
     public ImageView image, search;

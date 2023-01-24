@@ -18,6 +18,9 @@ import java.util.ResourceBundle;
  * @author Luca Muggiasca 744565 VA
  * @author Brenno Re 747060 VA
  */
+/**
+ * La classe contenente il controller degli errori della parte UI
+ */
 public class ErrorController implements Initializable {
     public ImageView image;
     public ImageView image1;

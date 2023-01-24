@@ -21,6 +21,9 @@ import java.util.ResourceBundle;
  * @author Luca Muggiasca 744565 VA
  * @author Brenno Re 747060 VA
  */
+/**
+ * La classe contenente il controller del inserimento degli eventi della parte UI
+ */
 public class InserisciEventoController implements Initializable {
 
     public DialogPane dialog;

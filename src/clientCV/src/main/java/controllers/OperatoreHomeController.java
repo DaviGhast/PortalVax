@@ -17,6 +17,9 @@ import java.util.ResourceBundle;
  * @author Luca Muggiasca 744565 VA
  * @author Brenno Re 747060 VA
  */
+/**
+ * La classe contenente il controller del operatore home della parte UI
+ */
 public class OperatoreHomeController implements Initializable {
     public Button button_1;
     public Button button_2;

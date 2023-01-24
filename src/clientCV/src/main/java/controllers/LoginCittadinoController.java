@@ -26,6 +26,9 @@ import java.util.ResourceBundle;
  * @author Luca Muggiasca 744565 VA
  * @author Brenno Re 747060 VA
  */
+/**
+ * La classe contenente il controller del login del cittadino della parte UI
+ */
 public class LoginCittadinoController implements Initializable {
 
     public TextField tf_emailuserid;

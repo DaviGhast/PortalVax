@@ -27,6 +27,9 @@ import java.util.Optional;
  * @author Luca Muggiasca 744565 VA
  * @author Brenno Re 747060 VA
  */
+/**
+ * La classe contenente il controller del main client della parte UI
+ */
 public class MainClientUIController extends Application {
 
     private static Scene scene;
