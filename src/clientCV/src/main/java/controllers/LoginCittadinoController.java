@@ -30,16 +30,32 @@ import java.util.ResourceBundle;
  * La classe contenente il controller del login del cittadino della parte UI
  */
 public class LoginCittadinoController implements Initializable {
-
+    
+    /**
+     * oggetti TextField
+     */
     public TextField tf_emailuserid;
-    public Label infoRegex;
+    
+    /**
+     * oggetto Label
+     */
+    public Label  infoRegex;
+    /**
+     * oggetti Button
+     */
     public Button button_registracittadino, indietro;
+    /**
+     * oggetti ImageView
+     */
     public ImageView image, cross_email, checkmark_email, info_email, checkmark_password, cross_password, info_password;
+    /**
+     * oggetti PasswordField
+     */
     public PasswordField password;
     /**
      * Il metodo <code>initialize</code> permette di inizializare la finestra
-     * @param location
-     * @param resources
+     * @param location è un parametro di base del metodo
+     * param resources è un parametro di base del metodo
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -60,7 +76,13 @@ public class LoginCittadinoController implements Initializable {
 
     }
 
-    public void registraCittadino(ActionEvent actionEvent) throws IOException {
+    /**
+     * Il metodo <code>login</code> prende i dati dalla view e effettua chiamata del metodo login del server per 
+     * verificare le informazioni per l'accesso e restituisce a schermo il risultato
+     * @param actionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo
+     */
+    public void login(ActionEvent actionEvent) throws IOException {
 
         if (!tf_emailuserid.getText().isEmpty() & !password.getText().isEmpty()) {
 
@@ -125,42 +147,10 @@ public class LoginCittadinoController implements Initializable {
     /**
      * Il metodo <code>torna_indietro</code> richiama il metodo setRoot e permette di spostarsi alla finestra cittadino_home {@link MainClientUIController}
      * @see MainClientUIController #setRoot(String)
-     * @param actionEvent oggetto di tipo ActionEvent
-     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     * @param actionEvent oggetto di tipo ActionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni che possono verificarsi
      */
     public void torna_indietro(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("cittadino_home");
-    }
-
-    public boolean validatorEmail(KeyEvent keyEvent) {
-        if (!tf_emailuserid.getText().isEmpty()) {
-            cross_email.setVisible(false);
-            checkmark_email.setVisible(true);
-            StyleUI.removeRed(tf_emailuserid);
-            StyleUI.setGreen(tf_emailuserid);
-            return true;
-        } else {
-            checkmark_email.setVisible(false);
-            cross_email.setVisible(true);
-            StyleUI.removeGreen(tf_emailuserid);
-            StyleUI.setRed(tf_emailuserid);
-            return false;
-        }
-    }
-
-    public boolean validatorPassword(KeyEvent keyEvent) {
-        if (!password.getText().isEmpty()) {
-            cross_password.setVisible(false);
-            checkmark_password.setVisible(true);
-            StyleUI.removeRed(password);
-            StyleUI.setGreen(password);
-            return true;
-        } else {
-            checkmark_password.setVisible(false);
-            cross_password.setVisible(true);
-            StyleUI.removeGreen(password);
-            StyleUI.setRed(password);
-            return false;
-        }
     }
 }

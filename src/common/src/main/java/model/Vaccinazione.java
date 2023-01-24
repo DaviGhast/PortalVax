@@ -10,10 +10,25 @@ import java.time.LocalDate;
  * @author Brenno Re 747060 VA
  */
 public class Vaccinazione implements Serializable {
+    /**
+     * l'id
+     */
     private short id;
+    /**
+     * oggetto e' il tipo di vaccino somministarto
+     */
     private String vaccinoSomministrato;
+    /**
+     * e' la data di vaccinazione
+     */
     private LocalDate dataVaccinazione;
+    /**
+     * e' l'id del centro vaccinale
+     */
     private short idCentroVaccinale;
+    /**
+     * e' il codice fiscale
+     */
     private String codiceFiscale;
     /**
      * Costruttore per l'oggetto Vaccinazione
@@ -32,6 +47,9 @@ public class Vaccinazione implements Serializable {
         this.codiceFiscale = codiceFiscale;
     }
 
+    /**
+     * Costruttore vuoto per l'oggetto Vaccinazione
+     */
     public Vaccinazione(){
 
     }

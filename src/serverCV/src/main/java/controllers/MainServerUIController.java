@@ -25,6 +25,9 @@ import java.util.Optional;
  */
 public class MainServerUIController extends Application {
 
+    /**
+     * oggetto scena
+     */
     private static Scene scene;
 
     /**
@@ -68,7 +71,7 @@ public class MainServerUIController extends Application {
     /**
      * Il Metodo <code>setRoot</code> cambia la pagina della finestra dell'interfaccia
      * @param fxml è il nome della finestra da impostare
-     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni di input/output che possono verificarsi nel metodo
      */
    static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
@@ -78,7 +81,7 @@ public class MainServerUIController extends Application {
      *Il Metodo <code>loadFXML</code> carico il file FXML
      * @param fxml è il nome del file FXML da caricare
      * @return il caricamento del file
-     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni di input/output che possono verificarsi nel metodo
      */
    private static Parent loadFXML(String fxml) throws IOException {
        FXMLLoader fxmlLoader = new FXMLLoader();

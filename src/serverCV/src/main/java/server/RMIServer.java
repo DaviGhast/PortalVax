@@ -18,11 +18,27 @@ import java.rmi.server.UnicastRemoteObject;
  */
 public class RMIServer extends UnicastRemoteObject implements RMIServerInterface {
 
+    /**
+     * serialVersionUID
+     */
     private static final long serialVersionUID = 1L;
+    /**
+     * oggetto gestoreCentriVaccinali
+     */
     private static final GestoreCentriVaccinali gestoreCentriVaccinali = new GestoreCentriVaccinali();
+    /**
+     * oggetto gestoreCittadini
+     */
     private static final GestoreCittadini gestoreCittadini = new GestoreCittadini();
+    /**
+     * oggetto registry
+     */
     private static Registry registry;
 
+    /**
+     * costruttore RMIServer
+     * @throws RemoteException esclude tutte le eccezioni <code>Remote</code> che possono verificarsi
+     */
     public RMIServer() throws RemoteException {
         super();
     }
@@ -41,6 +57,10 @@ public class RMIServer extends UnicastRemoteObject implements RMIServerInterface
         }
     }
 
+    /**
+     * Ferma la esposizione dell'oggetto registry
+     * @throws NoSuchObjectException esclude tutte le eccezioni <code>NoSuchObjectn</code> che possono verificarsi
+     */
     public static void stop() throws NoSuchObjectException {
         System.out.println("Stopping rmi server.");
         UnicastRemoteObject.unexportObject(registry, true);
@@ -72,7 +92,7 @@ public class RMIServer extends UnicastRemoteObject implements RMIServerInterface
     }
     /**
      * richiama il metodo con il medesimo nome contenuto nella classe di logica {@link GestoreCittadini}
-     * @see GestoreCittadini#registraCittadino(CittadinoRegistrato, Short)
+     * @see GestoreCittadini#registraCittadino(CittadinoRegistrato, short)
      * @param cittadinoRegistrato oggetto di tipo cittadinoVaccinato
      * @param idVaccinazione oggetto di tipo Cittadino proveniente dal client
      * @return oggetto di ritorno da mandare al client

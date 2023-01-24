@@ -9,10 +9,30 @@ import java.io.Serializable;
  * @author Brenno Re 747060 VA
  */
 public class CittadinoRegistrato implements Serializable {
-    private String userId;
-    private String email;
-    private String password;
-    private String codiceFiscale;
+    /**
+     * l'id del'user
+     */
+    /**
+     * oggetto String
+     */private String userId;
+    /**
+     * e' la mail
+     */
+    /**
+     * oggetto String
+     */private String email;
+    /**
+     * e' la password
+     */
+    /**
+     * oggetto String
+     */private String password;
+    /**
+     * è il codice fiscale
+     */
+    /**
+     * oggetto String
+     */private String codiceFiscale;
 
     /**
      * Costruttore per l'oggetto CittadinoRegistarto
@@ -28,6 +48,9 @@ public class CittadinoRegistrato implements Serializable {
         this.codiceFiscale = codiceFiscale;
     }
 
+    /**
+     * Costruttore vuoto per l'oggetto CittadinoRegistarto
+     */
     public CittadinoRegistrato() {
     }
     /**

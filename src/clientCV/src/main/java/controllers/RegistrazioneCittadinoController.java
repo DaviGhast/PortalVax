@@ -31,18 +31,33 @@ import java.util.regex.Pattern;
  */
 public class RegistrazioneCittadinoController implements Initializable {
 
+    /**
+     * oggetti TextField
+     */
     public TextField tf_idvaccinazione, tf_email, tf_userid, tf_codicefiscale;
-    public Label infoRegex;
+    /**
+     * oggetto Label
+     */
+    public Label  infoRegex;
+    /**
+     * oggetti Button
+     */
     public Button button_registracittadino, indietro;
+    /**
+     * oggetti ImageView
+     */
     public ImageView image, search, cross_idvaccinazione, checkmark_idvaccinazione, info_idvaccinazione,
             checkmark_codicefiscale, cross_codicefiscale, info_codicefiscale, cross_email, checkmark_email,
             info_email, checkmark_userid, cross_userid, info_userid, checkmark_password, cross_password, info_password,
             checkmark_confermapassword, cross_confermapassword;
+    /**
+     * oggetti PasswordField
+     */
     public PasswordField password, conferma_password;
     /**
      * Il metodo <code>initialize</code> permette di inizializare la finestra
-     * @param location
-     * @param resources
+     * @param location è un parametro di base del metodo
+     * param resources è un parametro di base del metodo
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -87,6 +102,11 @@ public class RegistrazioneCittadinoController implements Initializable {
 
     }
 
+    /**
+     * avvia il popup per recuperare id vaccinazione
+     * @param actionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni che possono verificarsi
+     */
     public void viewSearch(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(MainClientUIController.class.getClassLoader().getResource("fxml/id_vaccinazione.fxml"));
@@ -110,6 +130,11 @@ public class RegistrazioneCittadinoController implements Initializable {
 
     }
 
+    /**
+     * controlla i dati inseriti nella view, chiama il metodo registra cittadino del server e visualizza il risultato
+      * @param actionEvent evento azione view
+     * @throws IOException io exception
+     */
     public void registraCittadino(ActionEvent actionEvent) throws IOException {
 
         tf_email.setText(tf_email.getText().toLowerCase());
@@ -162,36 +187,42 @@ public class RegistrazioneCittadinoController implements Initializable {
     }
     /**
      * Il metodo <code>viewRegex0</code> nasconde il messaggio della regola  prima reso visibile
+     * @param mouseEvent evento mouse
      */
     public void viewRegex0(MouseEvent mouseEvent) {
         infoRegex.setText("");
     }
     /**
      * Il metodo <code>viewRegexIDVaccinazione</code> permettono di visualizzare a schermo la regola usata per validare il campo ID Vaccinazione
+     * @param mouseEvent evento mouse
      */
     public void viewRegexIDVaccinazione(MouseEvent mouseEvent) {
         infoRegex.setText("ID Vaccinazione: inserisci o recuperalo cliccando la lente di ricerca");
     }
     /**
      * Il metodo <code>viewRegexEmail</code> permettono di visualizzare a schermo la regola usata per validare il campo Email
+     * @param mouseEvent evento mouse
      */
     public void viewRegexEmail(MouseEvent mouseEvent) {
         infoRegex.setText("Email: inserire da 2 a 30 caratteri");
     }
     /**
      * Il metodo <code>viewRegexUserId</code> permettono di visualizzare a schermo la regola usata per validare il campo UserID
+     * @param mouseEvent evento mouse
      */
     public void viewRegexUserId(MouseEvent mouseEvent) {
         infoRegex.setText("UserID: inserire da 2 a 30 caratteri");
     }
     /**
      * Il metodo <code>viewRegexPassword</code> permettono di visualizzare a schermo la regola usata per validare il campo Password
+     * @param mouseEvent evento mouse
      */
     public void viewRegexPassword(MouseEvent mouseEvent) {
         infoRegex.setText("Password: inserire da 2 a 30 caratteri");
     }
     /**
      * Il metodo <code>viewRegexCodiceFiscale</code> permettono di visualizzare a schermo la regola usata per validare il campo Codice Fiscale
+     * @param mouseEvent evento mouse
      */
     public void viewRegexCodiceFiscale(MouseEvent mouseEvent) {
         infoRegex.setText("Codice Fiscale: Inserire 16 caratteri alfanumerici");
@@ -199,13 +230,17 @@ public class RegistrazioneCittadinoController implements Initializable {
     /**
      * Il metodo <code>torna_indietro</code> richiama il metodo setRoot e permette di spostarsi alla finestra cittadino_home {@link MainClientUIController}
      * @see MainClientUIController #setRoot(String)
-     * @param actionEvent oggetto di tipo ActionEvent
-     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     * @param actionEvent oggetto di tipo ActionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni che possono verificarsi
      */
     public void torna_indietro(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("cittadino_home");
     }
 
+    /**
+     * validatore campo codice fiscale
+     * @return risultato vaerifica
+     */
     public boolean validatorCodiceFiscale() {
         if (Validator.codiceFiscale(tf_codicefiscale.getText())) {
             cross_codicefiscale.setVisible(false);
@@ -223,6 +258,11 @@ public class RegistrazioneCittadinoController implements Initializable {
     }
 
 
+    /**
+     * validatore campo idvaccinazione
+     * @param keyEvent evento tastiera
+     * @return risultato vaerifica
+     */
     public boolean validatorIdVaccinazione(KeyEvent keyEvent) {
         if (!tf_idvaccinazione.getText().isEmpty()) {
             cross_idvaccinazione.setVisible(false);
@@ -239,6 +279,11 @@ public class RegistrazioneCittadinoController implements Initializable {
         }
     }
 
+    /**
+     * validatore campo email
+     * @param keyEvent evento tastiera
+     * @return risultato vaerifica
+     */
     public boolean validatorEmail(KeyEvent keyEvent) {
         if (Validator.email(tf_email.getText())) {
             cross_email.setVisible(false);
@@ -255,6 +300,11 @@ public class RegistrazioneCittadinoController implements Initializable {
         }
     }
 
+    /**
+     * validatore campo userid
+     * @param keyEvent evento tastiera
+     * @return risultato vaerifica
+     */
     public boolean validatorUserID(KeyEvent keyEvent) {
         if (Validator.userId(tf_userid.getText())) {
             cross_userid.setVisible(false);
@@ -271,6 +321,11 @@ public class RegistrazioneCittadinoController implements Initializable {
         }
     }
 
+    /**
+     * validatore campo password
+     * @param keyEvent evento tastiera
+     * @return risultato vaerifica
+     */
     public boolean validatorPassword(KeyEvent keyEvent) {
         if (Validator.password(password.getText())) {
             cross_password.setVisible(false);
@@ -287,6 +342,11 @@ public class RegistrazioneCittadinoController implements Initializable {
         }
     }
 
+    /**
+     * validatore campo conferma pwd
+     * @param keyEvent evento tastiera
+     * @return risultato vaerifica
+     */
     public boolean validatorConfermaPassword(KeyEvent keyEvent) {
         if (conferma_password.getText().equals(password.getText())) {
             cross_confermapassword.setVisible(false);

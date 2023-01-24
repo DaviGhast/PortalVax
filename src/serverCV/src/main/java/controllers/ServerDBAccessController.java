@@ -30,11 +30,23 @@ import java.util.ResourceBundle;
  */
 public class ServerDBAccessController implements Initializable {
 
+    /**
+     * oggetti TextField
+     */
     public TextField et_username, et_password, et_nomedatabase, et_host, et_portadatabase ;
+    /**
+     * oggetti ImageView
+     */
     public ImageView image;
+    /**
+     * oggetti Button
+     */
     public Button button_login_db;
 
-    @FXML void loginDB() throws IOException {
+    /**
+     * metodo che effettua i controlli dei campi input e poi avvia la prova di connessione al DB
+     */
+    @FXML void loginDB() {
 
         String username = et_username.getText();
         String password = et_password.getText();
@@ -86,8 +98,8 @@ public class ServerDBAccessController implements Initializable {
 
     /**
      *Il Metodo <code>initialize</code> inizializza i componenti della pagina
-     * @param location è un parametro di base del metodo
-    * @param resources è un parametro di base del metodo
+     * @param location è un parametro di base del metodo è un parametro di base del metodo
+    * param resources è un parametro di base del metodo è un parametro di base del metodo
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -36,20 +36,43 @@ import java.util.regex.Pattern;
 public class RegistraVaccinatoController implements Initializable {
 
     public ChoiceBox<String> choicebox_tipovaccino;
+    /**
+     * oggetti TextField
+     */
     public TextField tf_nomecentro, tf_nome, tf_cognome, tf_codicefiscale;
 
     public DatePicker datepicker_data;
 
-    public Label infoRegex;
+    /**
+     * oggetto Label
+     */
+    public Label  infoRegex;
 
+    /**
+     * oggetti Button
+     */
     public Button button_addnewvaccinato;
 
+    /**
+     * oggetti ImageView
+     */
     public ImageView image, cross_nome, checkmark_nome, cross_cognome, checkmark_cognome, cross_codicefiscale,
             checkmark_codicefiscale, info_nome, info_cognome, info_codicefiscale, cross_nomecentro,
             checkmark_nomecentro, cross_data, checkmark_data, cross_vaccino, checkmark_vaccino, search, info_nomecentro;
+    /**
+     * oggetti Button
+     */
     public Button indietro;
-    private CentroVaccinale centroVaccinaleScelto;
+    /**
+     * oggetto CentroVaccinale
+     */
+   private CentroVaccinale centroVaccinaleScelto;
 
+    /**
+     * effettua una chiamata per una verifca lato server dell'esistenza del centro vaccinale inserito
+     * @return risultato verifica
+     * @throws RemoteException eccezione remote
+     */
     public boolean validatorNomeCentroEsistente() throws RemoteException {
         Risposta risposta = RMIClient.server.esisteCentroVaccinale(tf_nomecentro.getText());
 
@@ -69,6 +92,10 @@ public class RegistraVaccinatoController implements Initializable {
 
     }
 
+    /**
+     * validatore campo nome
+     * @return risultato vaerifica
+     */
     public boolean validatorfield1() {
         if (Pattern.matches("^[a-zA-Z]{2,30}", tf_nome.getText())) {
             cross_nome.setVisible(false);
@@ -85,6 +112,10 @@ public class RegistraVaccinatoController implements Initializable {
         }
     }
 
+    /**
+     * validatore campo cognome
+     * @return risultato vaerifica
+     */
     public boolean validatorfield2() {
         if (Pattern.matches("^[a-zA-Z]{2,30}", tf_cognome.getText())) {
             cross_cognome.setVisible(false);
@@ -101,6 +132,10 @@ public class RegistraVaccinatoController implements Initializable {
         }
     }
 
+    /**
+     * validatore campo codice fiscale
+     * @return risultato vaerifica
+     */
     public boolean validatorfield3() {
         if (Validator.codiceFiscale(tf_codicefiscale.getText())) {
             cross_codicefiscale.setVisible(false);
@@ -117,6 +152,10 @@ public class RegistraVaccinatoController implements Initializable {
         }
     }
 
+    /**
+     * validatore campo choicebox_tipovaccino
+     * @return risultato vaerifica
+     */
     public boolean validatorChoiseBox() {
         if (!String.valueOf(choicebox_tipovaccino.getSelectionModel().getSelectedItem()).equals("null")) {
             cross_vaccino.setVisible(false);
@@ -133,6 +172,10 @@ public class RegistraVaccinatoController implements Initializable {
         }
     }
 
+    /**
+     * validatore campo datepicker_data
+     * @return risultato vaerifica
+     */
     public boolean validatorDate() {
         if (!String.valueOf(datepicker_data.getValue()).equals("null")) {
             cross_data.setVisible(false);
@@ -149,6 +192,11 @@ public class RegistraVaccinatoController implements Initializable {
         }
     }
 
+    /**
+     * avvia il popup per cercare nome centro
+     * @param actionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni che possono verificarsi
+     */
     public void viewSearch(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(MainClientUIController.class.getClassLoader().getResource("fxml/search.fxml"));
@@ -173,6 +221,11 @@ public class RegistraVaccinatoController implements Initializable {
 
     }
 
+    /**
+     * controlla i dati inseriti nella view, chiama il metodo registra vaccinato del server e visualizza il risultato
+     * @param actionEvent evento azione view
+     * @throws IOException io exception
+     */
     public void registraNuovoVaccinato(ActionEvent actionEvent) throws IOException {
 
         tf_cognome.setText(FixInput.tuttePrimeLettereMaiuscole(FixInput.aggiungiSpazi(tf_cognome.getText())));
@@ -269,8 +322,8 @@ public class RegistraVaccinatoController implements Initializable {
     }
     /**
      * Il metodo <code>initialize</code> permette di inizializare la finestra
-     * @param location
-     * @param resources
+     * @param location è un parametro di base del metodo
+     * param resources è un parametro di base del metodo
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -323,8 +376,8 @@ public class RegistraVaccinatoController implements Initializable {
     /**
      * Il metodo <code>torna_indietro</code> richiama il metodo setRoot e permette di spostarsi alla finestra operatore_home {@link MainClientUIController}
      * @see MainClientUIController #setRoot(String)
-     * @param actionEvent oggetto di tipo ActionEvent
-     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     * @param actionEvent oggetto di tipo ActionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni che possono verificarsi
      */
     public void torna_indietro(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("operatore_home");

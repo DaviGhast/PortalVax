@@ -29,9 +29,21 @@ import java.util.ResourceBundle;
  * La classe contenente il controller del del recupero id della parte UI
  */
 public class RecuperoIDController implements Initializable {
+    /**
+     * oggetti TextField
+     */
     public TextField tf_cf, tf_result;
+    /**
+     * oggetti ImageView
+     */
     public ImageView search;
+    /**
+     * oggetto DialogPane
+     */
     public DialogPane dialog;
+    /**
+     * oggetto String
+     */
     private String idVaccinazione, codiceFiscale;
 
     public void search(ActionEvent actionEvent) throws RemoteException {
@@ -61,8 +73,8 @@ public class RecuperoIDController implements Initializable {
     }
     /**
      * Il metodo <code>initialize</code> permette di inizializare la finestra
-     * @param location
-     * @param resources
+     * @param location è un parametro di base del metodo
+     * param resources è un parametro di base del metodo
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -32,13 +32,31 @@ import util.Validator;
  * La classe contenente il controller della registrazione dei centri vaccinali della parte UI
  */
 public class RegistraCentroVaccinaleController implements Initializable {
+    /**
+     * oggetti ChoiceBox
+     */
     public ChoiceBox<String> choicebox_tipologia;
+    /**
+     * oggetti TextField
+     */
     public TextField tf_comune, tf_nomecentro, tf_cap, tf_provincia, tf_indirizzo;
+    /**
+     * oggetti ImageView
+     */
     public ImageView image, cross_nomecentro, cross_comune, cross_indirizzo, cross_provincia, cross_cap,
             checkmark_nomecentro, checkmark_indirizzo, checkmark_comune, checkmark_provincia, checkmark_cap,
             cross_tipologia, checkmark_tipologia;
+    /**
+     * oggetti Button
+     */
     public Button button_addnewcenter;
-    public Label infoRegex;
+    /**
+     * oggetto Label
+     */
+    public Label  infoRegex;
+    /**
+     * oggetti ImageView
+     */
     public ImageView info_nomecentro, info_indirizzo, info_comune, info_provincia, info_cap;
 
     public boolean validatorChoiseBox() {
@@ -103,6 +121,11 @@ public class RegistraCentroVaccinaleController implements Initializable {
     }
 
 
+    /**
+     * controlla i dati inseriti nella view, chiama il metodo registra centro del server e visualizza il risultato
+     * @param actionEvent evento azione view
+     * @throws IOException io exception
+     */
     public void registraNuovoCentro(ActionEvent actionEvent) throws IOException {
 
         tf_nomecentro.setText(FixInput.tuttePrimeLettereMaiuscole(FixInput.aggiungiSpazi(tf_nomecentro.getText())));
@@ -194,8 +217,8 @@ public class RegistraCentroVaccinaleController implements Initializable {
     }
     /**
      * Il metodo <code>initialize</code> permette di inizializare la finestra
-     * @param location
-     * @param resources
+     * @param location è un parametro di base del metodo
+     * param resources è un parametro di base del metodo
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -246,8 +269,8 @@ public class RegistraCentroVaccinaleController implements Initializable {
     /**
      * Il metodo <code>torna_indietro</code> richiama il metodo setRoot e permette di spostarsi alla finestra operatore_home {@link MainClientUIController}
      * @see MainClientUIController #setRoot(String)
-     * @param actionEvent oggetto di tipo ActionEvent
-     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     * @param actionEvent oggetto di tipo ActionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni che possono verificarsi
      */
     public void torna_indietro(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("operatore_home");

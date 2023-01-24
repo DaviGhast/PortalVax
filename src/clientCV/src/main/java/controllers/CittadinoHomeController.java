@@ -29,15 +29,21 @@ import java.util.ResourceBundle;
  */
 public class CittadinoHomeController implements Initializable {
 
+    /**
+     * oggetti ImageView
+     */
     public ImageView image;
+    /**
+     * oggetti Button
+     */
     public Button indietro, button_infocentro, button_idvaccinazione, button_registrati, button_login;
 
     /**
      * Il metodo <code>infoCentro</code>richiama il metodo setRoot e permette di spostarsi alla finestra infoCentro {@link MainClientUIController}
      * @see MainClientUIController #setRoot(String)
      * @see MainClientUIController #setBackScene(String)
-     * @param actionEvent oggetto di tipo ActionEvent
-     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     * @param actionEvent oggetto di tipo ActionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni che possono verificarsi
      */
     public void infoCentro(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("infocentro");
@@ -47,8 +53,8 @@ public class CittadinoHomeController implements Initializable {
     /**
      * Il metodo <code>registraCittadino</code>richiama il metodo setRoot e permette di spostarsi alla finestra registrazione_cittadino {@link MainClientUIController}
      * @see MainClientUIController #setRoot(String)
-     * @param actionEvent oggetto di tipo ActionEvent
-     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     * @param actionEvent oggetto di tipo ActionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni che possono verificarsi
      */
     public void registraCittadino(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("registrazione_cittadino");
@@ -56,8 +62,8 @@ public class CittadinoHomeController implements Initializable {
 
     /**
      *Il metodo <code>recuperaIDVaccinazione</code> avvia il popup per recuperare l'id di vaccinazione
-     * @param actionEvent
-     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     * @param actionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni che possono verificarsi
      */
     public void recuperaIDVaccinazione(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -75,8 +81,8 @@ public class CittadinoHomeController implements Initializable {
     /**
      * Il metodo <code>torna_indietro</code>richiama il metodo setRoot e permette di spostarsi alla finestra home {@link MainClientUIController}
      * @see MainClientUIController #setRoot(String)
-     * @param actionEvent oggetto di tipo ActionEvent
-     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     * @param actionEvent oggetto di tipo ActionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni che possono verificarsi
      */
     public void torna_indietro(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("home");
@@ -84,8 +90,8 @@ public class CittadinoHomeController implements Initializable {
     /**
      * Il metodo <code>login</code>richiama il metodo setRoot e permette di spostarsi alla finestra login_cittadino {@link MainClientUIController}
      * @see MainClientUIController #setRoot(String)
-     * @param actionEvent oggetto di tipo ActionEvent
-     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     * @param actionEvent oggetto di tipo ActionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni che possono verificarsi
      */
     public void login(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("login_cittadino");
@@ -93,8 +99,8 @@ public class CittadinoHomeController implements Initializable {
 
     /**
      * Il metodo <code>initialize</code> permette di inizializare la finestra
-     * @param location
-     * @param resources
+     * @param location è un parametro di base del metodo
+     * param resources è un parametro di base del metodo
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {

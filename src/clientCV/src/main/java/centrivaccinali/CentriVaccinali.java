@@ -15,6 +15,10 @@ import controllers.MainClientUIController;
 
 public class CentriVaccinali {
 
+    /**
+     * metodo main
+     * @param args input
+     */
     public static void main(String[] args) {
         //loopMenu();
         MainClientUIController.launch(MainClientUIController.class);

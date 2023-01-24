@@ -31,13 +31,24 @@ import java.util.Optional;
  * La classe contenente il controller del main client della parte UI
  */
 public class MainClientUIController extends Application {
-
+    /**
+     * oggetto scena
+     */
     private static Scene scene;
-
+    /**
+     * oggetto per caricare i file FXML
+     */
     private static FXMLLoader fxmlLoader;
-
+    /**
+     * ultima scena settata
+     */
     private static String backScene;
 
+    /**
+     *Il Metodo <code>start</code> avvia la finestra dell'intefaccia grafica e carica la prima pagina
+     * @param primaryStage la finestra dell'interfaccia grafica
+     * @throws Exception esclude tutte le eccezioni che possono verificarsi in questo metodo
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
         scene = new Scene(loadFXML("client_home"));
@@ -70,24 +81,47 @@ public class MainClientUIController extends Application {
         primaryStage.show();
    }
 
+    /**
+     * Il Metodo <code>setRoot</code> cambia la pagina della finestra dell'interfaccia
+     * @param fxml è il nome della finestra da impostare
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni di input/output che possono verificarsi nel metodo
+     */
    static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
    }
 
+    /**
+     *Il Metodo <code>loadFXML</code> carico il file FXML
+     * @param fxml è il nome del file FXML da caricare
+     * @return il caricamento del file
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni di input/output che possono verificarsi nel metodo
+     */
    private static Parent loadFXML(String fxml) throws IOException {
        fxmlLoader = new FXMLLoader();
        fxmlLoader.setLocation(MainClientUIController.class.getClassLoader().getResource("fxml/"+fxml+".fxml"));
        return fxmlLoader.load();
    }
 
+    /**
+     * restituisce la scena backScene
+     * @return scena backScene
+     */
     public static String getBackScene() {
         return backScene;
     }
 
+    /**
+     * setta la scena backScene
+     * @param backScene scena backScene
+     */
     public static void setBackScene(String backScene) {
         MainClientUIController.backScene = backScene;
     }
 
+    /**
+     * restituisce l'oggetto fxmlLoader
+     * @return oggetto fxmlLoader
+     */
     public static FXMLLoader getFxmlLoader() {
         return fxmlLoader;
     }

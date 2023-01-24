@@ -30,17 +30,23 @@ public class ServerHomeController implements Initializable {
     /**
      * E' un image view per il logo dell'applicazione e per i simboli di cross e checkmark
      */
+    /**
+     * oggetti ImageView
+     */
     public ImageView image, cross_db, checkmark_db;
 
     /**
      * Sono i tipi dei bottoni
      */
+    /**
+     * oggetti Button
+     */
     public Button button_db, button_stop, button_start, button_close;
 
     /**
      * Il metodo <code>loginDB</code> permette di effettuar eil login al data base
-     * @param actionEvent
-     * @throws IOException
+     * @param actionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo
      */
     public void loginDB(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -65,8 +71,8 @@ public class ServerHomeController implements Initializable {
     }
     /**
      *Il Metodo <code>initialize</code> inizializza i componenti della pagina
-     * @param location è un parametro di base del metodo
-     * @param resources è un parametro di base del metodo
+     * @param location è un parametro di base del metodo è un parametro di base del metodo
+     * param resources è un parametro di base del metodo è un parametro di base del metodo
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -81,7 +87,7 @@ public class ServerHomeController implements Initializable {
 
     /**
      * Il metodo <code>stopServer</code> stoppa il sevrer
-     * @param actionEvent evento generato dalla view
+     * @param actionEvent oggetto di tipo ActionEvent evento generato dalla view
      * @throws NoSuchObjectException esclude tutte le eccezioni <code>NoSuchObjectn</code> che possono verificarsi
      */
     public void stopServer(ActionEvent actionEvent) throws NoSuchObjectException {
@@ -91,7 +97,7 @@ public class ServerHomeController implements Initializable {
     }
     /**
      * Il metodo <code>startServer</code> esegue il server
-     * @param actionEvent evento generato dalla view
+     * @param actionEvent oggetto di tipo ActionEvent evento generato dalla view
      */
     public void startServer(ActionEvent actionEvent) {
         RMIServer.start();

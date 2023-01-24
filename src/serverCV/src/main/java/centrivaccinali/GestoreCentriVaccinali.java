@@ -214,6 +214,10 @@ public class GestoreCentriVaccinali {
         return listaReport;
     }
 
+    /**
+     * permette di richiamare gli enum delle tipologie di centri vaccinali
+     * @return lista delle tipologie
+     */
     public String[] getTipologie() {
         return EnumDao.getEnumList("tipologie");
     }

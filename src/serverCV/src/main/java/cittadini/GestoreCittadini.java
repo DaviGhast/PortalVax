@@ -97,6 +97,10 @@ public class GestoreCittadini {
         return risposta;
     }
 
+    /**
+     * permette di richiamare gli enum delle tipologie di centri vaccinali
+     * @return lista delle tipologie
+     */
     public String[] getEventi() {
         return EnumDao.getEnumList("eventi");
     }

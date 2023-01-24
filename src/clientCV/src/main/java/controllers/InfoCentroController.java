@@ -35,21 +35,48 @@ import java.util.ResourceBundle;
  */
 public class InfoCentroController implements Initializable {
 
+    /**
+     * oggetti ImageView
+     */
     public ImageView image, search;
     public ChoiceBox<String> choicebox_ricerca, choicebox_tipologia;
+    /**
+     * oggetto TableView
+     */
     public TableView<CentroVaccinale> table;
+    /**
+     * oggetto TableColumn
+     */
     public TableColumn<CentroVaccinale,String> nome;
+    /**
+     * oggetto TableColumn
+     */
     public TableColumn<CentroVaccinale,String> provincia;
+    /**
+     * oggetto TableColumn
+     */
     public TableColumn<CentroVaccinale,String> tipologia;
+    /**
+     * oggetto TableColumn
+     */
     public TableColumn<CentroVaccinale,String> indirizzo;
+    /**
+     * oggetto TableColumn
+     */
     public TableColumn<CentroVaccinale,String> comune;
     public Text promt_text, promt_tipologia;
+    /**
+     * oggetti TextField
+     */
     public TextField textfield;
+    /**
+     * oggetto String
+     */
     private String userid;
     /**
      * Il metodo <code>initialize</code> permette di inizializare la finestra
-     * @param location
-     * @param resources
+     * @param location è un parametro di base del metodo
+     * param resources è un parametro di base del metodo
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -80,8 +107,8 @@ public class InfoCentroController implements Initializable {
      * Il metodo <code>torna_indietro</code> richiama il metodo setRoot e poi il metodo getBackScene che permette di spostarsi alla finestra cittadino_registrato_home {@link MainClientUIController}
      * @see MainClientUIController #setRoot(String)
      * @see MainClientUIController #setBackScene(String)
-     * @param actionEvent oggetto di tipo ActionEvent
-     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     * @param actionEvent oggetto di tipo ActionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni che possono verificarsi
      */
     public void torna_indietro(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot(MainClientUIController.getBackScene());
@@ -94,7 +121,7 @@ public class InfoCentroController implements Initializable {
 
     /**
      * Il metodo <code>setRicerca</code> apre la finestra che permette di fare la ricerca
-     * @param actionEvent oggetto di tipo ActionEvent
+     * @param actionEvent oggetto di tipo ActionEvent oggetto di tipo ActionEvent
      */
     public void setRicerca(ActionEvent actionEvent) {
         switch (choicebox_ricerca.getValue()) {
@@ -120,8 +147,8 @@ public class InfoCentroController implements Initializable {
 
     /**
      * Il metodo <code>cerca</code> prende i dati dalla view ed effetua la chiamata di ricerca al server
-     * @param actionEvent oggetto di tipo ActionEvent
-     * @throws RemoteException esclude tutte le eccezioni che possono verificarsi
+     * @param actionEvent oggetto di tipo ActionEvent oggetto di tipo ActionEvent
+     * @throws RemoteException esclude tutte le eccezioni <code>Remote</code> che possono verificarsi
      */
     public void cerca(ActionEvent actionEvent) throws RemoteException {
         Risposta risposta = new Risposta();
@@ -191,7 +218,7 @@ public class InfoCentroController implements Initializable {
      * Il metodo <code>clickItem</code> Prendere le informazioni del centro vaccinale selezionato all'interno della tabella,
      * effettuata la richiesta dei report degli eventi per quel centro al server e avvia il il popup per visualizzare i dati restituiti dal server
      * @param mouseEvent oggetto di tipo MouseEvent
-     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni che possono verificarsi
      */
     public void clickItem(MouseEvent mouseEvent) throws IOException {
         CentroVaccinale centroVaccinale = table.getSelectionModel().getSelectedItem();

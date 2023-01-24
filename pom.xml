@@ -15,8 +15,8 @@
     </modules>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.source>16</maven.compiler.source>
+        <maven.compiler.target>16</maven.compiler.target>
     </properties>
 
     <build>
@@ -27,7 +27,7 @@
                 <version>3.4.0</version>
                 <inherited>false</inherited>
                 <configuration>
-                    <source>1.8</source>
+                    <source>16</source>
                     <show>private</show>
                     <nohelp>true</nohelp>
                 </configuration>

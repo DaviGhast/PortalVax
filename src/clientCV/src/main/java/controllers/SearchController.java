@@ -32,16 +32,48 @@ import java.util.ResourceBundle;
  * La classe contenente il controller della ricerca della parte UI
  */
 public class SearchController implements Initializable {
+    /**
+     * oggetti TextField
+     */
     public TextField tf_nomecentro;
+    /**
+     * oggetti ImageView
+     */
     public ImageView search;
+    /**
+     * oggetto DialogPane
+     */
     public DialogPane dialog;
+    /**
+     * oggetto CentroVaccinale
+     */
     private CentroVaccinale centroVaccinale = null;
+    /**
+     * oggetto TableView
+     */
     public TableView<CentroVaccinale> table;
+    /**
+     * oggetto TableColumn
+     */
     public TableColumn<CentroVaccinale,String> nome;
+    /**
+     * oggetto TableColumn
+     */
     public TableColumn<CentroVaccinale,String> tipologia;
+    /**
+     * oggetto TableColumn
+     */
     public TableColumn<CentroVaccinale,String> comune;
-    public Label info_selected;
+    /**
+     * oggetto Label
+     */
+    public Label  info_selected;
 
+    /**
+     * controlla i campi di input e effettua la chiamata cercaCentroVaccinale al server
+     * @param actionEvent oggetto di tipo ActionEvent oggetto di tipo ActionEvent
+     * @throws RemoteException esclude tutte le eccezioni <code>Remote</code> che possono verificarsi
+     */
     public void search(ActionEvent actionEvent) throws RemoteException {
         if (!tf_nomecentro.getText().isEmpty()){
             Risposta risposta = RMIClient.server.cercaCentroVaccinale(tf_nomecentro.getText());
@@ -55,6 +87,10 @@ public class SearchController implements Initializable {
         }
     }
 
+    /**
+     * prende dalla view il record selezionato nella tabella
+     * @param mouseEvent oggetto di tipo MouseEvent
+     */
     public void clickItem(MouseEvent mouseEvent) {
 
         centroVaccinale = table.getSelectionModel().getSelectedItem();
@@ -66,13 +102,17 @@ public class SearchController implements Initializable {
 
     }
 
+    /**
+     * restituisce il centro vaccinale selezionato
+     * @return centro avccinale selezionato
+     */
     public CentroVaccinale getCentroVaccinale() {
         return centroVaccinale;
     }
     /**
      * Il metodo <code>initialize</code> permette di inizializare la finestra
-     * @param location
-     * @param resources
+     * @param location è un parametro di base del metodo
+     * param resources è un parametro di base del metodo
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {

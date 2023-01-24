@@ -9,8 +9,17 @@ import java.io.Serializable;
  * @author Brenno Re 747060 VA
  */
 public class ReportEventoAvverso implements Serializable {
+    /**
+     * l'evento
+     */
     private String evento;
+    /**
+     * e' il numero delle segnalazioni
+     */
     private int numeroSegnalazioni;
+    /**
+     * e' la severita media
+     */
     private double severitaMedia;
     /**
      * Costruttore per l'oggetto ReportEventoAvverso

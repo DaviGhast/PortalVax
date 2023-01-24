@@ -21,18 +21,42 @@ import java.util.ResourceBundle;
  * La classe contenente il controller dei report degli eventi avversi della parte UI
  */
 public class ReportEventiAvversiController implements Initializable {
+    /**
+     * oggetti TextField
+     */
     public TextField tf_nomecentro;
+    /**
+     * oggetti ImageView
+     */
     public ImageView search;
+    /**
+     * oggetto DialogPane
+     */
     public DialogPane dialog;
+    /**
+     * oggetto TableView
+     */
     public TableView<ReportEventoAvverso> table;
+    /**
+     * oggetto TableColumn
+     */
     public TableColumn<ReportEventoAvverso,String> evento;
+    /**
+     * oggetto TableColumn
+     */
     public TableColumn<ReportEventoAvverso,Integer> segnalazioni;
+    /**
+     * oggetto TableColumn
+     */
     public TableColumn<ReportEventoAvverso,Double> severita;
-    public Label info_selected;
+    /**
+     * oggetto Label
+     */
+    public Label  info_selected;
     /**
      * Il metodo <code>initialize</code> permette di inizializare la finestra
-     * @param location
-     * @param resources
+     * @param location è un parametro di base del metodo
+     * param resources è un parametro di base del metodo
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -43,6 +67,10 @@ public class ReportEventiAvversiController implements Initializable {
 
     }
 
+    /**
+     * Il metodo <code>inflateUI</code> permette di passare l'informazione al controller
+     * @param centriVaccinali lista di oggetti ReportEventoAvverso
+     */
     public void inflateUI(ArrayList<ReportEventoAvverso> centriVaccinali) {
 
         ObservableList<ReportEventoAvverso> observableList = FXCollections.observableArrayList();

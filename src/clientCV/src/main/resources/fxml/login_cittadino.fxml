@@ -19,7 +19,7 @@
     </image>
 </ImageView>
 <Label layoutX="123.0" layoutY="190.0" text="Email/UserID" />
-<Button fx:id="button_registracittadino" layoutX="261.0" layoutY="338.0" mnemonicParsing="false" onAction="#registraCittadino" text="Login" />
+<Button fx:id="button_registracittadino" layoutX="261.0" layoutY="338.0" mnemonicParsing="false" onAction="#login" text="Login" />
 <TextField fx:id="tf_emailuserid" layoutX="332.0" layoutY="186.0" prefHeight="25.0" prefWidth="163.0" />
    <ImageView fx:id="cross_email" fitHeight="30.0" fitWidth="30.0" layoutX="504.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
       <image>

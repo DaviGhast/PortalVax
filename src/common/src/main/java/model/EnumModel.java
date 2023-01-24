@@ -11,8 +11,17 @@ import java.util.ArrayList;
  */
 public class EnumModel implements Serializable {
 
+    /**
+     * id tipo enum
+     */
     private int enumID;
+    /**
+     * nome tipo enum
+     */
     private String enumName;
+    /**
+     * lista di enum
+     */
     private String[] enumList;
 
     /**
@@ -27,11 +36,19 @@ public class EnumModel implements Serializable {
         this.enumList = enum_list;
     }
 
+    /**
+     * Costruttore per l'oggetto EnumModel senza id
+     * @param enumName e' il nome dell'enum
+     * @param enum_list e' la lista dei enum
+     */
     public EnumModel(String enumName, String[] enum_list) {
         this.enumName = enumName;
         this.enumList = enum_list;
     }
 
+    /**
+     * costruttore vuoto per l'oggetto EnumModel
+     */
     public EnumModel() {
 
     }

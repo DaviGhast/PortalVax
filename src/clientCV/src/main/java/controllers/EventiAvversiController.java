@@ -31,17 +31,38 @@ import java.util.ResourceBundle;
  */
 public class EventiAvversiController implements Initializable {
 
+    /**
+     * oggetti ImageView
+     */
     public ImageView image;
+    /**
+     * oggetto TableView
+     */
     public TableView<EventoAvverso> table;
+    /**
+     * oggetto TableColumn
+     */
     public TableColumn<EventoAvverso,String> evento;
+    /**
+     * oggetto TableColumn
+     */
     public TableColumn<EventoAvverso,Byte> severita;
+    /**
+     * oggetto TableColumn
+     */
     public TableColumn<EventoAvverso,String> note;
-    public Label titolo;
+    /**
+     * oggetto Label
+     */
+    public Label  titolo;
+    /**
+     * oggetto String
+     */
     private String userId;
     /**
      * Il metodo <code>initialize</code> permette di inizializare la finestra
-     * @param location
-     * @param resources
+     * @param location è un parametro di base del metodo
+     * param resources è un parametro di base del metodo
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -73,8 +94,8 @@ public class EventiAvversiController implements Initializable {
     /**
      * Il metodo <code>torna_indietro</code>richiama il metodo setRoot e permette di spostarsi alla finestra cittadino_registrato_home {@link MainClientUIController}
      * @see MainClientUIController #setRoot(String)
-     * @param actionEvent oggetto di tipo ActionEvent
-     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     * @param actionEvent oggetto di tipo ActionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni che possono verificarsi
      */
     public void torna_indietro(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("cittadino_registrato_home");
@@ -85,8 +106,8 @@ public class EventiAvversiController implements Initializable {
     /**
      * Il metodo <code>inserisciEvento</code> ti permette di accedere alla finestra per inserire un nuovo evento {@link InserisciEventoController}
      * @see InserisciEventoController inserisciEventoController
-     * @param actionEvent oggetto di tipo ActionEvent
-     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     * @param actionEvent oggetto di tipo ActionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni che possono verificarsi
      */
     public void inserisciEvento(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();

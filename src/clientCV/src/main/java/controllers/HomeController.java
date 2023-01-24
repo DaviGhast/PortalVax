@@ -22,13 +22,22 @@ import java.util.ResourceBundle;
  * La classe contenente il controller del Home della parte UI
  */
 public class HomeController implements Initializable {
+    /**
+     * oggetti Button
+     */
     public Button button_op;
+    /**
+     * oggetti ImageView
+     */
     public ImageView image;
+    /**
+     * oggetti Button
+     */
     public Button button_citt;
     /**
      * Il metodo <code>initialize</code> permette di inizializare la finestra
-     * @param location
-     * @param resources
+     * @param location è un parametro di base del metodo
+     * param resources è un parametro di base del metodo
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -37,8 +46,8 @@ public class HomeController implements Initializable {
     /**
      * Il metodo <code>operatoreAction</code> richiama il metodo setRoot e permette di spostarsi alla finestra operatore_home {@link MainClientUIController}
      * @see MainClientUIController #setRoot(String)
-     * @param actionEvent oggetto di tipo ActionEvent
-     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     * @param actionEvent oggetto di tipo ActionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni che possono verificarsi
      */
     public void operatoreAction(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("operatore_home");
@@ -46,8 +55,8 @@ public class HomeController implements Initializable {
     /**
      * Il metodo <code>cittadinoAction</code> richiama il metodo setRoot e permette di spostarsi alla finestra cittadino_home {@link MainClientUIController}
      * @see MainClientUIController #setRoot(String)
-     * @param actionEvent oggetto di tipo ActionEvent
-     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     * @param actionEvent oggetto di tipo ActionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni che possono verificarsi
      */
     public void cittadinoAction(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("cittadino_home");

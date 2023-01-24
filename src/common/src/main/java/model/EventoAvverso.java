@@ -9,15 +9,31 @@ import java.io.Serializable;
  * @author Brenno Re 747060 VA
  */
 public class EventoAvverso implements Serializable {
+
+    /**
+     * l'id evento
+     */
     private short id;
+    /**
+     * e' l'evento
+     */
     private String evento;
+    /**
+     * e' la severita
+     */
     private byte severita;
+    /**
+     * è l'id del cittadino
+     */
     private String idCittadino;
+    /**
+     * sono le note
+     */
     private String note;
     /**
      * Costruttore per l'oggetto EventoAvverso
-     * @param id l'id del'user
-     * @param evento e' l'event
+     * @param id l'id evento
+     * @param evento e' l'evento
      * @param severita e' la severita
      * @param idCittadino è l'id del cittadino
      * @param note sono le note
@@ -30,6 +46,9 @@ public class EventoAvverso implements Serializable {
         this.note = note;
     }
 
+    /**
+     * Costruttore vuoto per l'oggetto EventoAvverso
+     */
     public EventoAvverso(){
     }
     /**

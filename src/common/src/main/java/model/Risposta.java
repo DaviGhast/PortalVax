@@ -9,10 +9,23 @@ import java.io.Serializable;
  * @author Brenno Re 747060 VA
  */
 public class Risposta implements Serializable {
+    /**
+     * tipo di stato
+     * @see Stato
+     */
     private Stato stato;
+    /**
+     * oggetto messaggio
+     */
     private String message;
+    /**
+     * oggetto generico
+     */
     private Object object;
 
+    /**
+     * Costruttore vuoto oggetto Risposta
+     */
     public Risposta() {
 
     }

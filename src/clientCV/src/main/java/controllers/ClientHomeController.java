@@ -28,14 +28,23 @@ import java.util.ResourceBundle;
  */
 public class ClientHomeController implements Initializable {
 
+    /**
+     * oggetti ImageView
+     */
     public ImageView image;
+    /**
+     * oggetti Button
+     */
     public Button button_start;
+    /**
+     * oggetti TextField
+     */
     public TextField tf_nomepc;
     public Text text;
     /**
      * Il metodo <code>initialize</code> permette di inizializare la finestra
-     * @param location
-     * @param resources
+     * @param location è un parametro di base del metodo
+     * param resources è un parametro di base del metodo
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -49,8 +58,8 @@ public class ClientHomeController implements Initializable {
     /**
      *Il metodo <code>start</code> richiama il metodo setRoot e permette di spostarsi alla finestra home {@link MainClientUIController}
      *@see MainClientUIController #setRoot(String)
-     * @param actionEvent oggetto di tipo ActionEvent
-     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     * @param actionEvent oggetto di tipo ActionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni che possono verificarsi
      */
     public void start(ActionEvent actionEvent) throws IOException {
         RMIClient.setNameServer(tf_nomepc.getText());

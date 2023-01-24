@@ -10,8 +10,26 @@ import java.io.Serializable;
  */
 
 public class Cittadino implements Serializable {
+    /**
+     * il codcie fiscale
+     */
+    /**
+     * oggetto String
+     */
     private String codiceFiscale;
+    /**
+     * e' il nome del cittadino
+     */
+    /**
+     * oggetto String
+     */
     private String nomeCittadino;
+    /**
+     * e' il cognome del cittadino
+     */
+    /**
+     * oggetto String
+     */
     private String cognomeCittadino;
     /**
      * Costruttore per l'oggetto Cittadino
@@ -24,7 +42,9 @@ public class Cittadino implements Serializable {
         this.nomeCittadino = nomeCittadino;
         this.cognomeCittadino = cognomeCittadino;
     }
-
+    /**
+     * Costruttore vuoto per l'oggetto Cittadino
+     */
     public Cittadino() {
     }
 

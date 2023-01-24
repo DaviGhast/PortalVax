@@ -16,21 +16,36 @@ public class CentroVaccinale implements Serializable {
     /**
      * il <code>nomeCentroVaccinale</code> indica il nome del centro vaccinale
      */
+    /**
+     * oggetto String
+     */
     private String nomeCentroVaccinale;
     /**
      *il <code>indirizzo</code> indica l'indirizzo (qualificatore via/v.le/pzza, nome, numero civico)
+     */
+    /**
+     * oggetto String
      */
     private String indirizzo;
     /**
      * il <code>comune</code> in cui e' siuato il centro vaccinale
      */
+    /**
+     * oggetto String
+     */
     private String comune;
     /**
      * la <code>siglaProvincia</code> indica sigla della provincia del centro vaccinale
      */
+    /**
+     * oggetto String
+     */
     private String siglaProvincia;
     /**
      * la <code>tipologia</code> indica la tipologia dei centro vaccinali
+     */
+    /**
+     * oggetto String
      */
     private String tipologia;
     /**

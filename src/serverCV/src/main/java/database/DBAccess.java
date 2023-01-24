@@ -16,6 +16,9 @@ public class DBAccess {
      * @see DBAccess#getConnect()
      */
     private static Connection conn = null;
+    /**
+     * valore che contiene se la connessione è valida
+     */
     private static Boolean isValid = false;
 
     /**

@@ -21,14 +21,15 @@ import java.util.ResourceBundle;
  * La classe contenente il controller del operatore home della parte UI
  */
 public class OperatoreHomeController implements Initializable {
-    public Button button_1;
-    public Button button_2;
+    /**
+     * oggetti ImageView
+     */
     public ImageView image;
     /**
      * Il metodo <code>registraNuovoCentro</code> richiama il metodo setRoot e permette di spostarsi alla finestra registra_centro_vaccinale {@link MainClientUIController}
      * @see MainClientUIController #setRoot(String)
-     * @param actionEvent oggetto di tipo ActionEvent
-     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     * @param actionEvent oggetto di tipo ActionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni che possono verificarsi
      */
     public void registraNuovoCentro(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("registra_centro_vaccinale");
@@ -36,16 +37,16 @@ public class OperatoreHomeController implements Initializable {
     /**
      * Il metodo <code>registraNuovoVaccinato</code> richiama il metodo setRoot e permette di spostarsi alla finestra registra_vaccinato {@link MainClientUIController}
      * @see MainClientUIController #setRoot(String)
-     * @param actionEvent oggetto di tipo ActionEvent
-     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     * @param actionEvent oggetto di tipo ActionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni che possono verificarsi
      */
     public void registraNuovoVaccinato(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("registra_vaccinato");
     }
     /**
      * Il metodo <code>initialize</code> permette di inizializare la finestra
-     * @param location
-     * @param resources
+     * @param location è un parametro di base del metodo
+     * param resources è un parametro di base del metodo
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -54,8 +55,8 @@ public class OperatoreHomeController implements Initializable {
     /**
      * Il metodo <code>torna_indietro</code> richiama il metodo setRoot e permette di spostarsi alla finestra home {@link MainClientUIController}
      * @see MainClientUIController #setRoot(String)
-     * @param actionEvent oggetto di tipo ActionEvent
-     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     * @param actionEvent oggetto di tipo ActionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni di input/output che possono verificarsi nel metodo esclude tutte le eccezioni che possono verificarsi
      */
     public void torna_indietro(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("home");

@@ -26,17 +26,26 @@ import java.util.ResourceBundle;
  */
 public class InserisciEventoController implements Initializable {
 
+    /**
+     * oggetto DialogPane
+     */
     public DialogPane dialog;
     public ChoiceBox choisebox_evento, choisebox_severita;
+    /**
+     * oggetti ImageView
+     */
     public ImageView info_evento, cross_evento, checkmark_evento, info_severita, cross_severita, checkmark_severita,
             info_note, cross_note, checkmark_note;
     public Text count_down;
-    public Label infoRegex;
+    /**
+     * oggetto Label
+     */
+    public Label  infoRegex;
     public TextArea ta_note;
     /**
      * Il metodo <code>initialize</code> permette di inizializare la finestra
-     * @param location
-     * @param resources
+     * @param location è un parametro di base del metodo
+     * param resources è un parametro di base del metodo
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
