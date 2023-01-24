@@ -1,7 +1,6 @@
 package client;
 
 import Interface.RMIServerInterface;
-import com.sun.jndi.cosnaming.IiopUrl;
 import controllers.MainClientUIController;
 import javafx.scene.control.Alert;
 

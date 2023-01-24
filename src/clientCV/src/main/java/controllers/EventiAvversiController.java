@@ -62,7 +62,10 @@ public class EventiAvversiController implements Initializable {
     }
 
     public void torna_indietro(ActionEvent actionEvent) throws IOException {
-        MainClientUIController.setRoot(MainClientUIController.getBackScene());
+        MainClientUIController.setRoot("cittadino_registrato_home");
+        CittadinoRegistratoHomeController cittadinoRegistratoHomeController =
+                MainClientUIController.getFxmlLoader().getController();
+        cittadinoRegistratoHomeController.inflateUI(userId);
     }
 
     public void inserisciEvento(ActionEvent actionEvent) throws IOException {
@@ -74,7 +77,7 @@ public class EventiAvversiController implements Initializable {
 
         Alert dialog = new Alert(Alert.AlertType.NONE);
         dialog.setDialogPane(pane);
-        dialog.setTitle("Recupera ID Vaccinazione");
+        dialog.setTitle("Inserisci Evento Avverso");
         ButtonType inserisci = new ButtonType("Inserisci Evento", ButtonBar.ButtonData.APPLY);
         dialog.getDialogPane().getButtonTypes().add(inserisci);
 
@@ -89,6 +92,7 @@ public class EventiAvversiController implements Initializable {
                 switch (risposta.getStato()) {
                     case GOOD:
                         alert = new Alert(Alert.AlertType.INFORMATION);
+                        inflateUI(userId);
                         break;
                     case ERROR:
                         alert = new Alert(Alert.AlertType.WARNING);

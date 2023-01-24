@@ -12,7 +12,6 @@ import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import model.CentroVaccinale;
 
-import javax.xml.bind.ValidationException;
 import java.io.IOException;
 import java.net.URL;
 import java.rmi.RemoteException;
@@ -104,7 +103,7 @@ public class RegistraCentroVaccinaleController implements Initializable {
     public void registraNuovoCentro(ActionEvent actionEvent) throws IOException {
 
         tf_nomecentro.setText(FixInput.tuttePrimeLettereMaiuscole(FixInput.aggiungiSpazi(tf_nomecentro.getText())));
-        tf_indirizzo.setText(FixInput.tuttePrimeLettereMaiuscole(FixInput.aggiungiSpazi(tf_nomecentro.getText())));
+        tf_indirizzo.setText(FixInput.tuttePrimeLettereMaiuscole(FixInput.aggiungiSpazi(tf_indirizzo.getText())));
         tf_comune.setText(FixInput.tuttePrimeLettereMaiuscole(tf_comune.getText()));
         tf_provincia.setText(tf_provincia.getText().toUpperCase());
 
@@ -223,6 +222,9 @@ public class RegistraCentroVaccinaleController implements Initializable {
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
+    }
+    public void torna_indietro(ActionEvent actionEvent) throws IOException {
+        MainClientUIController.setRoot("operatore_home");
     }
 
 }
