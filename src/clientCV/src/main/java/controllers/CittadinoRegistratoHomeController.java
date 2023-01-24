@@ -61,6 +61,10 @@ public class CittadinoRegistratoHomeController extends CittadinoHomeController i
         eventiAvversiController.inflateUI(userid);
     }
 
+    /**
+     * Il metodo <code>inflateUI</code> permette di passare l'informazione al controller
+     * @param userId stringa contenente l'info da passare
+     */
     public void inflateUI(String userId) {
         this.userid = userId;
         tf_userid.setText(userId);

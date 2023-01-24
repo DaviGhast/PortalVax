@@ -110,6 +110,12 @@ public class LoginCittadinoController implements Initializable {
     public void viewRegexPassword(MouseEvent mouseEvent) {
         infoRegex.setText("Password: inserire da 2 a 30 caratteri");
     }
+    /**
+     * Il metodo <code>torna_indietro</code> richiama il metodo setRoot e permette di spostarsi alla finestra cittadino_home {@link MainClientUIController}
+     * @see MainClientUIController #setRoot(String)
+     * @param actionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     */
     public void torna_indietro(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("cittadino_home");
     }

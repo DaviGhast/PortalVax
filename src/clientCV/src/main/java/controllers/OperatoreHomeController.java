@@ -21,11 +21,21 @@ public class OperatoreHomeController implements Initializable {
     public Button button_1;
     public Button button_2;
     public ImageView image;
-
+    /**
+     * Il metodo <code>registraNuovoCentro</code> richiama il metodo setRoot e permette di spostarsi alla finestra registra_centro_vaccinale {@link MainClientUIController}
+     * @see MainClientUIController #setRoot(String)
+     * @param actionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     */
     public void registraNuovoCentro(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("registra_centro_vaccinale");
     }
-
+    /**
+     * Il metodo <code>registraNuovoVaccinato</code> richiama il metodo setRoot e permette di spostarsi alla finestra registra_vaccinato {@link MainClientUIController}
+     * @see MainClientUIController #setRoot(String)
+     * @param actionEvent oggetto di tipo ActionEvent
+     * @throws IOException esclude tutte le eccezioni che possono verificarsi
+     */
     public void registraNuovoVaccinato(ActionEvent actionEvent) throws IOException {
         MainClientUIController.setRoot("registra_vaccinato");
     }
@@ -39,7 +49,7 @@ public class OperatoreHomeController implements Initializable {
         image.setImage(new Image("images/banner.png"));
     }
     /**
-     * Il metodo <code>logout</code> richiama il metodo setRoot e permette di spostarsi alla finestra home {@link MainClientUIController}
+     * Il metodo <code>torna_indietro</code> richiama il metodo setRoot e permette di spostarsi alla finestra home {@link MainClientUIController}
      * @see MainClientUIController #setRoot(String)
      * @param actionEvent oggetto di tipo ActionEvent
      * @throws IOException esclude tutte le eccezioni che possono verificarsi

@@ -228,7 +228,7 @@ public class RegistraCentroVaccinaleController implements Initializable {
         }
     }
     /**
-     * Il metodo <code>logout</code> richiama il metodo setRoot e permette di spostarsi alla finestra operatore_home {@link MainClientUIController}
+     * Il metodo <code>torna_indietro</code> richiama il metodo setRoot e permette di spostarsi alla finestra operatore_home {@link MainClientUIController}
      * @see MainClientUIController #setRoot(String)
      * @param actionEvent oggetto di tipo ActionEvent
      * @throws IOException esclude tutte le eccezioni che possono verificarsi

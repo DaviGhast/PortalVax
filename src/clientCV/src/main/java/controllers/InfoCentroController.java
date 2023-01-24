@@ -213,7 +213,10 @@ public class InfoCentroController implements Initializable {
 
 
     }
-
+    /**
+     * Il metodo <code>inflateUI</code> permette di passare l'informazione al controller
+     * @param userid stringa contenente l'info da passare
+     */
     public void inflateUI(String userid) {
         this.userid = userid;
     }

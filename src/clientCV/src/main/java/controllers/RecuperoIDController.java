@@ -68,10 +68,17 @@ public class RecuperoIDController implements Initializable {
 
     }
 
+    /**
+     * Il metodo <code>getIdVaccinazione</code> ti permette di avver accesso al id di vaccinazione
+     * @return variabile contenente l'id di vaccinazione
+     */
     public String getIdVaccinazione() {
         return idVaccinazione;
     }
-
+    /**
+     * Il metodo <code>getCodiceFiscale</code> ti permette di avver accesso al codiceFiscale
+     * @return variabile contenente il codiceFiscale
+     */
     public String getCodiceFiscale() {
         return codiceFiscale;
     }

@@ -49,7 +49,10 @@ public class EventiAvversiController implements Initializable {
         note.setCellValueFactory(new PropertyValueFactory("note"));
 
     }
-
+    /**
+     * Il metodo <code>inflateUI</code> permette di passare l'informazione al controller
+     * @param userId stringa contenente l'info da passare
+     */
     public void inflateUI(String userId) throws RemoteException {
 
         this.userId = userId;
