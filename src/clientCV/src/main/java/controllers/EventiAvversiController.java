@@ -72,7 +72,7 @@ public class EventiAvversiController implements Initializable {
 
         Alert dialog = new Alert(Alert.AlertType.NONE);
         dialog.setDialogPane(pane);
-        dialog.setTitle("Recupera ID Vaccinazione");
+        dialog.setTitle("Inserisci Evento Avverso");
         ButtonType inserisci = new ButtonType("Inserisci Evento", ButtonBar.ButtonData.APPLY);
         dialog.getDialogPane().getButtonTypes().add(inserisci);
 
