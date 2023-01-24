@@ -218,6 +218,9 @@ public class RegistraCentroVaccinaleController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+    public void torna_indietro(ActionEvent actionEvent) throws IOException {
+        MainClientUIController.setRoot("operatore_home");
+    }
 
 }
 

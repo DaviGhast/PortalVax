@@ -135,4 +135,5 @@
          <Image url="@../../../../../common/src/main/resources/images/check_mark.png" />
       </image>
    </ImageView>
+   <Button fx:id="indietro" layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#torna_indietro" text="&lt;- Indietro" />
 </Pane>
