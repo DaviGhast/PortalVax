@@ -157,25 +157,39 @@ public class RegistrazioneCittadinoController implements Initializable {
             alert.show();
         }
     }
-
+    /**
+     * Il metodo <code>viewRegex0</code> nasconde il messaggio della regola  prima reso visibile
+     */
     public void viewRegex0(MouseEvent mouseEvent) {
         infoRegex.setText("");
     }
-
+    /**
+     * Il metodo <code>viewRegexIDVaccinazione</code> permettono di visualizzare a schermo la regola usata per validare il campo ID Vaccinazione
+     */
     public void viewRegexIDVaccinazione(MouseEvent mouseEvent) {
         infoRegex.setText("ID Vaccinazione: inserisci o recuperalo cliccando la lente di ricerca");
     }
-
+    /**
+     * Il metodo <code>viewRegexEmail</code> permettono di visualizzare a schermo la regola usata per validare il campo Email
+     */
     public void viewRegexEmail(MouseEvent mouseEvent) {
         infoRegex.setText("Email: inserire da 2 a 30 caratteri");
     }
+    /**
+     * Il metodo <code>viewRegexUserId</code> permettono di visualizzare a schermo la regola usata per validare il campo UserID
+     */
     public void viewRegexUserId(MouseEvent mouseEvent) {
         infoRegex.setText("UserID: inserire da 2 a 30 caratteri");
     }
+    /**
+     * Il metodo <code>viewRegexPassword</code> permettono di visualizzare a schermo la regola usata per validare il campo Password
+     */
     public void viewRegexPassword(MouseEvent mouseEvent) {
         infoRegex.setText("Password: inserire da 2 a 30 caratteri");
     }
-
+    /**
+     * Il metodo <code>viewRegexCodiceFiscale</code> permettono di visualizzare a schermo la regola usata per validare il campo Codice Fiscale
+     */
     public void viewRegexCodiceFiscale(MouseEvent mouseEvent) {
         infoRegex.setText("Codice Fiscale: Inserire 16 caratteri alfanumerici");
     }

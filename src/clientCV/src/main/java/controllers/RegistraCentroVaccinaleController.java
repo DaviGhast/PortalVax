@@ -160,24 +160,32 @@ public class RegistraCentroVaccinaleController implements Initializable {
         infoRegex.setText(" ");
     }
     /**
-     * Il metodo <code>viewRegex1</code> fa vedere il messaggio per inserire il nome del centro
+     * Il metodo <code>viewRegex1</code> permettono di visualizzare a schermo la regola usata per validare il campo Nome Centro
      */
     public void viewRegex1() {
         infoRegex.setText("Nome Centro: Inserire da 2 a 50 caratteri");
     }
-
+    /**
+     * Il metodo <code>viewRegex2</code> permettono di visualizzare a schermo la regola usata per validare il campo Indirizzo
+     */
     public void viewRegex2() {
         infoRegex.setText("Indirizzo: Inserire indirizzo (qualificatore via/v.le/p.za/ecc.., nome, numero civico)");
     }
-
+    /**
+     * Il metodo <code>viewRegex3</code> permettono di visualizzare a schermo la regola usata per validare il campo Comune
+     */
     public void viewRegex3() {
         infoRegex.setText("Comune: Inserire da 2 a 50 caratteri");
     }
-
+    /**
+     * Il metodo <code>viewRegex4</code> permettono di visualizzare a schermo la regola usata per validare il campo Provincia
+     */
     public void viewRegex4() {
         infoRegex.setText("Provincia: Inserire 2 caratteri alfabetici");
     }
-
+    /**
+     * Il metodo <code>viewRegex5</code> permettono di visualizzare a schermo la regola usata per validare il campo CAP
+     */
     public void viewRegex5() {
         infoRegex.setText("CAP: Inserire 5 caratteri numerici");
     }

@@ -124,21 +124,21 @@ public class InserisciEventoController implements Initializable {
     }
 
     /**
-     * Il metodo <code>viewRegexEvento</code> permettono di visualizzare a schermo la regola usata per validare quel campo input
+     * Il metodo <code>viewRegexEvento</code> permettono di visualizzare a schermo la regola usata per validare il campo Nome Centro
      * @param mouseEvent oggetto di tipo MouseEvent
      */
     public void viewRegexEvento(MouseEvent mouseEvent) {
         infoRegex.setText("Nome Centro: cerca il nome di un centro esistente cliccando sulla lente di ricerca");
     }
     /**
-     * Il metodo <code>viewRegexEvento</code> permettono di visualizzare a schermo la regola usata per validare quel campo input
+     * Il metodo <code>viewRegexSeverita</code> permettono di visualizzare a schermo la regola usata per validare il campo Nome Centro
      * @param mouseEvent oggetto di tipo MouseEvent
      */
     public void viewRegexSeverita(MouseEvent mouseEvent) {
         infoRegex.setText("Nome Centro: cerca il nome di un centro esistente cliccando sulla lente di ricerca");
     }
     /**
-     * Il metodo <code>viewRegexEvento</code> permettono di visualizzare a schermo la regola usata per validare quel campo input
+     * Il metodo <code>viewRegexNote</code> permettono di visualizzare a schermo la regola usata per validare il campo Nome Centro
      * @param mouseEvent oggetto di tipo MouseEvent
      */
     public void viewRegexNote(MouseEvent mouseEvent) {

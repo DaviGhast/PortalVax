@@ -234,26 +234,33 @@ public class RegistraVaccinatoController implements Initializable {
             alert.show();
         }
     }
-
+    /**
+     * Il metodo <code>viewRegex0</code> nasconde il messaggio della regola  prima reso visibile
+     */
     public void viewRegex0(MouseEvent mouseEvent) {
         infoRegex.setText("");
     }
     /**
-     * Il metodo <code>viewRegexNomeCentro</code> permettono di visualizzare a schermo la regola usata per validare quel campo input
-     * @param mouseEvent oggetto di tipo MouseEvent
+     * Il metodo <code>viewRegexNomeCentro</code> permettono di visualizzare a schermo la regola usata per validare il campo Nome Centro
      */
     public void viewRegexNomeCentro(MouseEvent mouseEvent) {
         infoRegex.setText("Nome Centro: cerca il nome di un centro esistente cliccando sulla lente di ricerca");
     }
-
+    /**
+     * Il metodo <code>viewRegex1</code> permettono di visualizzare a schermo la regola usata per validare il campo Nome vaccinato
+     */
     public void viewRegex1(MouseEvent mouseEvent) {
         infoRegex.setText("Nome vaccinato: inserire da 2 a 30 caratteri");
     }
-
+    /**
+     * Il metodo <code>viewRegex2</code> permettono di visualizzare a schermo la regola usata per validare il campo Cognome vaccinato
+     */
     public void viewRegex2(MouseEvent mouseEvent) {
         infoRegex.setText("Cognome vaccinato: inserire da 2 a 30 caratteri");
     }
-
+    /**
+     * Il metodo <code>viewRegex3</code> permettono di visualizzare a schermo la regola usata per validare il campo Codice Fiscale
+     */
     public void viewRegex3(MouseEvent mouseEvent) {
         infoRegex.setText("Codice Fiscale: Inserire 16 caratteri alfanumerici");
     }
